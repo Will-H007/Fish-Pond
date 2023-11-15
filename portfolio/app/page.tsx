@@ -3,34 +3,16 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div>
-        <div className ="flex flex-row">
-
-        <div className="container mx-auto px-2 basis-1/2">
-          <div className="h-screen box-border w-30 p-4 border-2 border-gray-300 mx-auto hover:border-gray-400 transition">
-
-            <img className="w-20 h-20 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" src="./photo.jpeg" alt="Bordered avatar"/>
-
-
-            <p className="text-white">William Ho</p>
+   
+          <div className="h-screen grid grid-rows-3 gap-5 ml-5 mt-5">
+              <div className='row-start-2 row-end-3 col-start-2 col-end-2 flex flex-wrap items-end justify-center mb-10'>
+                <p className='text-white'>Hi My name is William.</p>
+              </div>
      
-          </div>
-        </div>
-
-
-          <div className="container mx-auto px-2 basis-1/2">
-              <div className="h-screen box-border w-30 p-4 border-2 border-gray-300 mx-auto hover:border-gray-400 transition">
-                <p className="text-white">sdadasds</p>
+              <div className='row-start-2 row-end-2 col-start-3 col-end-3'>
+                  <img className="h-auto max-w-sm p-1 rounded-full ring-2 ring-gray-400 dark:ring-gray-300 m-2" src="./photo.jpeg" alt="Bordered avatar" />
               </div>
           </div>
-
-  
-
-
-  
-
-        </div>
-</div>
    
   );
 }
