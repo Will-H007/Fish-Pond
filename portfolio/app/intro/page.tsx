@@ -5,10 +5,8 @@ import { useEffect } from "react";
 
 export default function Home() {
   const side = 150;
-  const center = 300;
-  const gap = side + 30;
-  const duration = 2;
-
+  const center= 150;
+  const pad = 10;
 
 
   const count = useMotionValue(0);
@@ -29,8 +27,8 @@ export default function Home() {
           pathLength: 1.01,
           opacity: 1,
           transition: {
-            pathLength: { delay, type: "spring", duration: duration, bounce: 0 },
-            opacity: { delay, duration: 0.01 }
+            pathLength: { delay, type: "spring", duration: 3, bounce: 0 },
+            opacity: { delay, duration: 0 }
           }
         };
       }
@@ -42,8 +40,20 @@ export default function Home() {
   return (
    
 
-             <div className="h-screen flex flex-wrap items-center justify-center">
+             <div className="h-screen flex flex-wrap items-center justify-center gap-x-4">
              
+              <motion.svg
+              width="300"
+              height="300"
+              viewBox="0 0 300 300"
+              initial="hidden"
+              animate="visible"
+            >
+              <Eye center_x={center-pad} center_y={center-pad} attribute = {"stroke-[10px]"} side={side} draw={draw}/>
+        
+             </motion.svg>
+
+
               <motion.button
                 className="bg-white w-80 h-80 border-4 border-white rounded-full"
                 whileTap={{ scale: 0.9 }}
@@ -52,34 +62,18 @@ export default function Home() {
                <motion.h1 className="text-[#2e4374] font-mono font-bold text-7xl">{rounded}</motion.h1> 
               </motion.button>
 
-              
+
+
 
               <motion.svg
-              width="600"
-              height="600"
-              viewBox="0 0 600 600"
+              width="300"
+              height="300"
+              viewBox="0 0 300 300"
               initial="hidden"
               animate="visible"
             >
-
-
-        <Eye center_x={center} center_y={center} side={side} draw={draw} flipHorizontal={true}/>
-        <Eye center_x={center-gap} center_y={center} side={side} draw={draw}/>
-        
-
-
-                    
-          
-              
-              
-       
-
-
-              
-
-
-
-
+         <Eye center_x={pad} center_y={center - pad} attribute = {"stroke-[10px]"}side={side} draw={draw} flipHorizontal={true}/>
+         
               </motion.svg>
 
         

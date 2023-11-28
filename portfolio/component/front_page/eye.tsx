@@ -4,6 +4,7 @@ interface AnimatedLineProps {
   center_x: number;
   center_y: number;
   side: number;
+  attribute: string;
   draw: {
     hidden: { pathLength: number; opacity: number };
     visible: (delay: number) => {
@@ -19,13 +20,13 @@ interface AnimatedLineProps {
   flipVertical?: boolean;
 }
 
-const Eye: React.FC<AnimatedLineProps> = ({ center_x ,center_y , side, draw, flipHorizontal = false, flipVertical = false }) => {
+const Eye: React.FC<AnimatedLineProps> = ({ center_x ,center_y , attribute, side, draw, flipHorizontal = false, flipVertical = false }) => {
   const flipScaleX = flipHorizontal ? -1 : 1;
   const flipScaleY = flipVertical ? -1 : 1;
   return (
     <>
       <motion.line
-        className="stroke-[10px]"
+        className={attribute}
         style={{
           stroke: "white",
           strokeLinecap: "round",
@@ -40,13 +41,13 @@ const Eye: React.FC<AnimatedLineProps> = ({ center_x ,center_y , side, draw, fli
         stroke="white"
         variants={{
           hidden: draw.hidden,
-          visible: draw.visible(0), // You might need to adjust the delay here
+          visible: draw.visible(6), // You might need to adjust the delay here
         }}
-        custom={0.5}
+
       />
 
       <motion.path
-        className="stroke-[10px]"
+        className={attribute}
         style={{
           stroke: "white",
           strokeLinecap: "round",
@@ -55,8 +56,36 @@ const Eye: React.FC<AnimatedLineProps> = ({ center_x ,center_y , side, draw, fli
           scaleY: flipScaleY,
         }}
         initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1.01 }}
+        animate={{ pathLength: 1 }}
         d={`M ${center_x + side },${center_y + side } Q ${center_x},${center_y + side } ${center_x},${center_y}`}
+        variants={{
+          hidden: draw.hidden,
+          visible: draw.visible(0), // You might need to adjust the delay here
+        }}
+        transition={{
+          type: "tween",
+          ease: "easeInOut",
+          duration: 2,
+        }}
+      />
+
+
+      <motion.path
+        className={attribute}
+        style={{
+          stroke: "white",
+          strokeLinecap: "round",
+          fill: "transparent",
+          scaleX: flipScaleX,
+          scaleY: flipScaleY,
+        }}
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        d={`M ${center_x + side },${center_y + side } Q ${center_x+side},${center_y} ${center_x},${center_y}`}
+        variants={{
+          hidden: draw.hidden,
+          visible: draw.visible(0), // You might need to adjust the delay here
+        }}
         transition={{
           type: "tween",
           ease: "easeInOut",
