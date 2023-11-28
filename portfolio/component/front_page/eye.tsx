@@ -34,10 +34,10 @@ const Eye: React.FC<AnimatedLineProps> = ({ center_x ,center_y , attribute, side
           scaleX: flipScaleX,
           scaleY: flipScaleY,
         }}
-        x1={center_x + side}
-        y1={center_y + side}
-        x2={center_x}
-        y2={center_y}
+        x2={center_x + side}
+        y2={center_y + side}
+        x1={center_x}
+        y1={center_y}
         stroke="white"
         variants={{
           hidden: draw.hidden,

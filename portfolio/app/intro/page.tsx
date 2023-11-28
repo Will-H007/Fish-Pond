@@ -50,7 +50,7 @@ export default function Home() {
               animate="visible"
             >
               <Eye center_x={center-pad} center_y={center-pad} attribute = {"stroke-[10px]"} side={side} draw={draw}/>
-        
+              <Eye center_x={center-pad} center_y={center/3-pad} attribute = {"stroke-[10px]"} side={side} draw={draw} flipVertical={true}/>
              </motion.svg>
 
 
@@ -73,7 +73,7 @@ export default function Home() {
               animate="visible"
             >
          <Eye center_x={pad} center_y={center - pad} attribute = {"stroke-[10px]"}side={side} draw={draw} flipHorizontal={true}/>
-         
+         <Eye center_x={pad} center_y={center/3 - pad} attribute = {"stroke-[10px]"}side={side} draw={draw} flipHorizontal={true} flipVertical={true}/>
               </motion.svg>
 
         
