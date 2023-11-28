@@ -4,21 +4,15 @@ import { motion } from "framer-motion";
 
 export default function App() {
   return (
-    <motion.div
-      className="box h-screen"
-      animate={{
-        scale: [1, 2, 2, 1, 1],
-        rotate: [0, 0, 180, 180, 0],
-        borderRadius: ["0%", "0%", "50%", "50%", "0%"]
-      }}
-      transition={{
-        duration: 2,
-        ease: "easeInOut",
-        times: [0, 0.2, 0.5, 0.8, 1],
-        repeat: Infinity,
-        repeatDelay: 1
-      }}
-    />
+    <div className="h-screen grid grid-rows-3 gap-5 ml-5 mt-5">
+         
+              <div className='row-start-2 row-end-2 col-start-3 col-end-3 '>
+                  <img className="h-auto max-w-sm p-1 rounded-full ring-2 ring-gray-400 dark:ring-gray-300 m-2" src="./photo.jpeg" alt="Bordered avatar " />
+              </div>
+
+            
+
+          </div>
   );
 }
 
