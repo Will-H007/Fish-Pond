@@ -16,10 +16,10 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ isBoxInRange, boxGl
           <motion.div
           key={item} 
           initial={{ opacity: 0.5, scale: 0.5 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{
-        duration: 1.25,
-        ease: [0.5, 0.7, 0.2, 1.01]
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+          duration: 1.25,
+          ease: [0.5, 0.7, 0.2, 1.01]
       }}
           className='mx-2 max-w-xl bg-opacity-25 backdrop-blur-lg bg-white p-4 rounded-lg shadow-lg'
         >

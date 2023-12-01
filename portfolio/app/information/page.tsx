@@ -18,33 +18,37 @@ export default function App() {
   
 
   return (
-    <div className="h-screen grid grid-rows-3 m-2 justify-center items-center">
+    <div className="h-screen grid grid-rows-3 m-auto justify-center items-center">
 
-    
+
      
 
-            <div>
-          <p className="text-white text-center my-1">Title</p>
-          <div className="flex flex-row max-w-3xl h-1/2 gap-x-8 p-4 bg-opacity-25 backdrop-blur-lg items-end">
+         
 
-          <DoubleLinkedList items={initialItems} visibleItemCount={3} />
-
+          <div>
+            <p className="text-white text-center my-1">Vegetables</p>
+            <div className="flex flex-row max-w-3xl h-1/2 gap-x-8 p-4 bg-opacity-25 backdrop-blur-lg items-end justify-center">
+            <DoubleLinkedList items={initialItems} visibleItemCount={1} />
+            </div>
           </div>
+
+          <div>
+            <p className="text-white text-center my-1">Vegetables</p>
+            <div className="flex flex-row max-w-3xl h-1/2 gap-x-8 p-4 bg-opacity-25 backdrop-blur-lg items-end justify-center">
+            <DoubleLinkedList items={initialItems} visibleItemCount={1} />
+            </div>
           </div>
-          <div className="flex flex-row max-w-3xl h-1/2 gap-x-8 p-4 bg-opacity-25 backdrop-blur-lg items-end">
 
-          <DoubleLinkedList items={initialItems} visibleItemCount={3} />
-
-          </div>
-          <div className="flex flex-row max-w-3xl h-1/2 gap-x-8 p-4 bg-opacity-25 backdrop-blur-lg items-end">
-
-          <DoubleLinkedList items={initialItems} visibleItemCount={3} />
-
+          <div>
+            <p className="text-white text-center my-1">Vegetables</p>
+            <div className="flex flex-row max-w-3xl h-1/2 gap-x-8 p-4 bg-opacity-25 backdrop-blur-lg items-end justify-center">
+            <DoubleLinkedList items={initialItems} visibleItemCount={1} />
+            </div>
           </div>
           
+          </div>
 
 
-    </div>
    
   );
 }
