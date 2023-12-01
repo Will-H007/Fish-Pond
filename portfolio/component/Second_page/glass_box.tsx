@@ -9,14 +9,19 @@ interface GlassmorphismBoxProps {
 }
 
 const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ isBoxInRange, boxGlow, item }) => {
-  const y = useMotionValue(0);
+
   return (
 
-        <motion.div
-          className="mx-2 max-w-xl bg-opacity-25 backdrop-blur-lg bg-white p-4 rounded-lg shadow-lg"
-          animate={{
-            boxShadow: isBoxInRange ? `0 0 30px 10px rgba(255, 255, 0, ${boxGlow})` : 'none',
-          }}
+  
+          <motion.div
+          key={item} 
+          initial={{ opacity: 0.5, scale: 0.5 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{
+        duration: 1.25,
+        ease: [0.5, 0.7, 0.2, 1.01]
+      }}
+          className='mx-2 max-w-xl bg-opacity-25 backdrop-blur-lg bg-white p-4 rounded-lg shadow-lg'
         >
           <h1 className="text-2xl font-bold mb-4">Glassmorphism Box</h1>
           <div className="text-gray-600">
@@ -24,9 +29,10 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ isBoxInRange, boxGl
           </div>
           <div className="text-gray-600">
             {item}
+           
           </div>
-    
-        </motion.div>
+          </motion.div>
+
 
   );
 };
