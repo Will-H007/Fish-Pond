@@ -1,59 +1,48 @@
 'use client';
-import { useState, useEffect } from "react";
-import { motion, useScroll, Reorder } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, useScroll} from "framer-motion";
 import GlassmorphismBox from "@/component/Second_page/glass_box";
-
-interface BoxItem {
-  id: number;
-  isBoxInRange: boolean;
-  boxGlow: number;
-}
-
+import DoubleLinkedList from "@/component/two_pointers/Boxes";
+const initialItems = ["🍅 Tomato", "🥒 Cucumber", "🧀 Cheese", "🥬 Lettuce"];
 export default function App() {
-  const { scrollYProgress } = useScroll();
 
-  const [items, setItems] = useState<BoxItem[]>([
-    { id: 1, isBoxInRange: true, boxGlow: 0.7 },
-    { id: 2, isBoxInRange: true, boxGlow: 0.7 },
-    { id: 3, isBoxInRange: true, boxGlow: 0.7 },
-    
-  ]);
 
+
+  const [items, setItems] = useState(initialItems);
+  const handleReorder = (newItems:any) => {
+    setItems(newItems);
+  };
+
+  
 
   
 
   return (
-    <div className="h-screen grid grid-rows-3 gap-5 ml-5 mt-5 justify-center">
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-2 bg-[#39d87b] origin-left"
-        style={{ scaleX: scrollYProgress }}
-      />
-    {/* <div className="flex flex-col">
-        <GlassmorphismBox isBoxInRange={true} boxGlow={0.7}/>
-        <GlassmorphismBox isBoxInRange={true} boxGlow={0.7}/>
-        <GlassmorphismBox isBoxInRange={true} boxGlow={0.7}/>
-    </div> */}
+    <div className="h-screen grid grid-rows-3 m-2 justify-center items-center">
 
+    
+     
 
+            <div>
+          <p className="text-white text-center my-1">Title</p>
+          <div className="flex flex-row max-w-3xl h-1/2 gap-x-8 p-4 bg-opacity-25 backdrop-blur-lg items-end">
 
-      <Reorder.Group className="flex flex-col max-w-lg my-5 gap-y-8" values={items} onReorder={setItems}>
+          <DoubleLinkedList items={initialItems} visibleItemCount={3} />
 
+          </div>
+          </div>
+          <div className="flex flex-row max-w-3xl h-1/2 gap-x-8 p-4 bg-opacity-25 backdrop-blur-lg items-end">
 
-      {items.map(
-        item => (
-        <Reorder.Item key={item.id} value={item}>
-          <GlassmorphismBox
-                key={item.id}
-                isBoxInRange={true}
-                boxGlow={0.7}
-              />
-        </Reorder.Item>
-      )
-      )
-      }
+          <DoubleLinkedList items={initialItems} visibleItemCount={3} />
 
+          </div>
+          <div className="flex flex-row max-w-3xl h-1/2 gap-x-8 p-4 bg-opacity-25 backdrop-blur-lg items-end">
 
-     </Reorder.Group>
+          <DoubleLinkedList items={initialItems} visibleItemCount={3} />
+
+          </div>
+          
+
 
     </div>
    
