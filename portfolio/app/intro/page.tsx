@@ -2,6 +2,7 @@
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import Eye from "@/component/front_page/eye";
 import { useEffect } from "react";
+import Layout from "@/component/layout";
 
 export default function Home() {
   const side = 150;
@@ -38,9 +39,9 @@ export default function Home() {
   
 
   return (
-   
+    <Layout>
 
-             <div className="h-screen flex flex-wrap items-center justify-center gap-x-4">
+             {/* <div className="h-screen flex flex-wrap items-center justify-center gap-x-4"> */}
              
               <motion.svg
               width="300"
@@ -78,9 +79,9 @@ export default function Home() {
 
         
             
-              </div>
+              {/* </div> */}
               
-            
+              </Layout>
 
 
         
