@@ -48,16 +48,16 @@ const DoubleLinkedList: React.FC<DoubleLinkedListProps> = ({
 
 
   return (
-<div className="flex flex-row gap-x-8 items-center">
+<div className="flex flex-row gap-x-4 items-center">
 
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      fill="currentColor"
+      // fill="currentColor"
       onClick={handlePrevClick}
       width={size} // Set the width to your desired size
       height={size} // Set the height to your desired size
-      className='text-white'
+
     >
       <path
         fillRule="evenodd"
@@ -82,8 +82,8 @@ const DoubleLinkedList: React.FC<DoubleLinkedListProps> = ({
 <svg
   xmlns="http://www.w3.org/2000/svg"
   viewBox="0 0 24 24"
-  fill="currentColor"
-  className="text-white"
+  // fill="currentColor"
+
   onClick={handleNextClick}
   width={size} // Set the width to your desired size
   height={size} // Set the height to your desired size

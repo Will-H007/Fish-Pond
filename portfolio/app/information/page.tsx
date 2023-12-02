@@ -7,7 +7,7 @@ const TestPage: React.FC = () => {
   return (
     <Layout>
       {/* Your custom content goes here */}
-      <p>This is another paragraph for testing.</p>
+      <p className='text-white'>This is another paragraph for testing.</p>
     </Layout>
   );
 };
