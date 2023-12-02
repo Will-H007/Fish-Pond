@@ -21,8 +21,9 @@ const DoubleLinkedListLayout: React.FC = () => {
 
   return (
     <div className="h-screen w-max-xl grid grid-rows-4 grid-cols-10 m-8 justify-center items-center">
-      <div className="col-start-2 col-end-10 row-start-2 row-end-4 m-2 justify-center items-center h-full w-full">
+      <div className="col-start-2 col-end-10 row-start-1 row-end-4 m-2 justify-center items-end h-full w-full">
           <GlassmorphismBox item={"asdasd"}/>
+         
       </div>
     
 
