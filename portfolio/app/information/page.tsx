@@ -20,17 +20,25 @@ const DoubleLinkedListLayout: React.FC = () => {
   };
 
   return (
-    <div className="h-screen w-max-xl grid grid-rows-4 grid-cols-10 m-8 justify-center items-center">
-      <div className="col-start-2 col-end-10 row-start-1 row-end-4 m-2 justify-center items-end h-full w-full">
+    <div className="h-screen flex gap-x-8 w-max-xl grid grid-rows-7 grid-cols-10 m-8 justify-center items-center">
+
+
+      <div className="flex flex-wrap col-start-1 col-end-4 row-start-1 row-end-7 m-2 justify-center items-end h-full w-full">
           <GlassmorphismBox item={"asdasd"}/>
-         
+      </div>
+
+      <div className="flex flex-wrap col-start-4 col-end-7 row-start-1 row-end-7 m-2 justify-center items-end h-full w-full">
+          <GlassmorphismBox item={"asdasd"}/>
+      </div>
+
+      <div className="flex flex-wrap col-start-7 col-end-10 row-start-1 row-end-7 m-2 justify-center items-end h-full w-full">
+          <GlassmorphismBox item={"asdasd"}/>
       </div>
     
 
-      <div className="row-start-4 col-span-10 justify-center items-center mb-2">
+      <div className="row-start-7 col-span-10 justify-center items-center mb-2">
         <div className="flex flex-row h-1/2 gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg justify-center items-center">
-          {/* DoubleLinkedList component */}
-          <DoubleLinkedList items={initialItems} visibleItemCount={5} onVisibleItemsChange={handleVisibleItemsChange} />
+          <DoubleLinkedList items={initialItems} visibleItemCount={3} onVisibleItemsChange={handleVisibleItemsChange} />
         </div>
       </div>
     </div>
