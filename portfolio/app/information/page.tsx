@@ -29,36 +29,23 @@ const initialItems = [
 
 
 
-export default function App() {
+export default function Layout() {
   const handleVisibleItemsChange = (visibleItems: string[]) => {
     console.log('Visible Items:', visibleItems);
-    // Do something with the visible items
   };
   return (
-    <div className="h-screen grid grid-rows-4 justify-center items-center ">
- 
-          <div className="row-start-4 mb-2 ">
+    <div className="h-screen grid grid-rows-6 justify-center items-center ">
+            <div className="flex row-span-5 col-span-5 m-2 text-white justify-center">
+              <p>asdasdjaskdjhask</p>
+            </div>
+          <div className="row-start-6 mb-2 ">
             <div className="flex flex-row max-w-screen h-1/2 gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg items-end justify-center">
             <DoubleLinkedList items={initialItems} visibleItemCount={5} onVisibleItemsChange={handleVisibleItemsChange} />
  
             </div>
           </div>
-
-          {/* <div>
-            <p className="text-white text-center my-1">Vegetables</p>
-            <div className="flex flex-row max-w-3xl h-1/2 gap-x-8 p-4 bg-opacity-25 backdrop-blur-lg items-end justify-center overflow-auto">
-            <DoubleLinkedList items={initialItems} visibleItemCount={3} />
-            </div>
-          </div>
-
-          <div>
-            <p className="text-white text-center my-1">Vegetables</p>
-            <div className="flex flex-row max-w-3xl h-1/2 gap-x-8 p-4 bg-opacity-25 backdrop-blur-lg items-end justify-center overflow-auto">
-            <DoubleLinkedList items={initialItems} visibleItemCount={3} />
-            </div>
-          </div> */}
           
-          </div>
+  </div>
 
 
    

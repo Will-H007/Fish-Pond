@@ -1,32 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 
 import ColorCircle from '../Second_page/color_circle';
+
+
 interface DoubleLinkedListProps {
-  items: string[]; // Change the type according to your item type
-  visibleItemCount: number; // Number of items to display at a time
+  items: string[]; 
+  visibleItemCount: number; 
   onVisibleItemsChange?: (items: string[]) => void;
 }
 
-const DoubleLinkedList: React.FC<DoubleLinkedListProps> = ({ items, visibleItemCount ,  onVisibleItemsChange}) => {
+const DoubleLinkedList: React.FC<DoubleLinkedListProps> = ({
+  items,
+  visibleItemCount,
+  onVisibleItemsChange,
+}) => {
   const [startIndex, setStartIndex] = useState(0);
+  const [visibleItems, setVisibleItems] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (typeof onVisibleItemsChange === 'function') {
+      onVisibleItemsChange(visibleItems);
+    }
+  }, [visibleItems, onVisibleItemsChange]);
 
   const handlePrevClick = () => {
-    if (startIndex - 1 >= 0) {
-      setStartIndex(startIndex - 1);
-    }
+    setStartIndex((prevIndex) =>
+      prevIndex === 0
+        ? items.length - visibleItemCount
+        : prevIndex - 1
+    );
   };
 
   const handleNextClick = () => {
-    if (startIndex + visibleItemCount < items.length) {
-      setStartIndex(startIndex + 1);
-    }
+    setStartIndex((prevIndex) =>
+      prevIndex === items.length - visibleItemCount
+        ? 0
+        : prevIndex + 1
+    );
   };
 
-  const visibleItems = items.slice(startIndex, startIndex + visibleItemCount);
-  if (typeof onVisibleItemsChange === 'function') {
-    onVisibleItemsChange(visibleItems);
-  }
-  const size = "30"
+  useEffect(() => {
+    const newVisibleItems = items.slice(startIndex, startIndex + visibleItemCount);
+    setVisibleItems(newVisibleItems);
+  }, [startIndex, visibleItemCount, items]);
+
+  const size = "30";
+
 
   return (
 <div className="flex flex-row gap-x-8 items-center">
@@ -50,9 +69,13 @@ const DoubleLinkedList: React.FC<DoubleLinkedListProps> = ({ items, visibleItemC
 
 
 
-  {visibleItems.map((visibleItem, index) => (
-    <ColorCircle key={index} color={visibleItem}/>
-  ))}
+    {visibleItems.map((visibleItem, index) => (
+  <ColorCircle
+    key={index}
+    color={visibleItem}
+    isCenter={index === Math.floor(visibleItems.length / 2) && visibleItems.length != 1}
+  />
+))}
 
 
 
