@@ -6,15 +6,20 @@ import GlassmorphismBox from '@/component/Second_page/glass_box';
 
 // Initial items for the DoubleLinkedList
 const initialItems = [
-  "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", 
-  "#00FFFF", "#800000", "#008000", "#000080", "#808000", 
-  "#800080", "#008080", "#A52A2A", "#FFA500", "#ADD8E6", 
-  "#20B2AA", "#8A2BE2", "#FA8072", "#2E8B57", "#696969"
+  "#7C81AD",
+
+  "#AD7C9A",
+  
+  "#ADA87C",
+  
+  "#7CAD90"
 ];
 
 
 
+
 const DoubleLinkedListLayout: React.FC = () => {
+  
   // State to store visible items
   const [visibleItems, setVisibleItems] = useState<string[]>([]);
 
@@ -45,7 +50,7 @@ const DoubleLinkedListLayout: React.FC = () => {
       <div className="row-start-7 h-1/2 col-span-full justify-center items-center mb-2">
         <div className="flex flex-row gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg justify-center items-center">
           {/* DoubleLinkedList component */}
-          <DoubleLinkedList items={initialItems} visibleItemCount={3} onVisibleItemsChange={handleVisibleItemsChange} />
+          <DoubleLinkedList items={initialItems} visibleItemCount={1} onVisibleItemsChange={handleVisibleItemsChange} />
         </div>
       </div>
     </div>
