@@ -30,36 +30,13 @@ const DoubleLinkedListLayout: React.FC = () => {
 
   return (
     <div className="h-screen flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 mx-10 mt-10 justify-center items-center">
+      <div className="col-start-1 col-end-8 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
+      <GlassmorphismBox color={visibleItems[Math.floor(visibleItems.length / 2)]} item={"Glassmorphism"}/>
+      </div>
 
-      <div className="col-start-1 col-end-4 row-start-1 row-end-3 m-2 justify-items-center items-end h-full w-full">
-        {/* <GlassmorphismBox color={visibleItems[Math.floor(visibleItems.length / 2)]} item={"Glassmorphism"}/> */}
-        <div
-              style={{
-                margin: '4px',
-                backdropFilter: 'blur(8px)',
-                padding: '32px',
-                borderRadius: '8px',
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-                backgroundColor: visibleItems[Math.floor(visibleItems.length / 2)],
-              }}
-            >
-                <div className="max-w-sm rounded overflow-hidden shadow-lg justify-center">
-                <img className="w-28 border border-transparent rounded-full" src="/photo.jpeg"/>
-                <div className="px-6 py-4">
-                  <div className="font-bold text-xl mb-2 text-center">
-                    William Ho
-                    </div>
-                  <p className="text-gray-700 text-base text-left">
-                    I am a Software engineering student
-                  </p>
-                </div>
-                <div className="px-6 pt-4 pb-2">
-                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                  <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                </div>
-              </div>
-            </div>
+      <div className="col-start-8 col-end-11 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
+      <GlassmorphismBox color={visibleItems[Math.floor(visibleItems.length / 2)]} item={"Glassmorphism"}/>
+
       </div>
  
 
