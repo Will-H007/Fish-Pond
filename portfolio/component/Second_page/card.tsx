@@ -10,7 +10,7 @@ const Card = () => {
             William Ho
           </div>
           <p style={{ color: '#4B5563', fontSize: '1rem', textAlign: 'center' }}>
-            I am a student studying in Masters of Prossional Engineering(Software) in University of Western Australia
+            I am a software engineering student studying in Masters in University of Western Australia
           </p>
         </div>
 

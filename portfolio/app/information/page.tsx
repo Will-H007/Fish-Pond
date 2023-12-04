@@ -1,54 +1,49 @@
-
 'use client';
 import React, { useState } from 'react';
-import DoubleLinkedList from "@/component/two_pointers/Boxes";
 import GlassmorphismBox from '@/component/Second_page/glass_box';
-import Card from '@/component/Second_page/card';
 import Example from '@/component/graphs/example';
+import { useAnimate, stagger } from "framer-motion";
 
-const initialItems = [
-  "#5f6497",
-  "#ADA87C",
-  "#7CAD90",
 
-  "#7C9AAD",
-];
 
 const DoubleLinkedListLayout: React.FC = () => {
-  const [visibleItems, setVisibleItems] = useState<string[]>([]);
 
-  // Callback function to handle visible items change
-  const handleVisibleItemsChange = (items: string[]) => {
-    console.log('Visible Items:', items);
-    // Update the state with the new visible items
-    setVisibleItems(items);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+
+  const handleToggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
+
   return (
-    <div className="h-screen flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 m-6 justify-center items-center">
+    <div className="h-screen flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 m-6 justify-center items-center relative">
 
+      {isMenuOpen && (
+        <div className="col-start-1 col-end-8 row-start-1 row-end-4 mt-20">
+          <GlassmorphismBox children={<Example />} />
+        </div>
+      )}
 
-      <div className="col-start-1 col-end-8 row-start-1 row-end-4 mt-20">
-
-      <GlassmorphismBox showDoubleLinkedList={false} children={<Example/>}/>
-
+      {/* Hamburger menu button */}
+      <div className="absolute top-4 left-4" style={{
+        height:"30px",
+        width:"30px",
+      }}>
+        <button onClick={handleToggleMenu} className="bg-[#5f6497] p-2 rounded h-full w-full">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            className="bi bi-list"
+            viewBox="0 0 16 16"
+          >
+            <path d="M2 12h12M2 6h12M2 1h12"></path>
+          </svg>
+        </button>
       </div>
 
 
 
 
-
-
-      
- 
-
-      
-       {/* <div className="flex row-start-6 h-1/4 col-span-full justify-center items-center mb-2">
-        <div className="flex flex-row gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg justify-center items-center">
-
-          <DoubleLinkedList items={initialItems} visibleItemCount={1} onVisibleItemsChange={handleVisibleItemsChange} />
-        </div>
-      </div> */}
-      
     </div>
   );
 };
