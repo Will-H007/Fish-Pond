@@ -2,22 +2,22 @@ import React from 'react';
 
 const Card = () => {
   return (
-  <>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: 'center',borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' ,gap: '8px'}}>
-        <img style={{ width: '100px', border: '1px solid transparent', borderRadius: '50%'}} src="/photo.jpeg" alt="User" />
+
+      <div style={{ width: "300px", display: "flex",flexDirection: "column", alignItems: 'center',justifyContent:"center",borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' ,gap: '8px'}}>
+        <img style={{ width: '100px', border: '1px solid transparent', borderRadius: '50%', marginTop:"24px"}} src="/photo.jpeg" alt="User" />
         <div style={{ padding: '24px' }}>
-          <div style={{ fontWeight: 'bold', fontSize: '1.5rem', marginBottom: '8px', textAlign: 'center' }}>
+          <div style={{ fontWeight: 'bold', fontSize: '1.5rem', marginBottom: '8px', textAlign: 'center',color:"black" }}>
             William Ho
           </div>
           <p style={{ color: '#4B5563', fontSize: '1rem', textAlign: 'center' }}>
-            I am a Software engineering student
+            I am a student studying in Masters of Prossional Engineering(Software) in University of Western Australia
           </p>
         </div>
 
 
   
 
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', marginTop: '16px',color: 'black', margin:"2px"}}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', marginTop: '16px',color: 'black', marginBottom:"20px"}}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           style={{ height: '1.5rem', width: '1.5rem' }}
@@ -46,7 +46,7 @@ const Card = () => {
 
         </div>
       </div>
-      </>
+
       
   );
 };

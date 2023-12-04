@@ -27,7 +27,7 @@ const DoubleLinkedListLayout: React.FC = () => {
     <div className="h-screen flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 m-6 justify-center items-center">
 
 
-      <div className="col-start-1 col-end-6 row-start-1 row-end-6 m-2 h-full mt-8">
+      <div className="col-start-1 col-end-8 row-start-1 row-end-4 mt-20">
 
       <GlassmorphismBox showDoubleLinkedList={false} children={<Example/>}/>
 
