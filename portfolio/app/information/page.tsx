@@ -31,14 +31,11 @@ const DoubleLinkedListLayout: React.FC = () => {
 
   return (
     <div className="h-screen flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 mx-10 mt-10 justify-center items-center">
-      <div className="col-start-1 col-end-8 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
-      <GlassmorphismBox/>
 
-      </div>
 
-      <div className="col-start-8 col-end-11 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
-      <GlassmorphismBox children={<Card/>}/>
-      {/* <div
+<div className="col-start-1 col-end-3 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
+      {/* <GlassmorphismBox children={<Card/>}/> */}
+      <div
       className='w-full h-full'
       style={{
         margin: '4px',
@@ -53,26 +50,26 @@ const DoubleLinkedListLayout: React.FC = () => {
       <img className="w-28 border border-transparent rounded-full" src="/photo.jpeg" alt="User" />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-center">
-          William(Wai Him) Ho
+          William Ho
         </div>
-        <p className="text-gray-700 text-base text-left">
+        <p className="text-gray-700 text-base text-center">
           I am a Software engineering student
         </p>
       </div>
 
-      <div className='border border-transparent bg-[#ADA87C] rounded-lg p-4'>
+      <div className='border border-transparent bg-[#ADA87C] rounded-lg p-4 text-black'>
+        Stock analysis
+      </div>
+      <div className='border border-transparent bg-[#7CAD90] rounded-lg p-4 text-black'>
         Qfin stock analysis
       </div>
-      <div className='border border-transparent bg-[#7CAD90] rounded-lg p-4'>
-        Qfin stock analysis
-      </div>
-      <div className='border border-transparent bg-[#7C9AAD] rounded-lg p-4'>
+      <div className='border border-transparent bg-[#7C9AAD] rounded-lg p-4 text-black'>
         Qfin stock analysis
       </div>
 
 
 
-      <div className='flex flex-row gap-x-4 mb-4'>
+      <div className='flex flex-row gap-x-4 mt-4'>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-7 w-7"
@@ -91,13 +88,23 @@ const DoubleLinkedListLayout: React.FC = () => {
         </svg>
       </div>
     </div>
-    </div> */}
+    </div>
 
       </div>
+
+
+
+
+
+      <div className="col-start-3 col-end-11 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
+      <GlassmorphismBox/>
+      </div>
+
+      
  
 
       
-      <div className="row-start-6 h-1/2 col-span-full justify-center items-center mb-2">
+      <div className="flex row-start-6 h-1/4 col-span-full justify-center items-center mb-2">
         <div className="flex flex-row gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg justify-center items-center">
           {/* DoubleLinkedList component */}
           <DoubleLinkedList items={initialItems} visibleItemCount={1} onVisibleItemsChange={handleVisibleItemsChange} />
