@@ -12,6 +12,7 @@
     "@react-three/fiber": "^8.15.11",
     "@types/faker": "^6.6.9",
     "@types/three": "^0.158.2",
+    "chart.js": "^2.9.4",
     "complementary-colors": "^1.0.6",
     "faker": "^5.5.3",
     "framer-motion": "^10.16.5",
@@ -24,6 +25,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@types/chart.js": "^2.9.41",
     "@types/gsap": "^3.0.0",
     "@types/node": "^20",
     "@types/react": "^18",

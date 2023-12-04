@@ -5,9 +5,9 @@ import React, { useState } from 'react';
 import DoubleLinkedList from "@/component/two_pointers/Boxes";
 import GlassmorphismBox from '@/component/Second_page/glass_box';
 import Card from '@/component/Second_page/card';
+import Example from '@/component/graphs/example';
 
 const initialItems = [
-  "#5f6497",
   "#ADA87C",
   "#7CAD90",
   "#907CAD",
@@ -18,6 +18,7 @@ const initialItems = [
 
 
 const DoubleLinkedListLayout: React.FC = () => {
+  
   
   // State to store visible items
   const [visibleItems, setVisibleItems] = useState<string[]>([]);
@@ -97,19 +98,30 @@ const DoubleLinkedListLayout: React.FC = () => {
 
 
       <div className="col-start-3 col-end-11 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
-      <GlassmorphismBox/>
+  
+      <GlassmorphismBox children={
+              <div>
+                <Example/>
+                <div className="flex flex-row gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg justify-center items-center">
+                  <DoubleLinkedList items={initialItems} visibleItemCount={1} onVisibleItemsChange={handleVisibleItemsChange} />
+                </div>
+            </div>
+      }/>
+
+       
       </div>
 
       
  
 
       
-      <div className="flex row-start-6 h-1/4 col-span-full justify-center items-center mb-2">
+      {/* <div className="flex row-start-6 h-1/4 col-span-full justify-center items-center mb-2">
         <div className="flex flex-row gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg justify-center items-center">
-          {/* DoubleLinkedList component */}
+
           <DoubleLinkedList items={initialItems} visibleItemCount={1} onVisibleItemsChange={handleVisibleItemsChange} />
         </div>
-      </div>
+      </div> */}
+      
     </div>
   );
 };

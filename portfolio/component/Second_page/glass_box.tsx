@@ -20,6 +20,7 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ item, color, childr
         backgroundColor: "#5f6497",
       }}
     >
+      
       {children}
     </div>
   );
