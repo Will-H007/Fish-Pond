@@ -78,17 +78,34 @@ const DoubleLinkedListLayout: React.FC = () => {
 
 
       <div className="col-start-3 col-end-11 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
-  
-      <GlassmorphismBox children={<Example/>}/>
+      <GlassmorphismBox nav={
+        <nav className='h-14'>
+        <ul className='flex flex-row h-full'>
+          <li className='flex w-full justify-center items-center bg-[#5f6497] rounded-tl-lg'>
+          #5f6497
+          </li>
+          <li className='flex w-full justify-center items-center bg-[#ADA87C]'>
+          #ADA87C
+          </li>
+          <li className='flex w-full justify-center items-center bg-[#7CAD90]'>
+          #7CAD90
+          </li>
+          <li className='flex w-full justify-center items-center bg-[#7C9AAD] rounded-tr-lg'>
+          "7C9AAD"
+          </li>
+        </ul>
+      </nav>
 
-       
+
+      } showDoubleLinkedList={false} children={<Example/>}/>
+
       </div>
 
       
  
-
+{/* 
       
-      {/* <div className="flex row-start-6 h-1/4 col-span-full justify-center items-center mb-2">
+       <div className="flex row-start-6 h-1/4 col-span-full justify-center items-center mb-2">
         <div className="flex flex-row gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg justify-center items-center">
 
           <DoubleLinkedList items={initialItems} visibleItemCount={1} onVisibleItemsChange={handleVisibleItemsChange} />
