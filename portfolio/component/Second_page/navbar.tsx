@@ -21,18 +21,28 @@ const NavBar: React.FC<NavBarProps> = ({ onTabClick }) => {
   };
 
   return (
-    <nav className='h-14'>
-      <ul className='flex flex-row h-full'>
-        {initialItems.map((item) => (
-          <li
-            key={item.id}
-            className={`flex w-full justify-center items-center bg-[${item.color}]`}
-            onClick={() => handleTabClick(item.color)}
-          >
-            {item.label}
-          </li>
-        ))}
-      </ul>
+    <nav style={{
+      height: "50px",
+      display: 'flex',
+      flexDirection: 'row',
+    }}>
+      {initialItems.map((item, index) => (
+        <div
+          key={item.id}
+          style={{
+            flex: '1',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: item.color,
+            ...(index === 0 && { borderTopLeftRadius: '8px' }),
+            ...(index === initialItems.length - 1 && { borderTopRightRadius: '8px' }),
+          }}
+          onClick={() => handleTabClick(item.color)}
+        >
+          {item.label}
+        </div>
+      ))}
     </nav>
   );
 };

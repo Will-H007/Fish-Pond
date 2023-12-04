@@ -28,7 +28,7 @@ const DoubleLinkedListLayout: React.FC = () => {
 
 
 <div className="col-start-1 col-end-3 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
-      {/* <GlassmorphismBox children={<Card/>}/> */}
+
       <div
       className='w-full h-full'
       style={{

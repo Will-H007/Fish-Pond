@@ -1,7 +1,7 @@
 // GlassmorphismBox.tsx
 import React, { useState, ReactNode } from 'react';
 import DoubleLinkedList from '../two_pointers/Boxes';
-import NavBar from '../navbar';
+import NavBar from './navbar';
 
 interface GlassmorphismBoxProps {
   children?: ReactNode;
@@ -29,7 +29,8 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ children, showDoubl
 
   return (
     <div
-      className={`w-full h-full bg-[${selectedTab}]`}
+      className={`w-full h-full`}
+
       style={{
         margin: '4px',
         backdropFilter: 'blur(8px)',
@@ -42,7 +43,9 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ children, showDoubl
     >
       <NavBar onTabClick={(tabId) => setSelectedTab(tabId)} />
 
-      <div className='h-full'>
+      <div className='h-full' style={{
+        backgroundColor: selectedTab!,
+      }}>
         {/* Conditionally render children based on the selected tab */}
         {selectedTab === '#5f6497' && children}
         {selectedTab === '#ADA87C' && children}
