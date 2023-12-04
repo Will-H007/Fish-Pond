@@ -24,23 +24,19 @@ const DoubleLinkedListLayout: React.FC = () => {
     setVisibleItems(items);
   };
   return (
-    <div className="h-screen flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 mx-10 mt-10 justify-center items-center">
+    <div className="h-screen flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 m-6 justify-center items-center">
 
 
-<div className="col-start-1 col-end-3 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
+      <div className="col-start-1 col-end-6 row-start-1 row-end-6 m-2 h-full mt-8">
 
-<Card/>
-
-      </div>
-
-
-
-
-
-      <div className="col-start-3 col-end-11 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
-      {/* <GlassmorphismBox showDoubleLinkedList={true} children={<Example/>}/> */}
       <GlassmorphismBox showDoubleLinkedList={false} children={<Example/>}/>
+
       </div>
+
+
+
+
+
 
       
  
