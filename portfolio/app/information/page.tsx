@@ -1,6 +1,5 @@
 
-'use client'
-
+'use client';
 import React, { useState } from 'react';
 import DoubleLinkedList from "@/component/two_pointers/Boxes";
 import GlassmorphismBox from '@/component/Second_page/glass_box';
@@ -92,8 +91,8 @@ const DoubleLinkedListLayout: React.FC = () => {
 
 
       <div className="col-start-3 col-end-11 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
-      <GlassmorphismBox showDoubleLinkedList={true} children={<Example/>}/>
-
+      {/* <GlassmorphismBox showDoubleLinkedList={true} children={<Example/>}/> */}
+      <GlassmorphismBox showDoubleLinkedList={false} children={<Example/>}/>
       </div>
 
       

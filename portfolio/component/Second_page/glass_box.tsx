@@ -1,4 +1,4 @@
-'use client'
+// GlassmorphismBox.tsx
 import React, { useState, ReactNode } from 'react';
 import DoubleLinkedList from '../two_pointers/Boxes';
 import NavBar from '../navbar';
@@ -13,23 +13,23 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ children, showDoubl
     "#5f6497",
     "#ADA87C",
     "#7CAD90",
-  
     "#7C9AAD",
   ];
-
+  
   // State to store visible items
   const [visibleItems, setVisibleItems] = useState<string[]>([]);
 
+  // State to store the selected tab
+  const [selectedTab, setSelectedTab] = useState<string | null>('#5f6497');
+
   // Callback function to handle visible items change
   const handleVisibleItemsChange = (items: string[]) => {
-    console.log('Visible Items:', items);
-    // Update the state with the new visible items
     setVisibleItems(items);
   };
 
   return (
     <div
-      className={`w-full h-full bg-[${visibleItems[Math.floor(visibleItems.length/2)]}]`}
+      className={`w-full h-full bg-[${selectedTab}]`}
       style={{
         margin: '4px',
         backdropFilter: 'blur(8px)',
@@ -38,32 +38,17 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ children, showDoubl
         display:"flex",
         flexDirection: "column",
         justifyContent:"start"
-        
       }}
     >
-
-      {/* <nav className='h-14'>
-        <ul className='flex flex-row h-full'>
-          <li className='flex w-full justify-center items-center bg-[#5f6497] rounded-tl-lg'>
-          #5f6497
-          </li>
-          <li className='flex w-full justify-center items-center bg-[#ADA87C]'>
-          #ADA87C
-          </li>
-          <li className='flex w-full justify-center items-center bg-[#7CAD90]'>
-          #7CAD90
-          </li>
-          <li className='flex w-full justify-center items-center bg-[#7C9AAD] rounded-tr-lg'>
-          "7C9AAD"
-          </li>
-        </ul>
-      </nav> */}
-      <NavBar/>
+      <NavBar onTabClick={(tabId) => setSelectedTab(tabId)} />
 
       <div className='h-full'>
-      {children}
+        {/* Conditionally render children based on the selected tab */}
+        {selectedTab === '#5f6497' && children}
+        {selectedTab === '#ADA87C' && children}
+        {selectedTab === '#7CAD90' && children}
+        {selectedTab === '#7C9AAD' && children}
       </div>
-
 
       {showDoubleLinkedList && (
         <div className="flex flex-row gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg justify-center items-center">
@@ -73,5 +58,6 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ children, showDoubl
     </div>
   );
 };
+
 
 export default GlassmorphismBox;
