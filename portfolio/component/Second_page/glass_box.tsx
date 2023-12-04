@@ -6,15 +6,14 @@ import NavBar from '../navbar';
 interface GlassmorphismBoxProps {
   children?: ReactNode;
   showDoubleLinkedList?: boolean;
-  nav?: ReactNode;
 }
 
-const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ nav, children, showDoubleLinkedList }) => {
+const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ children, showDoubleLinkedList }) => {
   const initialItems = [
-    "#907CAD",
+    "#5f6497",
     "#ADA87C",
     "#7CAD90",
-
+  
     "#7C9AAD",
   ];
 
@@ -30,13 +29,12 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ nav, children, show
 
   return (
     <div
-      className='w-full h-full'
+      className={`w-full h-full bg-[${visibleItems[Math.floor(visibleItems.length/2)]}]`}
       style={{
         margin: '4px',
         backdropFilter: 'blur(8px)',
         borderRadius: '8px',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-        backgroundColor: "#5f6497",
         display:"flex",
         flexDirection: "column",
         justifyContent:"start"
@@ -44,7 +42,7 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ nav, children, show
       }}
     >
 
-      <nav className='h-14'>
+      {/* <nav className='h-14'>
         <ul className='flex flex-row h-full'>
           <li className='flex w-full justify-center items-center bg-[#5f6497] rounded-tl-lg'>
           #5f6497
@@ -59,12 +57,14 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ nav, children, show
           "7C9AAD"
           </li>
         </ul>
-      </nav>
+      </nav> */}
+      <NavBar/>
 
-
-      {/* <div className='h-full'>
+      <div className='h-full'>
       {children}
-      </div> */}
+      </div>
+
+
       {showDoubleLinkedList && (
         <div className="flex flex-row gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg justify-center items-center">
           <DoubleLinkedList items={initialItems} visibleItemCount={1} onVisibleItemsChange={handleVisibleItemsChange} />
