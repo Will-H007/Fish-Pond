@@ -1,55 +1,9 @@
 
-'use client'
+import React from 'react';
 
-import React, { useState } from 'react';
-import DoubleLinkedList from "@/component/two_pointers/Boxes";
-import GlassmorphismBox from '@/component/Second_page/glass_box';
-import Card from '@/component/Second_page/card';
-
-const initialItems = [
-  "#5f6497",
-  "#ADA87C",
-  "#7CAD90",
-  "#907CAD",
-  "#7C9AAD",
-];
-
-
-
-
-const DoubleLinkedListLayout: React.FC = () => {
-  
-  // State to store visible items
-  const [visibleItems, setVisibleItems] = useState<string[]>([]);
-
-  // Callback function to handle visible items change
-  const handleVisibleItemsChange = (items: string[]) => {
-    console.log('Visible Items:', items);
-    // Update the state with the new visible items
-    setVisibleItems(items);
-  };
-
+const Card = () => {
   return (
-    <div className="h-screen flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 mx-10 mt-10 justify-center items-center">
-      <div className="col-start-1 col-end-8 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
-      <GlassmorphismBox/>
-
-      </div>
-
-      <div className="col-start-8 col-end-11 row-start-1 row-end-6 m-2 justify-items-center items-end h-full w-full">
-      <GlassmorphismBox children={<Card/>}/>
-      {/* <div
-      className='w-full h-full'
-      style={{
-        margin: '4px',
-        backdropFilter: 'blur(8px)',
-        padding: '32px',
-        borderRadius: '8px',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-        backgroundColor: "#5f6497",
-      }}
-    >
-       <div className="flex flex-col rounded overflow-hidden shadow-lg justify-start items-center w-full h-full gap-y-4">
+    <div className="flex flex-col rounded overflow-hidden shadow-lg justify-start items-center w-full h-full gap-y-4">
       <img className="w-28 border border-transparent rounded-full" src="/photo.jpeg" alt="User" />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 text-center">
@@ -72,6 +26,7 @@ const DoubleLinkedListLayout: React.FC = () => {
 
 
 
+
       <div className='flex flex-row gap-x-4 mb-4'>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -91,20 +46,7 @@ const DoubleLinkedListLayout: React.FC = () => {
         </svg>
       </div>
     </div>
-    </div> */}
-
-      </div>
- 
-
-      
-      <div className="row-start-6 h-1/2 col-span-full justify-center items-center mb-2">
-        <div className="flex flex-row gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg justify-center items-center">
-          {/* DoubleLinkedList component */}
-          <DoubleLinkedList items={initialItems} visibleItemCount={1} onVisibleItemsChange={handleVisibleItemsChange} />
-        </div>
-      </div>
-    </div>
   );
 };
 
-export default DoubleLinkedListLayout;
+export default Card;
