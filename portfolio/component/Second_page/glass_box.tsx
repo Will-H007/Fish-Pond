@@ -2,7 +2,6 @@
 import React, { useState, ReactNode } from 'react';
 import DoubleLinkedList from '../two_pointers/Boxes';
 import NavBar from './navbar';
-import Card from './card';
 
 interface GlassmorphismBoxProps {
   experience?: ReactNode;

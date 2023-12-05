@@ -34,6 +34,7 @@ const NavBar: React.FC<NavBarProps> = ({ onTabClick }) => {
         <div
           key={item.id}
           style={{
+            color:"black",
             flex: '1',
             display: 'flex',
             justifyContent: 'center',
