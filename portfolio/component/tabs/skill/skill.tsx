@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ProgressBar from "./progressbar";
 import Card from "@/component/Second_page/card";
-import Example from "./graphs/example";
 import DoubleLinkedList from "@/component/two_pointers/Boxes";
 
 const Skill: React.FC = () => {
@@ -22,7 +21,7 @@ const Skill: React.FC = () => {
 
       // Conditionally render Example component based on the center item
       if (centerItem === "#7CAD90") {
-        return <Example />;
+        return <div></div>;
       } else {
         // Replace this with the component you want to render for other cases
         return <div>Other Component</div>;
@@ -43,35 +42,49 @@ const Skill: React.FC = () => {
         gap: "20px",
       }}
     >
-      <Card />
+      {/* <Card /> */}
  
       <div
         style={{
-          width: "90%",
+          width: "100%",
           height: "100%",
-          marginTop: "30px",
-          margin: "auto",
+
+          // margin: "auto",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          gap:"10px",
+          padding:"20px"
         }}
       >
-        <div style={{height:"80%",width:"100%", display: "flex",
+        <div style={{height:"100%",width:"100%", display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",}}>
+          justifyContent: "center",
+
+          }}>
          {renderCenterComponent()}
 
          </div>
-        <div className="flex flex-row gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg justify-center items-center my-5">
-          <DoubleLinkedList
-            items={initialItems}
-            visibleItemCount={1}
-            onVisibleItemsChange={handleVisibleItemsChange}
-          />
+         <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            gap: '8px',
+            padding: '2px',
+            backdropFilter: 'blur(16px)',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: '5px',
 
-        </div>
+          }}>
+            <DoubleLinkedList
+              items={initialItems}
+              visibleItemCount={1}
+              onVisibleItemsChange={handleVisibleItemsChange}
+            />
+          </div>
+
       </div>
     </div>
   );

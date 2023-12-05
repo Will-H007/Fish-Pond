@@ -14,10 +14,10 @@ import Typography from '@mui/material/Typography';
 
 // Sample images (replace with actual image URLs)
 const timelineImages = {
-  eat: '/photo.jpeg',
-  code: '/photo.jpeg',
-  sleep: '/photo.jpeg',
-  repeat: '/photo.jpeg',
+  eat: '/images/image1.jpg',
+  code: '/images/image2.jpg',
+  sleep: '/images/image3.jpg',
+  repeat: '/images/image4.jpg',
 };
 
 const timelineData = [
@@ -84,7 +84,7 @@ export default function Experience() {
               variant="body2"
               color="text.secondary"
             >
-              <img src={item.image} alt={item.title} style={{ width: '100%', height: 'auto' }} />
+              <img src={item.image} alt={item.title} style={{ width: '30%', height: 'auto', borderRadius:"10px", opacity:"80%" }} />
             </TimelineOppositeContent>
             <TimelineSeparator>
               <TimelineConnector sx={{ height: '2rem' }} />

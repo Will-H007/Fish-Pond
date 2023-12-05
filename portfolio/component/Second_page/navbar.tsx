@@ -2,10 +2,12 @@
 import React, { useState } from 'react';
 
 const initialItems = [
-  { id: 'skill', color: '#5f6497', label: '💼 Skill' },
+  { id: 'about me', color: 'transparent', label: '🎮 About me' },
   { id: 'experience', color: '#7075a7', label: '🌟 Experience' },
+  { id: 'skill', color: '#5f6497', label: '💼 Skill' },
+ 
 
-  { id: 'hobbies', color: '#9197c6', label: '🎮 Hobbies' },
+
   // { id: 'projects', color: '#9197c6', label: '🚀 Projects' },
 ];
 
@@ -24,7 +26,7 @@ const NavBar: React.FC<NavBarProps> = ({ onTabClick }) => {
 
   return (
     <nav style={{
-      height: "50px",
+      height: "7%",
       display: 'flex',
       flexDirection: 'row',
     }}>

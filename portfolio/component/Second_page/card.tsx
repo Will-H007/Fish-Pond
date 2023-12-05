@@ -3,7 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPython, faCss3, faJs, faJava, faHtml5, faReact } from '@fortawesome/free-brands-svg-icons';
 import ProgressBar from '../tabs/skill/progressbar';
 
-const Card = () => {
+interface CardProps {
+  onMenuButtonClick: React.MouseEventHandler<HTMLButtonElement>;
+  isMenuOpen: boolean;
+}
+
+const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
+  const handleToggleMenu: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    onMenuButtonClick(event); // Pass the event to the parent handler
+  };
   const languages = [
     { name: "Python", percentage: 75, icon: faPython },
     { name: "CSS", percentage: 50, icon: faCss3 },
@@ -15,17 +23,36 @@ const Card = () => {
   ];
 
   return (
-    <div style={{ width: "300px", display: "flex", flexDirection: "column", alignItems: 'center', justifyContent: "center", borderRadius: '8px', overflow: 'hidden', gap: '8px' }}>
-      <img style={{ width: '100px', border: '1px solid transparent', borderRadius: '50%', marginTop: "24px" }} src="/photo.jpeg" alt="User" />
+    <div style={{
+      width: "300px",
+      height:"100%",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: 'center',
+      justifyContent: "center",
+      borderRadius: '8px',
+      overflow: 'hidden',
+      gap: '8px',
+      backdropFilter: 'blur(10px)',
+      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
+      position: 'absolute', // Position absolute to overlay on the left-center
+      top: '50%', // Align to the vertical center
+      transform: 'translateY(-50%)', // Adjust to center vertically
+    }}>
+
+      <img style={{ width: '100px',border: '1px solid transparent', borderRadius: '50%', marginTop: "10px",marginBottom:"10px", padding:"4px" }} src="/photo.jpeg" alt="User" />
       <div style={{ paddingLeft: '20px', paddingRight: '20px' }}>
         <div style={{ fontWeight: 'bold', fontSize: '1.5rem', marginBottom: '8px', textAlign: 'center', color: "black" }}>
           William Ho
         </div>
-        <p style={{ color: '#4B5563', fontSize: '1rem', textAlign: 'center' }}>
+        <p style={{ color: 'black', fontSize: '1rem', textAlign: 'center' }}>
           I am a software engineering student studying in Masters in University of Western Australia
         </p>
       </div>
-
+    <button style={{borderRadius:"10px", backgroundColor:"#BEBEBE", padding:"10px", marginTop:"10px"}}>
+      Download Resume
+    </button>
       <div style={{
         display: "flex",
         height: "250px",
@@ -35,6 +62,7 @@ const Card = () => {
         justifyContent: "center",
         gap: "10px",
       }}>
+        
         {languages.map((language, index) => (
           <div key={index} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
             <FontAwesomeIcon icon={language.icon} style={{ fontSize: "1.5rem" }} />
@@ -44,7 +72,7 @@ const Card = () => {
         ))}
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', marginTop: '16px',color: 'black', marginBottom:"20px"}}>
+      <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', marginTop: '10px', marginBottom:"20px",color: 'black'}}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           style={{ height: '1.5rem', width: '1.5rem' }}
