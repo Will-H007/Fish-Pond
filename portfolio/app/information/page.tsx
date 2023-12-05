@@ -1,10 +1,10 @@
 'use client';
 import React, { useState } from 'react';
 import GlassmorphismBox from '@/component/Second_page/glass_box';
-import Example from '@/component/tabs/graphs/example';
+import Example from '@/component/tabs/skill/graphs/example';
 import { useAnimate, stagger } from "framer-motion";
 import Card from '@/component/Second_page/card';
-import Experience from '@/component/tabs/experience/experience';
+import Skill from '@/component/tabs/skill/skill';
 
 const DoubleLinkedListLayout: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,7 +40,7 @@ const DoubleLinkedListLayout: React.FC = () => {
       )}
 
       <div className="col-start-2 col-end-10 row-start-1 row-end-6 ">
-        <GlassmorphismBox experience={<Experience/>} skill={<Example />} />
+        <GlassmorphismBox skill={<Skill/>} experience={<Example />} />
       </div>
     </div>
   );

@@ -54,7 +54,6 @@ const Example: React.FC<ExampleProps> = () => {
       {/* line chart */}
 
           <canvas id='myChart'></canvas>
-
     </>
   );
 };

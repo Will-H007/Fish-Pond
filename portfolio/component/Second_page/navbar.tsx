@@ -2,8 +2,9 @@
 import React, { useState } from 'react';
 
 const initialItems = [
-  { id: 'experience', color: '#5f6497', label: '🌟 Experience' },
-  { id: 'skill', color: '#7075a7', label: '💼 Skill' },
+  { id: 'skill', color: '#5f6497', label: '💼 Skill' },
+  { id: 'experience', color: '#7075a7', label: '🌟 Experience' },
+
   { id: 'hobbies', color: '#8186b6', label: '🎮 Hobbies' },
   { id: 'projects', color: '#9197c6', label: '🚀 Projects' },
 ];

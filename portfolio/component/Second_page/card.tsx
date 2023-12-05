@@ -1,55 +1,50 @@
 import React from 'react';
-import ProgressBar from '../tabs/experience/progressbar';
-import { margin } from 'polished';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPython, faCss3, faJs, faJava, faHtml5, faReact } from '@fortawesome/free-brands-svg-icons';
+import ProgressBar from '../tabs/skill/progressbar';
+
 const Card = () => {
   const languages = [
-    { name: "Python", percentage: 75 },
-    { name: "CSS", percentage: 50 },
-    { name: "JavaScript", percentage: 80 },
-    { name: "Java", percentage: 60 },
-    { name: "C++", percentage: 40 },
-    { name: "Ruby", percentage: 70 },
-    { name: "HTML", percentage: 90 },
-    { name: "TypeScript", percentage: 55 },
+    { name: "Python", percentage: 75, icon: faPython },
+    { name: "CSS", percentage: 50, icon: faCss3 },
+    { name: "JavaScript", percentage: 80, icon: faJs },
+    { name: "Java", percentage: 60, icon: faJava },
+    { name: "HTML", percentage: 90, icon: faHtml5 },
+    { name: "React", percentage: 70, icon: faReact },
+    // Add icons for other languages
   ];
 
   return (
-
-      <div style={{ width: "300px", display: "flex",flexDirection: "column", alignItems: 'center',justifyContent:"center",borderRadius: '8px', overflow: 'hidden' ,gap: '8px'}}>
-              {/* <div style={{ width: "300px", display: "flex",flexDirection: "column", alignItems: 'center',justifyContent:"center",borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' ,gap: '8px'}}></div> */}
-        <img style={{ width: '100px', border: '1px solid transparent', borderRadius: '50%', marginTop:"24px"}} src="/photo.jpeg" alt="User" />
-        <div style={{ paddingLeft: '20px',paddingRight: '20px' }}>
-          <div style={{ fontWeight: 'bold', fontSize: '1.5rem', marginBottom: '8px', textAlign: 'center',color:"black" }}>
-            William Ho
-          </div>
-          <p style={{ color: '#4B5563', fontSize: '1rem', textAlign: 'center'  }}>
-            I am a software engineering student studying in Masters in University of Western Australia
-          </p>
+    <div style={{ width: "300px", display: "flex", flexDirection: "column", alignItems: 'center', justifyContent: "center", borderRadius: '8px', overflow: 'hidden', gap: '8px' }}>
+      <img style={{ width: '100px', border: '1px solid transparent', borderRadius: '50%', marginTop: "24px" }} src="/photo.jpeg" alt="User" />
+      <div style={{ paddingLeft: '20px', paddingRight: '20px' }}>
+        <div style={{ fontWeight: 'bold', fontSize: '1.5rem', marginBottom: '8px', textAlign: 'center', color: "black" }}>
+          William Ho
         </div>
+        <p style={{ color: '#4B5563', fontSize: '1rem', textAlign: 'center' }}>
+          I am a software engineering student studying in Masters in University of Western Australia
+        </p>
+      </div>
 
+      <div style={{
+        display: "flex",
+        height: "250px",
+        flexWrap: "wrap",
+        flexDirection: "column",
+        alignItems: "end",
+        justifyContent: "center",
+        gap: "10px",
+      }}>
+        {languages.map((language, index) => (
+          <div key={index} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
+            <FontAwesomeIcon icon={language.icon} style={{ fontSize: "1.5rem" }} />
+            <span>{language.name}</span>
+            <ProgressBar data={language.percentage} />
+          </div>
+        ))}
+      </div>
 
-        <div style={{
-                display:"flex", 
-                height:"250px",
-                flexWrap:"wrap",
-                flexDirection:"column",
-                alignItems:"center",
-                justifyContent:"center",
-                gap:"10px",
-            }}>
-                  
-                        {languages.map((language, index) => (
-                            <div key={index}>
-                            {language.name}
-                            <ProgressBar data={language.percentage} />
-                            </div>
-                        ))}
-                  
-            </div>
-
-  
-
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', marginTop: '16px',color: 'black', marginBottom:"20px"}}>
+      <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', marginTop: '16px',color: 'black', marginBottom:"20px"}}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           style={{ height: '1.5rem', width: '1.5rem' }}
@@ -77,10 +72,14 @@ const Card = () => {
           </svg>
 
         </div>
-      </div>
-
-      
+    </div>
   );
 };
 
 export default Card;
+
+
+
+
+
+

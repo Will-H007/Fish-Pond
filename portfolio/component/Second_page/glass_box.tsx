@@ -69,8 +69,8 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ experience,skill,ho
          
               }}>
   
-                {selectedTab === '#5f6497' && experience}
-                {selectedTab === '#7075a7' && skill}
+                {selectedTab ===  '#7075a7' && experience}
+                {selectedTab === '#5f6497' && skill}
                 {selectedTab === '#9197c6' && projects}
               </div>
 
