@@ -2,11 +2,12 @@
 import React, { useState } from 'react';
 
 const initialItems = [
-  { id: 'home', color: '#5f6497', label: '🏡 Home' },
-  { id: 'burger', color: '#ADA87C', label: '🍔 Burger' },
-  { id: 'pizza', color: '#7CAD90', label: '🍕 Pizza' },
-  { id: 'iceCream', color: '#7C9AAD', label: '🍦 Ice Cream' },
+  { id: 'experience', color: '#5f6497', label: '🌟 Experience' },
+  { id: 'skill', color: '#7075a7', label: '💼 Skill' },
+  { id: 'hobbies', color: '#8186b6', label: '🎮 Hobbies' },
+  { id: 'projects', color: '#9197c6', label: '🚀 Projects' },
 ];
+
 
 interface NavBarProps {
   onTabClick: (tabId: string) => void;

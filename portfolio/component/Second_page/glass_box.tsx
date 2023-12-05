@@ -4,11 +4,14 @@ import DoubleLinkedList from '../two_pointers/Boxes';
 import NavBar from './navbar';
 import Card from './card';
 interface GlassmorphismBoxProps {
-  children?: ReactNode;
+  experience?: ReactNode;
+  skill?: ReactNode;
+  hobbies?: ReactNode;
+  projects?: ReactNode;
   showDoubleLinkedList?: boolean;
 }
 
-const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ children, showDoubleLinkedList }) => {
+const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ experience,skill,hobbies,projects, showDoubleLinkedList }) => {
   const initialItems = [
     "#5f6497",
     "#ADA87C",
@@ -31,6 +34,7 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ children, showDoubl
     <div
       style={{
         width: "100%",
+        height:"100%",
         margin: '4px',
         backdropFilter: 'blur(8px)',
         borderRadius: '8px',
@@ -41,7 +45,7 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ children, showDoubl
     >
 
 
-        <Card/>
+  
 
       <div style={{
         height:"100%",
@@ -51,7 +55,8 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ children, showDoubl
               <div style={{
                 display:"flex",
                 flexDirection: "column",
-                justifyContent:"center"
+                justifyContent:"center",
+                height:"100%"
               }}>
 
           
@@ -59,13 +64,14 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ children, showDoubl
               <div style={{
                 backgroundColor: selectedTab!,
                 borderBottomLeftRadius: '8px',
-                borderBottomRightRadius: '8px' 
+                borderBottomRightRadius: '8px' ,
+                height:"100%",
+         
               }}>
-                {/* Conditionally render children based on the selected tab */}
-                {selectedTab === '#5f6497' && children}
-                {selectedTab === '#ADA87C' && children}
-                {selectedTab === '#7CAD90' && children}
-                {selectedTab === '#7C9AAD' && children}
+  
+                {selectedTab === '#5f6497' && experience}
+                {selectedTab === '#7075a7' && skill}
+                {selectedTab === '#9197c6' && projects}
               </div>
 
               {showDoubleLinkedList && (

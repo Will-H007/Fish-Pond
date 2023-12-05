@@ -1,33 +1,25 @@
 'use client';
 import React, { useState } from 'react';
 import GlassmorphismBox from '@/component/Second_page/glass_box';
-import Example from '@/component/graphs/example';
+import Example from '@/component/tabs/graphs/example';
 import { useAnimate, stagger } from "framer-motion";
-
-
+import Card from '@/component/Second_page/card';
+import Experience from '@/component/tabs/experience/experience';
 
 const DoubleLinkedListLayout: React.FC = () => {
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
 
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   return (
-    <div className="h-screen flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 m-6 justify-center items-center relative">
-
-      {isMenuOpen && (
-        <div className="col-start-1 col-end-8 row-start-1 row-end-4 mt-20">
-          <GlassmorphismBox children={<Example />} />
-        </div>
-      )}
-
+    <div className="h-screen flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 m-5 justify-center">
       {/* Hamburger menu button */}
-      <div className="absolute top-4 left-4" style={{
+      <div className="absolute top-6 left-4" style={{
         height:"30px",
         width:"30px",
+        zIndex: 2, // Higher zIndex for the menu button
       }}>
         <button onClick={handleToggleMenu} className="bg-[#5f6497] p-2 rounded h-full w-full">
           <svg
@@ -41,9 +33,15 @@ const DoubleLinkedListLayout: React.FC = () => {
         </button>
       </div>
 
+      {isMenuOpen && (
+        <div className="col-start-1 col-end-3 row-start-1 row-end-4" style={{ zIndex: 1 }}>
+          <Card/>
+        </div>
+      )}
 
-
-
+      <div className="col-start-2 col-end-10 row-start-1 row-end-6 ">
+        <GlassmorphismBox experience={<Experience/>} skill={<Example />} />
+      </div>
     </div>
   );
 };

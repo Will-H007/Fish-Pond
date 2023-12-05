@@ -1,19 +1,51 @@
 import React from 'react';
-
+import ProgressBar from '../tabs/experience/progressbar';
+import { margin } from 'polished';
 const Card = () => {
+  const languages = [
+    { name: "Python", percentage: 75 },
+    { name: "CSS", percentage: 50 },
+    { name: "JavaScript", percentage: 80 },
+    { name: "Java", percentage: 60 },
+    { name: "C++", percentage: 40 },
+    { name: "Ruby", percentage: 70 },
+    { name: "HTML", percentage: 90 },
+    { name: "TypeScript", percentage: 55 },
+  ];
+
   return (
 
-      <div style={{ width: "300px", display: "flex",flexDirection: "column", alignItems: 'center',justifyContent:"center",borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' ,gap: '8px'}}>
+      <div style={{ width: "300px", display: "flex",flexDirection: "column", alignItems: 'center',justifyContent:"center",borderRadius: '8px', overflow: 'hidden' ,gap: '8px'}}>
+              {/* <div style={{ width: "300px", display: "flex",flexDirection: "column", alignItems: 'center',justifyContent:"center",borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' ,gap: '8px'}}></div> */}
         <img style={{ width: '100px', border: '1px solid transparent', borderRadius: '50%', marginTop:"24px"}} src="/photo.jpeg" alt="User" />
-        <div style={{ padding: '24px' }}>
+        <div style={{ paddingLeft: '20px',paddingRight: '20px' }}>
           <div style={{ fontWeight: 'bold', fontSize: '1.5rem', marginBottom: '8px', textAlign: 'center',color:"black" }}>
             William Ho
           </div>
-          <p style={{ color: '#4B5563', fontSize: '1rem', textAlign: 'center' }}>
+          <p style={{ color: '#4B5563', fontSize: '1rem', textAlign: 'center'  }}>
             I am a software engineering student studying in Masters in University of Western Australia
           </p>
         </div>
 
+
+        <div style={{
+                display:"flex", 
+                height:"250px",
+                flexWrap:"wrap",
+                flexDirection:"column",
+                alignItems:"center",
+                justifyContent:"center",
+                gap:"10px",
+            }}>
+                  
+                        {languages.map((language, index) => (
+                            <div key={index}>
+                            {language.name}
+                            <ProgressBar data={language.percentage} />
+                            </div>
+                        ))}
+                  
+            </div>
 
   
 
