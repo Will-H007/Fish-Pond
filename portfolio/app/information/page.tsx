@@ -31,11 +31,11 @@ const DoubleLinkedListLayout: React.FC = () => {
         <button
           onClick={handleToggleMenu}
           className="bg-[transparent] rounded h-full w-full"
-          style={{ position: 'absolute', top: 250, left: 0 , boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',height:"20%"}} // Adjust top and left to 0
+          style={{ position: 'absolute', top: 275, left: `${isMenuOpen ? '5px' : ''}` , boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',height:"20%"}} // Adjust top and left to 0
         />
       </div>
 
-      <div className={`col-span-full row-span-full h-[700px] w-full ${isMenuOpen ? 'col-start-3 col-end-11' : ''}`} style={{ paddingLeft: '40px' }}>
+      <div className={`col-span-full row-span-full h-[750px] w-full ${isMenuOpen ? 'col-start-3 col-end-11' : ''}`} style={{ paddingLeft: `${isMenuOpen ? '10px' : '35px'}` }}>
         <GlassmorphismBox skill={<Skill />} experience={<Experience />} aboutme={<AboutMe />} />
       </div>
     </div>
