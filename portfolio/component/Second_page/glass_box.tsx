@@ -15,10 +15,10 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ experience,skill,ho
   const initialItems = [
     "#5f6497",
     "#ADA87C",
-    "#7CAD90",
-    "#7C9AAD",
+    "#7075a7",
+    "#9197c6",
   ];
-  
+
   // State to store visible items
   const [visibleItems, setVisibleItems] = useState<string[]>([]);
 
@@ -71,7 +71,7 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({ experience,skill,ho
   
                 {selectedTab ===  '#7075a7' && experience}
                 {selectedTab === '#5f6497' && skill}
-                {selectedTab === '#9197c6' && projects}
+                {selectedTab === '#9197c6' && hobbies}
               </div>
 
               {showDoubleLinkedList && (

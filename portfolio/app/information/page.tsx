@@ -15,14 +15,14 @@ const DoubleLinkedListLayout: React.FC = () => {
   };
 
   return (
-    <div className="h-screen flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 m-5 justify-center">
+    <div className="h-full flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 m-5 justify-center">
       {/* Hamburger menu button */}
       <div className="absolute top-6 left-4" style={{
         height:"30px",
         width:"30px",
         zIndex: 2, // Higher zIndex for the menu button
       }}>
-        <button onClick={handleToggleMenu} className="bg-[#5f6497] p-2 rounded h-full w-full">
+        {/* <button onClick={handleToggleMenu} className="bg-[#5f6497] p-2 rounded h-full w-full">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -31,7 +31,7 @@ const DoubleLinkedListLayout: React.FC = () => {
           >
             <path d="M2 12h12M2 6h12M2 1h12"></path>
           </svg>
-        </button>
+        </button> */}
       </div>
 
       {isMenuOpen && (
@@ -40,7 +40,7 @@ const DoubleLinkedListLayout: React.FC = () => {
         </div>
       )}
 
-      <div className="col-start-2 col-end-10 row-start-1 row-end-6">
+      <div className="col-span-full row-span-full h-[700px] w-full">
         <GlassmorphismBox skill={<Skill/>} experience={<Experience />} />
       </div>
     </div>
