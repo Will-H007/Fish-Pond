@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 const initialItems = [
 
-  { id: 'about me', color: 'transparent', label: '🚀 Projects'  },
+  { id: 'about me', color: 'transparent', label: '🚀 Drawing'  },
 
   { id: 'experience', color: '#7075a7', label: '🌟 Experience' },
 

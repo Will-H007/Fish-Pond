@@ -11,6 +11,8 @@ interface FractalPoint {
 
 interface FractalProps {
   degree: number;
+  area?: number;
+  startingPoint?: { x: number; y: number }; // Make startingPoint an optional parameter
   generateFractal?: (
     level: number,
     x: number,
@@ -19,11 +21,8 @@ interface FractalProps {
   ) => FractalPoint[];
 }
 
-const Fractal: React.FC<FractalProps> = ({ degree, generateFractal }) => {
+const Fractal: React.FC<FractalProps> = ({ degree, area = 600, startingPoint = { x: 0, y: 0 }, generateFractal }) => {
 
-
-// Default function
-////////////////
   const defaultGenerateFractal = (
     level: number,
     x: number,
@@ -68,7 +67,6 @@ const Fractal: React.FC<FractalProps> = ({ degree, generateFractal }) => {
       ...top,
       { type: 'quadratic', x: right[0].x, y: right[0].y, controlX, controlY },
       ...right,
-     
       { type: 'quadratic', x: left[0].x, y: left[0].y, controlX, controlY },
       ...left,
       { type: 'quadratic', x: bottom[0].x, y: bottom[0].y, controlX, controlY },
@@ -76,19 +74,9 @@ const Fractal: React.FC<FractalProps> = ({ degree, generateFractal }) => {
     ];
   };
 
-////////////////
-
-
-const area=600
-
   const fractalPoints = generateFractal
-    ? generateFractal(degree, area/15, area/20, area)
-    : defaultGenerateFractal(degree, area/15,area/20, area);
-
-
-
-
-
+    ? generateFractal(degree, startingPoint.x, startingPoint.y, area)
+    : defaultGenerateFractal(degree, startingPoint.x, startingPoint.y, area);
 
   const getPathData = () => {
     if (fractalPoints.length < 2) {

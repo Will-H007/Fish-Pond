@@ -8,7 +8,7 @@ interface InputProps {
   max?: number;
 }
 
-const Input: React.FC<InputProps> = ({ value, children, set, min = -200, max = 200 }) => {
+const Input: React.FC<InputProps> = ({ value, children, set, min = 2, max = 8 }) => {
   return (
     <label>
       <code style={{margin:"10px"}}>{children}</code>
@@ -26,6 +26,7 @@ const Input: React.FC<InputProps> = ({ value, children, set, min = -200, max = 2
         min={min}
         max={max}
         onChange={(e) => set(parseFloat(e.target.value) || 0)}
+        style={{borderRadius:"5px"}}
       />
     </label>
   );
