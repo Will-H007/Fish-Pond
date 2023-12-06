@@ -37,18 +37,25 @@ const Player: React.FC = () => {
                       </li>
                     </ul>
                     </div>
-                <div style={{paddingTop:"1em"}}>
+                {/* <div style={{paddingTop:"1em"}}>
      
-                  <Customization degree={degree} setDegree={setDegree} id="1"/>
-              </div>
+                  <Customization degree={degree} setDegree={setDegree} id="1" FlippedContent="Custom"/>
+              </div> */}
             </div>
 
 
             <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"25em", gap: "3em", paddingTop:"1em" }}>
             
+            <div style={{paddingTop:"1em"}}>
+ 
+            <Customization degree={degree} setDegree={setDegree} id="1" FlippedContent="Custom"/>   </div>
+        </div>
+        
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"25em", gap: "3em", paddingTop:"1em" }}>
+            
                 <div style={{paddingTop:"1em"}}>
      
-                  <Customization degree={degree} color="green" setDegree={setDegree} id="2" Content={<SierpinskiTriangle level={degree} x={100} y={100} size={200}/>} FlippedContent={"123"}/>
+                  <Customization degree={degree} color="green" setDegree={setDegree} id="2" Content={<SierpinskiTriangle level={degree} x={100} y={100} size={200}/>} FlippedContent={"Wave"}/>
               </div>
             </div>
             
@@ -57,7 +64,7 @@ const Player: React.FC = () => {
             
                 <div style={{paddingTop:"1em"}}>
      
-                  <Customization degree={degree} color="#ae8b0c" setDegree={setDegree} id="3" Content={<KochSnowflake level={degree} x={-30} y={125} size={200}/>}/>
+                  <Customization degree={degree} color="#ae8b0c" setDegree={setDegree} id="3" Content={<KochSnowflake level={degree} x={-30} y={125} size={200}/>} FlippedContent="SnowFlake"/>
               </div>
             </div>
 
@@ -65,7 +72,7 @@ const Player: React.FC = () => {
             
             <div style={{paddingTop:"1em"}}>
  
-            <Customization degree={degree} color="#953553" setDegree={setDegree} id="3" Content={<DragonCurve level={degree} x={0} y={0} size={200}/>}/>
+            <Customization degree={degree} color="#953553" setDegree={setDegree} id="3" Content={<DragonCurve level={degree} x={0} y={0} size={200}/>} FlippedContent="Dragon's Curve"/>
 
           </div>
         </div>

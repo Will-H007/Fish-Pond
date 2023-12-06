@@ -50,9 +50,8 @@ const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, Flipp
               Content || <ArrowFractal level={degree} x={5} y={5} />
             ) : (
               /* Add text or content for the flipped side */
-              FlippedContent ||
-              <div style={{ width: "100%", backfaceVisibility: "hidden" }}>
-                <p style={{ color: "white" }}>No Description</p>
+              <div style={{ width: "15em", backfaceVisibility: "hidden", display: "flex", justifyContent: "center", }}>
+                { FlippedContent ||<p style={{ color: "white" }}>No Description</p>}
               </div>
             )}
           </div>
