@@ -20,14 +20,6 @@ const Input: React.FC<InputProps> = ({ value, children, set, min = 2, max = 8 })
         onChange={(e) => set(parseFloat(e.target.value))}
         style={{margin:"10px"}}
       />
-      <input
-        type="number"
-        value={value}
-        min={min}
-        max={max}
-        onChange={(e) => set(parseFloat(e.target.value) || 0)}
-        style={{borderRadius:"5px"}}
-      />
     </label>
   );
 };

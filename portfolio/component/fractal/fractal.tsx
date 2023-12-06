@@ -21,7 +21,7 @@ interface FractalProps {
   ) => FractalPoint[];
 }
 
-const Fractal: React.FC<FractalProps> = ({ degree, area = 600, startingPoint = { x: 0, y: 0 }, generateFractal }) => {
+const Fractal: React.FC<FractalProps> = ({ degree, area = 500, startingPoint = { x: 0, y: 0 }, generateFractal }) => {
 
   const defaultGenerateFractal = (
     level: number,
@@ -111,7 +111,7 @@ const Fractal: React.FC<FractalProps> = ({ degree, area = 600, startingPoint = {
         width: '100%',
       }}
     >
-      <svg width="100%" height="100%" viewBox={`0 0 ${area} ${area}`}>
+      <svg width="100%" height="100%" viewBox={`0 0 ${area} ${area}`} preserveAspectRatio="xMidYMid meet">
         <motion.path
           style={{
             stroke: 'white',
@@ -120,7 +120,7 @@ const Fractal: React.FC<FractalProps> = ({ degree, area = 600, startingPoint = {
           }}
           d={getPathData()}
           initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
+          animate={{ pathLength: 1.1 }}
           transition={{
             type: 'tween',
             ease: 'easeInOut',
