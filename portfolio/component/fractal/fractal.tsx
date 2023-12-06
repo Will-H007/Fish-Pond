@@ -111,7 +111,7 @@ const Fractal: React.FC<FractalProps> = ({ degree, area = 600, startingPoint = {
         width: '100%',
       }}
     >
-      <svg width="100%" height="100%">
+      <svg width="100%" height="100%" viewBox={`0 0 ${area} ${area}`}>
         <motion.path
           style={{
             stroke: 'white',
@@ -124,7 +124,7 @@ const Fractal: React.FC<FractalProps> = ({ degree, area = 600, startingPoint = {
           transition={{
             type: 'tween',
             ease: 'easeInOut',
-            duration: Math.sqrt(fractalPoints.length),
+            duration: Math.sqrt(fractalPoints.length/4),
           }}
         />
       </svg>

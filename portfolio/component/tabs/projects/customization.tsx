@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "./controls";
 import Fractal from "@/component/fractal/fractal";
+import TreeFractal from "@/component/fractal/arrowfractal";
 
 interface CustomizationProps {
   degree: number;
@@ -15,7 +16,8 @@ const Customization: React.FC<CustomizationProps> = ({ degree, setDegree }) => {
     <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", color: "white", alignItems: "center", height: "100%", gap: "25px" }}>
       <div style={{ position: "relative", padding: "20px", borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)' }}>
         <div style={{ height: `${containerSize}px`, width: `${containerSize}px`, overflow: 'hidden', borderRadius: '8px' }}>
-        <Fractal degree={1} area={previewSize} startingPoint={{ x: 80, y: 80 }} />
+        <TreeFractal level={1} x={80} y={80} size={600} />
+
         </div>
       </div>
 
