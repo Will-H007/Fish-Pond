@@ -5,9 +5,9 @@ const initialItems = [
 
   { id: 'about me', color: 'transparent', label: '🚀 Topics'  },
 
-  { id: 'experience', color: '#7075a7', label: '🌟 Experience' },
+  { id: 'skill', color: '#7075a7', label: '💼 Skill' },
 
-  { id: 'skill', color: '#5f6497', label: '💼 Skill' },
+  // { id: 'experience', color: '#5f6497', label: '🌟 Experience'},
 
 
 ];
