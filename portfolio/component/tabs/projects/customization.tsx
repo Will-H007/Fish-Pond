@@ -10,11 +10,11 @@ interface CustomizationProps {
   Content?: React.ReactNode;
   FlippedContent?: React.ReactNode;
   id: string;
-  color?:string;
+  color?:string
 }
 
-const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, FlippedContent, id,color }) => {
-  const [degree, setLocalDegree] = useState(2); // Use local degree state
+const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, FlippedContent, color}) => {
+  const [degree, setLocalDegree] = useState(4); // Use local degree state
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlipClick = () => {
@@ -28,7 +28,7 @@ const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, Flipp
   }, [degree, setDegree]);
 
   return (
-    <div key={id} style={{ display: "flex", flexDirection: "column", justifyContent: "center", color: "white", alignItems: "center", height: "100%", width: "100%", gap: "0.5em" }}>
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", color: "white", alignItems: "center", height: "100%", width: "100%", gap: "0.5em" }}>
       <div
         style={{
           position: "relative",
@@ -36,7 +36,7 @@ const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, Flipp
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0, 0, 0, 0.4)",
           cursor: "pointer", // Add cursor style
-          transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)", // Apply flip transformation
+          transform: isFlipped ? "rotateY(360deg)" : "rotateY(0deg)", // Apply flip transformation
           transformStyle: "preserve-3d", // Preserve 3D transformation
           transition: "transform 0.5s", // Add transition for smooth flip
           backgroundColor: color
@@ -45,7 +45,7 @@ const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, Flipp
       >
         <div style={{ height: `15em`, width: `100%`, overflow: "hidden", borderRadius: "8px", backfaceVisibility: "hidden" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", transform: "rotateY(0deg)", backfaceVisibility: "hidden" }}>
-            {degree > 1 ? (
+            {!isFlipped ? (
               // Render custom fractal content or default ArrowFractal
               Content || <ArrowFractal level={degree} x={5} y={5} />
             ) : (
@@ -58,11 +58,11 @@ const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, Flipp
           </div>
         </div>
       </div>
-      {degree > 1 && (
+      {/* {!isFlipped && (
         <Input value={degree} set={(newValue) => setLocalDegree(newValue)} min={2} max={8}>
           Degree
         </Input>
-      )}
+      )} */}
     </div>
   );
 };

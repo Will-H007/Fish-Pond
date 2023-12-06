@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Customization from "./customization";
 import KochSnowflake from "@/component/fractal/snowflake";
 import SierpinskiTriangle from "@/component/fractal/treefractal";
+import DragonCurve from "@/component/fractal/dragoncurve";
+
 
 const Player: React.FC = () => {
   const [degree, setDegree] = useState(4);
@@ -63,7 +65,8 @@ const Player: React.FC = () => {
             
             <div style={{paddingTop:"1em"}}>
  
-              <Customization degree={degree} setDegree={setDegree} id="4"/>
+            <Customization degree={degree} color="#953553" setDegree={setDegree} id="3" Content={<DragonCurve level={degree} x={0} y={0} size={200}/>}/>
+
           </div>
         </div>
 
