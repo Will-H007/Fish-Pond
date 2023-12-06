@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Fractal from "@/component/fractal/fractal";
+
 import Customization from "./customization";
-import TreeFractal from "@/component/fractal/arrowfractal";
+import KochSnowflake from "@/component/fractal/snowflake";
+import SierpinskiTriangle from "@/component/fractal/treefractal";
 
 const Player: React.FC = () => {
   const [degree, setDegree] = useState(4);
@@ -17,7 +18,7 @@ const Player: React.FC = () => {
 
 <div style={{display:"flex",flexDirection:"row",width:"100%", justifyContent:"center" ,gap: "2em"}}>
             <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"25em", gap: "1em", paddingTop:"1em" }}>
-                    <div style={{color:"black", display:'flex', flexWrap:"wrap",flexDirection:"row", width:"10em", height:"25em", paddingBottom:"1.5em",fontSize:"0.8em", marginRight:"2em" }}>
+                    <div style={{color:"black", display:'flex', flexWrap:"wrap",flexDirection:"row", width:"10em", height:"25em", paddingTop:"2em",fontSize:"0.8em", marginRight:"2em" }}>
                       <p style={{fontSize:"1.2em", marginTop:"1em"}}>Fractal</p>
                     <p>
                       A fractal is a complex geometric shape that exhibits the following characteristics:
@@ -36,7 +37,7 @@ const Player: React.FC = () => {
                     </div>
                 <div style={{paddingTop:"1em"}}>
      
-                  <Customization degree={degree} setDegree={setDegree} />
+                  <Customization degree={degree} setDegree={setDegree} id="1"/>
               </div>
             </div>
 
@@ -45,7 +46,7 @@ const Player: React.FC = () => {
             
                 <div style={{paddingTop:"1em"}}>
      
-                  <Customization degree={degree} setDegree={setDegree} />
+                  <Customization degree={degree} color="green" setDegree={setDegree} id="2" Content={<SierpinskiTriangle level={degree} x={100} y={100} size={200}/>} FlippedContent={"123"}/>
               </div>
             </div>
             
@@ -54,7 +55,7 @@ const Player: React.FC = () => {
             
                 <div style={{paddingTop:"1em"}}>
      
-                  <Customization degree={degree} setDegree={setDegree} />
+                  <Customization degree={degree} color="#ae8b0c" setDegree={setDegree} id="3" Content={<KochSnowflake level={degree} x={-30} y={125} size={200}/>}/>
               </div>
             </div>
 
@@ -62,7 +63,7 @@ const Player: React.FC = () => {
             
             <div style={{paddingTop:"1em"}}>
  
-              <Customization degree={degree} setDegree={setDegree} />
+              <Customization degree={degree} setDegree={setDegree} id="4"/>
           </div>
         </div>
 
@@ -75,7 +76,7 @@ const Player: React.FC = () => {
 
 
 
-      <div style={{display:"flex",flexDirection:"row",width:"100%", justifyContent:"center" ,gap: "2em"}}>
+      {/* <div style={{display:"flex",flexDirection:"row",width:"100%", justifyContent:"center" ,gap: "2em"}}>
             <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"25em", gap: "1em", paddingTop:"1em" }}>
                     <div style={{color:"black", display:'flex', flexWrap:"wrap",flexDirection:"row", width:"10em", height:"25em", paddingBottom:"1.5em",fontSize:"0.8em", marginRight:"2em" }}>
                       <p style={{fontSize:"1.2em", marginTop:"1em"}}>Fractal</p>
@@ -126,7 +127,7 @@ const Player: React.FC = () => {
           </div>
         </div>
 
-            </div>
+            </div> */}
 
 
 
