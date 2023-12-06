@@ -21,7 +21,7 @@ interface FractalProps {
   ) => FractalPoint[];
 }
 
-const Fractal: React.FC<FractalProps> = ({ degree, area = 500, startingPoint = { x: 0, y: 0 }, generateFractal }) => {
+const Fractal: React.FC<FractalProps> = ({ degree, area=500 , startingPoint = { x: 0, y: 0 }, generateFractal }) => {
 
   const defaultGenerateFractal = (
     level: number,

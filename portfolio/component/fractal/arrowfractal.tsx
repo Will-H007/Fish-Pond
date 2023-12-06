@@ -9,15 +9,15 @@ interface FractalPoint {
   controlY?: number;
 }
 
-interface TreeFractalProps {
+interface ArrowFractalProps {
   level: number;
   x: number;
   y: number;
-  size: number;
+  size?: number;
 }
 
-const TreeFractal: React.FC<TreeFractalProps> = ({ level, x, y, size }) => {
-  const generateTreeFractal = (
+const ArrowFractal: React.FC<ArrowFractalProps> = ({ level, x, y, size=500 }) => {
+  const generateArrowFractal = (
     level: number,
     x: number,
     y: number,
@@ -29,10 +29,10 @@ const TreeFractal: React.FC<TreeFractalProps> = ({ level, x, y, size }) => {
 
     const newSize = size / 2;
 
-    const top: FractalPoint[] = generateTreeFractal(level - 1, x, y, newSize);
-    const right: FractalPoint[] = generateTreeFractal(level - 1, x + newSize, y, newSize);
-    const bottom: FractalPoint[] = generateTreeFractal(level - 1, x + newSize, y + newSize, newSize);
-    const left: FractalPoint[] = generateTreeFractal(level - 1, x, y + newSize, newSize);
+    const top: FractalPoint[] = generateArrowFractal(level - 1, x, y, newSize);
+    const right: FractalPoint[] = generateArrowFractal(level - 1, x + newSize, y, newSize);
+    const bottom: FractalPoint[] = generateArrowFractal(level - 1, x + newSize, y + newSize, newSize);
+    const left: FractalPoint[] = generateArrowFractal(level - 1, x, y + newSize, newSize);
 
     const controlX = x + newSize / 2;
     const controlY = y + newSize / 2;
@@ -48,7 +48,7 @@ const TreeFractal: React.FC<TreeFractalProps> = ({ level, x, y, size }) => {
     ];
   };
 
-  return <Fractal degree={1} generateFractal={() => generateTreeFractal(level, x, y, size)} />;
+  return <Fractal degree={1} generateFractal={() => generateArrowFractal(level, x, y, size)} />;
 };
 
-export default TreeFractal;
+export default ArrowFractal;

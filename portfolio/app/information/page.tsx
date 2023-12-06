@@ -34,7 +34,7 @@ const DoubleLinkedListLayout: React.FC = () => {
         />
       </div>
 
-      <div className={`col-span-full row-span-full h-[700px] w-full ${isMenuOpen ? 'col-start-3 col-end-11' : ''}`} style={{ paddingLeft: `${isMenuOpen ? '10px' : '35px'}` }}>
+      <div className={`col-span-full row-span-full h-[45em] w-full ${isMenuOpen ? 'col-start-3 col-end-11' : ''}`} style={{ paddingLeft: `${isMenuOpen ? '10px' : '35px'}` }}>
         <GlassmorphismBox skill={<Skill />} experience={<Experience />} project={<Player/>}/>
       </div>
     </div>
