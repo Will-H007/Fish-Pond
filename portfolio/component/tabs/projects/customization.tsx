@@ -47,7 +47,7 @@ const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, Flipp
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", transform: "rotateY(0deg)", backfaceVisibility: "hidden" }}>
             {!isFlipped ? (
               // Render custom fractal content or default ArrowFractal
-              Content || <ArrowFractal level={degree} x={5} y={5} />
+              Content || <ArrowFractal level={degree} x={50} y={50} />
             ) : (
               /* Add text or content for the flipped side */
               <div style={{ width: "15em", backfaceVisibility: "hidden", display: "flex", justifyContent: "center", }}>

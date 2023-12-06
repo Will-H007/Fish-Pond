@@ -111,7 +111,7 @@ const Fractal: React.FC<FractalProps> = ({ degree, area=500 , startingPoint = { 
         width: '100%',
       }}
     >
-      <svg width="100%" height="100%" viewBox={`0 0 ${area} ${area}`} preserveAspectRatio="xMidYMid meet">
+      <svg width="100%" height="100%" viewBox={`0 0 ${area*1.2} ${area*1.2}`} preserveAspectRatio="xMidYMid meet">
         <motion.path
           style={{
             stroke: 'white',

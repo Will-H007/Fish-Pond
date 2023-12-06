@@ -27,7 +27,7 @@ const DragonCurve: React.FC<DragonCurveProps> = ({ level, x, y, size }) => {
       return [{ type: 'line', x, y }];
     }
 
-    const newSize = size / Math.sqrt(2);
+    const newSize = size / Math.sqrt(4);
 
     const points: FractalPoint[] = [];
 
