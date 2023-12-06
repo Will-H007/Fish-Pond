@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProgressBar from "./progressbar";
-import Card from "@/component/Second_page/card";
+
 import DoubleLinkedList from "@/component/two_pointers/Boxes";
 
 const Skill: React.FC = () => {
@@ -42,7 +42,6 @@ const Skill: React.FC = () => {
         gap: "20px",
       }}
     >
-      {/* <Card /> */}
  
       <div
         style={{

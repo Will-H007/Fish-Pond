@@ -1,14 +1,13 @@
 'use client';
 import React, { useState } from 'react';
 import GlassmorphismBox from '@/component/Second_page/glass_box';
-
+import Player from '@/component/tabs/projects/projects';
 import Card from '@/component/Second_page/card';
 import Skill from '@/component/tabs/skill/skill';
 import Experience from '@/component/tabs/experience/experience';
-import AboutMe from '@/component/tabs/about_me/aboutme';
 
 const DoubleLinkedListLayout: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   const handleToggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -35,8 +34,8 @@ const DoubleLinkedListLayout: React.FC = () => {
         />
       </div>
 
-      <div className={`col-span-full row-span-full h-[750px] w-full ${isMenuOpen ? 'col-start-3 col-end-11' : ''}`} style={{ paddingLeft: `${isMenuOpen ? '10px' : '35px'}` }}>
-        <GlassmorphismBox skill={<Skill />} experience={<Experience />} aboutme={<AboutMe />} />
+      <div className={`col-span-full row-span-full h-[700px] w-full ${isMenuOpen ? 'col-start-3 col-end-11' : ''}`} style={{ paddingLeft: `${isMenuOpen ? '10px' : '35px'}` }}>
+        <GlassmorphismBox skill={<Skill />} experience={<Experience />} project={<Player/>}/>
       </div>
     </div>
   );

@@ -6,14 +6,14 @@ import NavBar from './navbar';
 interface GlassmorphismBoxProps {
   experience?: ReactNode;
   skill?: ReactNode;
-  aboutme?: ReactNode;
+  project?: ReactNode;
   showDoubleLinkedList?: boolean;
 }
 
 const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({
   experience,
   skill,
-  aboutme,
+  project,
   showDoubleLinkedList,
 }) => {
   const initialItems = ["#5f6497", "#ADA87C", "#7075a7", "#9197c6"];
@@ -37,7 +37,7 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({
       case '#5f6497':
         return skill;
       case 'transparent':
-        return aboutme;
+        return project;
       default:
         return null;
     }
