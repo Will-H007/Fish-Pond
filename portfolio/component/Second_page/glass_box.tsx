@@ -57,13 +57,14 @@ const GlassmorphismBox: React.FC<GlassmorphismBoxProps> = ({
       }}
     >
       <div style={{ height: '100%', width: '100%' }}>
+
         <NavBar onTabClick={(tabId) => setSelectedTab(tabId)} />
         <div
           style={{
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            height: '93%',
+            height: '100%',
           }}
         >
           <div

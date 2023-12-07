@@ -3,11 +3,18 @@ import React, { useState } from 'react';
 
 const initialItems = [
 
-  { id: 'about me', color: 'transparent', label: '🚀 Topics'  },
+  // { id: 'Home', color: 'transparent', label: 'Home'  },
 
-  { id: 'skill', color: '#7075a7', label: '💼 Skill' },
+  // { id: 'About me', color: '#5f6497', label: 'About me' },
 
-  // { id: 'experience', color: '#5f6497', label: '🌟 Experience'},
+  // { id: 'experience', color: '#7075a7', label: '🌟 Experience'},
+  { id: 'about me', color: 'transparent', label: '🖼️ Gallery'  },
+
+  { id: 'skill', color: '#5f6497', label: '💼 Skill' },
+
+  { id: 'experience', color: '#7075a7', label: '🌟 Experience'},
+
+
 
 
 ];
@@ -27,9 +34,12 @@ const NavBar: React.FC<NavBarProps> = ({ onTabClick }) => {
 
   return (
     <nav style={{
-      height: "7%",
+      height: "2em",
       display: 'flex',
       flexDirection: 'row',
+      width:"100%",
+   
+      paddingRight:"50em"
     }}>
       {initialItems.map((item, index) => (
         <div

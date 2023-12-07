@@ -2,41 +2,47 @@
 import React, { useState } from 'react';
 import GlassmorphismBox from '@/component/Second_page/glass_box';
 import Player from '@/component/tabs/projects/projects';
-import Card from '@/component/Second_page/card';
+import { AnimateNav } from '@/component/navbar/newnav';
 import Skill from '@/component/tabs/skill/skill';
 import Experience from '@/component/tabs/experience/experience';
 
 const DoubleLinkedListLayout: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
 
-  const handleToggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  // State to store the selected tab
+  const [selectedTab, setSelectedTab] = useState<string | null>('transparent');
+
+  // Function to render content based on the selected tab
+  const renderContent = () => {
+    switch (selectedTab) {
+      case '#7075a7':
+        return <div>asdasdasdasd</div>;
+      case '#5f6497':
+        return <div>asd</div>;
+      case 'transparent':
+        return <div>asdasdas</div>;
+      default:
+        return null;
+    }
   };
 
-  return (
-    <div className="h-full flex flex-row gap-x-8 w-max-xl grid grid-rows-6 grid-cols-10 items-center justify-center pt-10 pl-4 pr-6">
-      {/* Hamburger menu button */}
-      <div className="col-start-1 col-end-2 row-span-full" style={{
-        height: "100%", // Adjust the height to fill the entire available height
-        width: "30px",
-        zIndex: 2,
-        position: 'relative',
-      }}>
-        {isMenuOpen && (
-          <div className="col-start-1 col-end-3 row-span-full" style={{ zIndex: 1 }}>
-            <Card onMenuButtonClick={handleToggleMenu} isMenuOpen={isMenuOpen} />
-          </div>
-        )}
-        <button
-          onClick={handleToggleMenu}
-          className="bg-[transparent] rounded h-full w-full"
-          style={{ position: 'absolute', top: 275, left: `${isMenuOpen ? '5px' : ''}` , boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',height:"20%"}} // Adjust top and left to 0
-        />
-      </div>
 
-      <div className={`col-span-full row-span-full h-[47em] w-full ${isMenuOpen ? 'col-start-3 col-end-11' : ''}`} style={{ paddingLeft: `${isMenuOpen ? '10px' : '35px'}` }}>
-        <GlassmorphismBox skill={<Skill />} experience={<Experience />} project={<Player/>}/>
-      </div>
+
+
+  return (
+    
+  <div>
+ 
+ 
+    <AnimateNav/>
+
+
+      
+      {/* <div className="h-full w-full flex flex-col gap-x-8  items-center justify-center">
+        <div  style={{ height:"90vh", width:"100%",zIndex:3 }}>
+          {renderContent()}
+              <GlassmorphismBox skill={<Skill />} experience={<Experience />} project={<Player/>}/>
+          </div>
+          </div> */}
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Player: React.FC = () => {
   return (
 
       
-      <div style={{ display:"flex",flexDirection:"column",alignItems: "center",paddingRight: "1em",paddingLeft: "1em", width:"100%",height:"100%",borderRadius: '8px', gap:"3em",overflowY:"auto"}}>
+      <div style={{ display:"flex",flexDirection:"column",alignItems: "center",paddingRight: "1em",paddingLeft: "1em", width:"100%",height:"100%",borderRadius: '8px', gap:"3em",overflowX:"auto"}}>
 
 
 
@@ -27,7 +27,7 @@ const Player: React.FC = () => {
             
             <div style={{paddingTop:"1em"}}>
  
-            <ImageBox image="images/image10.png"/>
+            <ImageBox image="images/image10.png" FlippedContent="Koi(AI)"/>
             </div>
         </div>
 
@@ -35,7 +35,7 @@ const Player: React.FC = () => {
             
                 <div style={{paddingTop:"1em"}}>
      
-                <ImageBox image="images/image7.png"/>
+                <ImageBox image="images/image7.png" FlippedContent="Turtle(AI)"/>
                 </div>
             </div>
             
@@ -44,7 +44,7 @@ const Player: React.FC = () => {
             
                 <div style={{paddingTop:"1em"}}>
      
-                <ImageBox image="images/image8.png"/>
+                <ImageBox image="images/image8.png" FlippedContent="Frog(AI)"/>
                      </div>
             </div>
 
@@ -52,7 +52,7 @@ const Player: React.FC = () => {
             
             <div style={{paddingTop:"1em"}}>
  
-            <ImageBox image="images/image9.png"/>
+            <ImageBox image="images/image9.png" FlippedContent="Duck(AI)"/>
           </div>
         </div>
 

@@ -1,9 +1,21 @@
 import React, { useState } from "react";
-import ProgressBar from "./progressbar";
+import Card from "@/component/Second_page/card";
 
 import DoubleLinkedList from "@/component/two_pointers/Boxes";
 
 const Skill: React.FC = () => {
+
+
+
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+  const handleToggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+
+
+
   const initialItems = ["#ADA87C", "#7CAD90", "#7C9AAD"];
 
   // State to store visible items
@@ -24,7 +36,7 @@ const Skill: React.FC = () => {
         return <div></div>;
       } else {
         // Replace this with the component you want to render for other cases
-        return <div>Other Component</div>;
+        return <div>Other content</div>;
       }
     }
 
@@ -42,13 +54,30 @@ const Skill: React.FC = () => {
         gap: "20px",
       }}
     >
- 
+
+  <div style={{
+        height: "100%", // Adjust the height to fill the entire available height
+        width: "30px",
+        zIndex: 2,
+        position: 'relative',
+      }}>
+        {isMenuOpen && (
+          <div >
+            <Card onMenuButtonClick={handleToggleMenu} isMenuOpen={isMenuOpen} />
+          </div>
+        )}
+        <button
+          onClick={handleToggleMenu}
+          className="bg-[transparent] rounded h-full w-full"
+          style={{ position: 'absolute', top: 275, left: `${isMenuOpen ? '5px' : ''}` , boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',height:"20%"}} // Adjust top and left to 0
+        />
+      </div>
+      
+      
       <div
         style={{
           width: "100%",
           height: "100%",
-
-          // margin: "auto",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -57,12 +86,14 @@ const Skill: React.FC = () => {
           padding:"20px"
         }}
       >
+      
         <div style={{height:"100%",width:"100%", display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
 
           }}>
+
          {renderCenterComponent()}
 
          </div>

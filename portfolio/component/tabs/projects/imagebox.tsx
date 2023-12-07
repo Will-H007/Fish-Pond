@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ImageBox: React.FC<{ image: string; color?: string; FlippedContent?:string }> = ({ image, color = "transparent", FlippedContent }) => {
+const ImageBox: React.FC<{ image: string; color?: string; FlippedContent?:string }> = ({ image, color = "transparent", FlippedContent="No Description" }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleFlipClick = () => {
@@ -31,7 +31,7 @@ const ImageBox: React.FC<{ image: string; color?: string; FlippedContent?:string
           ) : (
             /* Add text or content for the flipped side */
             <div style={{ width: "15em", backfaceVisibility: "hidden", display: "flex", justifyContent: "center", }}>
-              { FlippedContent ||<p style={{ color: "white" }}>No Description</p>}
+              <p style={{ color: "white", fontSize:"30px" }}>{ FlippedContent}</p>
             </div>
           )}
         </div>

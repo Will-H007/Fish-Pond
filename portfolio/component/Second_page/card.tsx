@@ -39,6 +39,7 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
       position: 'absolute', // Position absolute to overlay on the left-center
       top: '50%', // Align to the vertical center
       transform: 'translateY(-50%)', // Adjust to center vertically
+  
     }}>
     {/* <p style={{color:"black", fontSize:"30px"}}>About me</p> */}
       <img style={{ width: '100px',border: '1px solid transparent', borderRadius: '50%', marginTop: "10px",marginBottom:"10px", padding:"4px" }} src="/photo.jpeg" alt="User" />

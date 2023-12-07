@@ -51,7 +51,7 @@ const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, Flipp
             ) : (
               /* Add text or content for the flipped side */
               <div style={{ width: "15em", backfaceVisibility: "hidden", display: "flex", justifyContent: "center", }}>
-                { FlippedContent ||<p style={{ color: "white" }}>No Description</p>}
+                  <p style={{ color: "white", fontSize:"30px" }}>{ FlippedContent}</p>
               </div>
             )}
           </div>
