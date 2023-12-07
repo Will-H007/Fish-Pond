@@ -19,7 +19,7 @@ const ImageBox: React.FC<{ image: string; color?: string; FlippedContent?:string
         transform: isFlipped ? "rotateY(360deg)" : "rotateY(0deg)", // Apply flip transformation
         transformStyle: "preserve-3d", // Preserve 3D transformation
         transition: "transform 0.5s", // Add transition for smooth flip
-        backgroundColor: color
+        backgroundColor: color,
       }}
       onClick={handleFlipClick} // Flip on click
     >
@@ -31,7 +31,7 @@ const ImageBox: React.FC<{ image: string; color?: string; FlippedContent?:string
           ) : (
             /* Add text or content for the flipped side */
             <div style={{ width: "15em", backfaceVisibility: "hidden", display: "flex", justifyContent: "center", }}>
-              <p style={{ color: "white", fontSize:"30px" }}>{ FlippedContent}</p>
+              <p style={{ color: "black", fontSize:"30px" }}>{ FlippedContent}</p>
             </div>
           )}
         </div>

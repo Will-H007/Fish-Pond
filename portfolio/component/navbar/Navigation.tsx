@@ -1,10 +1,12 @@
+// Navigation.tsx
 import * as React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import { MenuItem } from "./MenuItem";
-
 interface ListItem {
   id: number;
   label: string;
+  path: string; // Include path property in ListItem
 }
 
 interface NavigationProps {
@@ -21,13 +23,13 @@ const variants = {
 };
 
 const Navigation: React.FC<NavigationProps> = ({ list }) => (
-  <div style={{ height: "20em", width: "10em", paddingTop: "6em", paddingLeft:"5em" }}>
-    <motion.ul variants={variants} style={{ height: "4em", position: "absolute" }}>
-      {list.map(({ id, label }) => (
-        <MenuItem i={id} key={id} label={label} />
+  <motion.div style={{ height: "20em", width: "10em", paddingTop: "6em", paddingLeft: "5em" }}>
+    <motion.ul variants={variants} style={{ gap: "2em", height: "4em", position: "absolute" }}>
+      {list.map(({ id, label,path }) => (
+        <MenuItem key={id} i={id} label={label}/>
       ))}
     </motion.ul>
-  </div>
+  </motion.div>
 );
 
 export default Navigation;

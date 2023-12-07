@@ -39,7 +39,8 @@ const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, Flipp
           transform: isFlipped ? "rotateY(360deg)" : "rotateY(0deg)", // Apply flip transformation
           transformStyle: "preserve-3d", // Preserve 3D transformation
           transition: "transform 0.5s", // Add transition for smooth flip
-          backgroundColor: color
+          backgroundColor: color,
+          
         }}
         onClick={handleFlipClick} // Flip on click
       >

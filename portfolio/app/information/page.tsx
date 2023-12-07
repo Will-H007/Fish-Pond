@@ -26,23 +26,35 @@ const DoubleLinkedListLayout: React.FC = () => {
   };
 
 
-
+  const backgroundImageUrl = 'url("/images/image6.png")';
 
   return (
     
   <div>
- 
 
-   
-
-      
-      <div className="h-full w-full flex flex-col gap-x-8  items-center justify-center">
+          <div style={{backgroundImage: backgroundImageUrl,
+            backgroundSize: 'cover', // Adjust as needed
+            backgroundPosition: 'center', // Adjust as needed
+            // Add other styles as needed
+            width: '100%',
+            height: '100vh',
+            opacity:"80%",
+            padding:"2em",
+            paddingTop:"3em",
+            }}>
+ {/* <div className="h-full w-full flex flex-col gap-x-8  items-center justify-center" style={{zIndex:2}}>
         <div  style={{ height:"90vh", width:"100%" }}>
-          {/* {renderContent()} */}
+
               <GlassmorphismBox skill={<Skill />} experience={<Experience />} project={<Player/>}/>
           </div>
+          </div> */}
+          <div style={{ height:"45em",width:"90em",display:"flex",alignItems:"center", backgroundColor:"white",boxShadow: "0 4px 8px rgba(0, 0, 0, 0.4)", borderRadius:"4em", opacity:"95%"}}>
+
+          <Player/>
+          
           </div>
-          <AnimateNav/>
+            </div>
+            <AnimateNav/>
 
     </div>
   );
