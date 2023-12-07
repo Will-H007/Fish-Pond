@@ -3,7 +3,14 @@ import { useRef } from "react";
 import { motion, useCycle } from "framer-motion";
 import { useDimensions } from "./useDimension";
 import { MenuToggle } from "./MenuToggle";
-import { Navigation } from "./Navigation";
+import Navigation from "./Navigation";
+
+const initialItems = [
+  { id: 0,  label: 'Gallery' },
+  { id: 1,  label: 'Skill' },
+  { id: 2, label: 'Experience' },
+
+];
 
 const sidebar = {
   open: (height = 1000) => ({
@@ -30,13 +37,18 @@ export const AnimateNav = () => {
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
-  return (    
+  return (
     <motion.nav
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
-      style={{   position: isOpen ? "absolute" : "static", top: 0, left: 0, bottom: 0 }}
+      style={{
+        position: isOpen ? "absolute" : "static",
+        top: 0,
+        left: 0,
+        bottom: 0,
+      }}
     >
       <motion.div
         variants={sidebar}
@@ -50,16 +62,9 @@ export const AnimateNav = () => {
           bottom: 0,
         }}
       />
-      {isOpen && (
-        <>
-          {/* Conditionally rendered content when the navigation is open */}
-          <div style={{ position: "absolute", top: "50px", left: "50px", color: "red" }}>
-            Other Content
-          </div>
-          {/* Add more elements as needed */}
-        </>
-      )}
-      <Navigation />
+
+        <Navigation list={initialItems} />
+
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.nav>
   );

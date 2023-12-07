@@ -3,20 +3,11 @@ import React, { useState } from 'react';
 
 const initialItems = [
 
-  // { id: 'Home', color: 'transparent', label: 'Home'  },
-
-  // { id: 'About me', color: '#5f6497', label: 'About me' },
-
-  // { id: 'experience', color: '#7075a7', label: '🌟 Experience'},
   { id: 'about me', color: 'transparent', label: '🖼️ Gallery'  },
 
   { id: 'skill', color: '#5f6497', label: '💼 Skill' },
 
   { id: 'experience', color: '#7075a7', label: '🌟 Experience'},
-
-
-
-
 ];
 
 
