@@ -32,17 +32,18 @@ const DoubleLinkedListLayout: React.FC = () => {
     
   <div>
  
- 
-    <AnimateNav/>
 
+   
 
       
-      {/* <div className="h-full w-full flex flex-col gap-x-8  items-center justify-center">
-        <div  style={{ height:"90vh", width:"100%",zIndex:3 }}>
-          {renderContent()}
+      <div className="h-full w-full flex flex-col gap-x-8  items-center justify-center">
+        <div  style={{ height:"90vh", width:"100%" }}>
+          {/* {renderContent()} */}
               <GlassmorphismBox skill={<Skill />} experience={<Experience />} project={<Player/>}/>
           </div>
-          </div> */}
+          </div>
+          <AnimateNav/>
+
     </div>
   );
 };
