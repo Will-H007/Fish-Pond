@@ -28,7 +28,7 @@ const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, Flipp
   }, [degree, setDegree]);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", color: "white", alignItems: "center", height: "100%", width: "100%", gap: "0.5em" }}>
+    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", color: "white", alignItems: "center", height: "16em", width: "16em", gap: "0.5em" }}>
       <div
         style={{
           position: "relative",
@@ -43,8 +43,8 @@ const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, Flipp
         }}
         onClick={handleFlipClick} // Flip on click
       >
-        <div style={{ height: `15em`, width: `100%`, overflow: "hidden", borderRadius: "8px", backfaceVisibility: "hidden" }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", transform: "rotateY(0deg)", backfaceVisibility: "hidden" }}>
+        <div style={{ height: `16em`, width: `16em`, overflow: "hidden", borderRadius: "8px", backfaceVisibility: "hidden" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "16em", transform: "rotateY(0deg)", backfaceVisibility: "hidden" }}>
             {!isFlipped ? (
               // Render custom fractal content or default ArrowFractal
               Content || <ArrowFractal level={degree} x={50} y={50} />
@@ -57,11 +57,7 @@ const Customization: React.FC<CustomizationProps> = ({ setDegree, Content, Flipp
           </div>
         </div>
       </div>
-      {/* {!isFlipped && (
-        <Input value={degree} set={(newValue) => setLocalDegree(newValue)} min={2} max={8}>
-          Degree
-        </Input>
-      )} */}
+
     </div>
   );
 };
