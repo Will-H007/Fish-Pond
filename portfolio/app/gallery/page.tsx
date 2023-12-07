@@ -1,6 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-import GlassmorphismBox from '@/component/Second_page/glass_box';
 import Player from '@/component/tabs/projects/projects';
 import { AnimateNav } from '@/component/navbar/newnav';
 import Skill from '@/component/tabs/skill/skill';
@@ -30,7 +29,7 @@ const DoubleLinkedListLayout: React.FC = () => {
 
   return (
     
-  <div>
+  <div style={{ overflow: "hidden", height:"100vh" }}>
 
           <div style={{backgroundImage: backgroundImageUrl,
             backgroundSize: 'cover', // Adjust as needed
@@ -40,7 +39,8 @@ const DoubleLinkedListLayout: React.FC = () => {
             height: '100vh',
             opacity:"80%",
             padding:"2em",
-            paddingTop:"3em",
+            paddingTop:"4em",
+          
             }}>
  {/* <div className="h-full w-full flex flex-col gap-x-8  items-center justify-center" style={{zIndex:2}}>
         <div  style={{ height:"90vh", width:"100%" }}>
@@ -48,11 +48,15 @@ const DoubleLinkedListLayout: React.FC = () => {
               <GlassmorphismBox skill={<Skill />} experience={<Experience />} project={<Player/>}/>
           </div>
           </div> */}
-          <div style={{ height:"45em",width:"90em",display:"flex",alignItems:"center", backgroundColor:"white",boxShadow: "0 4px 8px rgba(0, 0, 0, 0.4)", borderRadius:"4em", opacity:"95%"}}>
+ 
+                    <div style={{ height:"45em",width:"90em",display:"flex",alignItems:"center", backgroundColor:"transparent", borderRadius:"4em", opacity:"95%"}}>
 
-          <Player/>
-          
-          </div>
+                    <Player/>
+                    
+                    </div>
+                 
+
+
             </div>
             <AnimateNav/>
 
