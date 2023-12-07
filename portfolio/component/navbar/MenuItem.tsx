@@ -40,4 +40,9 @@ export const MenuItem: React.FC<MenuItemProps> = ({ i, label }) => {
   );
 };
 
-const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
+const colors = [
+ "#006994", // or "#008DBB"
+   "#FF8C00", // or "#FFA500"
+ "#228B22", // or "#008000"
+ "#FFD700"
+];

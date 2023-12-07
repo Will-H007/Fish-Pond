@@ -4,8 +4,8 @@ import Player from '@/component/tabs/projects/projects';
 import { AnimateNav } from '@/component/navbar/newnav';
 import Skill from '@/component/tabs/skill/skill';
 import Experience from '@/component/tabs/experience/experience';
-
-const Gallery: React.FC = () => {
+import GlassmorphismBox from '@/component/Second_page/glass_box';
+const ExperiencePage: React.FC = () => {
 
   // State to store the selected tab
   const [selectedTab, setSelectedTab] = useState<string | null>('transparent');
@@ -42,18 +42,14 @@ const Gallery: React.FC = () => {
             paddingTop:"4em",
           
             }}>
- {/* <div className="h-full w-full flex flex-col gap-x-8  items-center justify-center" style={{zIndex:2}}>
+ <div className="h-full w-full flex flex-col gap-x-8  items-center justify-center" style={{zIndex:2}}>
         <div  style={{ height:"90vh", width:"100%" }}>
 
               <GlassmorphismBox skill={<Skill />} experience={<Experience />} project={<Player/>}/>
           </div>
-          </div> */}
+          </div>
  
-                    <div style={{ height:"45em",width:"90em",display:"flex",alignItems:"center", backgroundColor:"transparent", borderRadius:"4em", opacity:"95%"}}>
-
-                    <Player/>
-                    
-                    </div>
+       
                  
 
 
@@ -64,4 +60,4 @@ const Gallery: React.FC = () => {
   );
 };
 
-export default Gallery;
+export default ExperiencePage;

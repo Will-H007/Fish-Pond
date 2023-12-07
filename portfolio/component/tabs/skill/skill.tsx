@@ -52,6 +52,7 @@ const Skill: React.FC = () => {
         height: "100%",
         alignItems: "center",
         gap: "20px",
+   
       }}
     >
 

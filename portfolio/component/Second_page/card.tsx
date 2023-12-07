@@ -25,7 +25,7 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
   return (
     <div style={{
       width: "300px",
-      height:"100%",
+      height:"45em",
       display: "flex",
       flexDirection: "column",
       alignItems: 'center',
@@ -33,16 +33,17 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
       borderRadius: '8px',
       overflow: 'hidden',
       gap: '20px',
-      backdropFilter: 'blur(10px)',
+      backdropFilter: 'blur(2px)',
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
       position: 'absolute', // Position absolute to overlay on the left-center
       top: '50%', // Align to the vertical center
       transform: 'translateY(-50%)', // Adjust to center vertically
-  
+      marginTop:"1em",
+     
     }}>
     {/* <p style={{color:"black", fontSize:"30px"}}>About me</p> */}
-      <img style={{ width: '100px',border: '1px solid transparent', borderRadius: '50%', marginTop: "10px",marginBottom:"10px", padding:"4px" }} src="/photo.jpeg" alt="User" />
+      <img style={{ width: '100px',border: '1px solid transparent', borderRadius: '50%', marginTop: "10px",marginBottom:"10px", padding:"8px" }} src="/photo.jpeg" alt="User" />
       <div style={{ paddingLeft: '20px', paddingRight: '20px' }}>
         <div style={{ fontSize: '1.5rem', marginBottom: '8px', textAlign: 'center', color: "black" }}>
           William Ho

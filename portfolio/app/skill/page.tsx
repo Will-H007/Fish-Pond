@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 import Player from '@/component/tabs/projects/projects';
 import { AnimateNav } from '@/component/navbar/newnav';
 import Skill from '@/component/tabs/skill/skill';
-import Experience from '@/component/tabs/experience/experience';
+import Card from '@/component/Second_page/card';
+import GlassmorphismBox from '@/component/Second_page/glass_box';
 
-const Gallery: React.FC = () => {
+const ExperiencePage: React.FC = () => {
 
   // State to store the selected tab
   const [selectedTab, setSelectedTab] = useState<string | null>('transparent');
@@ -27,6 +28,13 @@ const Gallery: React.FC = () => {
 
   const backgroundImageUrl = 'url("/images/image6.png")';
 
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+  const handleToggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+
   return (
     
   <div style={{ overflow: "hidden", height:"100vh" }}>
@@ -42,21 +50,18 @@ const Gallery: React.FC = () => {
             paddingTop:"4em",
           
             }}>
- {/* <div className="h-full w-full flex flex-col gap-x-8  items-center justify-center" style={{zIndex:2}}>
-        <div  style={{ height:"90vh", width:"100%" }}>
 
-              <GlassmorphismBox skill={<Skill />} experience={<Experience />} project={<Player/>}/>
-          </div>
-          </div> */}
  
-                    <div style={{ height:"45em",width:"90em",display:"flex",alignItems:"center", backgroundColor:"transparent", borderRadius:"4em", opacity:"95%"}}>
-
-                    <Player/>
-                    
-                    </div>
-                 
-
-
+       <div style={{width:"100%", height:"100%"}}>
+            <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', height:"45em",width:"75%", display:"flex", justifyContent:"center", marginLeft:"2em", 
+            marginTop:"0.25em", borderRadius:"0.5em",
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',  backdropFilter: 'blur(2px)',}}>
+                Skillasdaskdjhaskjh
+            </div>
+                <div style={{width:"100%", height:"100%", display:"flex", justifyContent:"end"}}>
+                <Card onMenuButtonClick={handleToggleMenu} isMenuOpen={isMenuOpen} />
+                </div>
+        </div>
             </div>
             <AnimateNav/>
 
@@ -64,4 +69,4 @@ const Gallery: React.FC = () => {
   );
 };
 
-export default Gallery;
+export default ExperiencePage;

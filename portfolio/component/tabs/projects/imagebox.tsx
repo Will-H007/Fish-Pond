@@ -31,7 +31,7 @@ const ImageBox: React.FC<{ image: string; color?: string; FlippedContent?:string
           ) : (
             /* Add text or content for the flipped side */
             <div style={{ width: "15em", backfaceVisibility: "hidden", display: "flex", justifyContent: "center", }}>
-              <p style={{ color: "transparent", fontSize:"30px" }}>{ FlippedContent}</p>
+              <p style={{ color: "black", fontSize:"30px" }}>{ FlippedContent}</p>
             </div>
           )}
         </div>
