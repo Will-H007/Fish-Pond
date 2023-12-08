@@ -4,7 +4,6 @@ import { motion, useCycle } from "framer-motion";
 import { useDimensions } from "./useDimension";
 import { MenuToggle } from "./MenuToggle";
 import Navigation from "./Navigation";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const initialItems = [
   { id: 0, label: 'Home', path: '/home' },
