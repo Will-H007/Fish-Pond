@@ -24,6 +24,7 @@ const ExperiencePage: React.FC = () => {
     opacity: '95%',
     padding: '2em',
     paddingTop: '4em',
+
   }}
 >
         <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'start', alignItems: 'center', padding: '1em' }}>
@@ -44,11 +45,11 @@ const ExperiencePage: React.FC = () => {
           ></button>
 
           {/* Card Component */}
-          {isCardOpen && (
-            <div style={{ position: 'absolute', zIndex: 2, marginTop: '20em', marginLeft:"1em" }}>
+      
+            <div style={{ position: 'absolute', zIndex: isCardOpen?2:3, marginTop: '20em', marginLeft:"1em" }}>
               <Card onMenuButtonClick={handleToggleCard} isMenuOpen={isCardOpen} />
             </div>
-          )}
+         
 
           <div
             style={{

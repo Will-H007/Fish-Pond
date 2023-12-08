@@ -22,6 +22,27 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
     // Add icons for other languages
   ];
 
+  const cardStyle: React.CSSProperties = {
+    width: '18em',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: '8px',
+    overflow: 'hidden',
+    gap: '20px',
+    backgroundColor: '#759f7e',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
+    transition: 'transform 0.3s ease-in-out', // Transition for transform property
+    transform: isMenuOpen ? 'translateY(-50em)' : 'translateY(-50%)', // Conditional transform based on isMenuOpen
+    marginTop: '23.5em',
+  };
+
+
+
+
+
   return (
 
     <div style={{
@@ -39,9 +60,9 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
 
       marginTop:"23.5em",
-
-      transform: 'translateY(-50%)', // Adjust to center vertically
-
+      
+      transform: isMenuOpen ? 'translateX(-200%) translateY(-50%)' : 'translateY(-50%)', // Adjusted transform value
+      transition: 'transform 0.5s ease-in-out', // Transition for transform property
   
     }}>
     {/* <p style={{color:"black", fontSize:"30px"}}>About me</p> */}
