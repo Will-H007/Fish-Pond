@@ -37,8 +37,11 @@ const AnimatedTextComponent: React.FC = () => {
   const getSpanStyles = (i: number): React.CSSProperties => ({
     ...styles.span,
     ['--i' as any]: i,
-    color: 'black',
+    color: '#FFD700',
     animationDelay: `${i*0.3 }s`, // Adjust the delay based on your preference
+    backgroundColor:"#6791a5",
+    borderRadius:"50%",
+    padding:"0.2em"
   });
 
   return (
