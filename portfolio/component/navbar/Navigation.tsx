@@ -23,8 +23,8 @@ const variants = {
 };
 
 const Navigation: React.FC<NavigationProps> = ({ list }) => (
-  <motion.div style={{ height: "20em", width: "10em", paddingTop: "6em", paddingLeft: "5em" }}>
-    <motion.ul variants={variants} style={{ gap: "2em", height: "4em", position: "absolute" }}>
+  <motion.div style={{ height: "20em", width: "10em", paddingTop: "6em", paddingLeft: "5em" , zIndex:100}}>
+    <motion.ul variants={variants} style={{ gap: "2em", height: "4em", position: "absolute", zIndex:101 }}>
       {list.map(({ id, label,path }) => (
         <MenuItem key={id} i={id} label={label}/>
       ))}

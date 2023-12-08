@@ -37,7 +37,7 @@ export const MenuToggle: React.FC<MenuToggleProps> = ({ toggle }) => (
       background: 'transparent',
       top: "27px",
       left: "27px",
-    
+    zIndex:101,
       borderRadius: "50%",
     }}
   >

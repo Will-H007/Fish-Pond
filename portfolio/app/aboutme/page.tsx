@@ -13,20 +13,24 @@ const ExperiencePage: React.FC = () => {
   return (
     <div style={{ overflow: 'hidden', height: '100%' }}>
       
+
       <div
   style={{
     boxSizing: 'border-box',
 
     width: '100%',
     height: '100vh',
-    opacity: '95%',
+
     padding: '2em',
     paddingTop: '4em',
 
   }}
->
-        <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'start', alignItems: 'center', padding: '1em' }}>
-          {/* Button to toggle card */}
+>   
+
+
+
+        <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'start', alignItems: 'center', padding: '1em',zIndex:-1 }}>
+
           <button
             onClick={handleToggleCard}
             style={{
@@ -42,9 +46,10 @@ const ExperiencePage: React.FC = () => {
             }}
           ></button>
 
-          {/* Card Component */}
+       
       
             <div style={{ position: 'fixed', zIndex: isCardOpen?2:3, marginTop: '20em', marginLeft:"1em" , height:'100%'}}>
+ 
               <Card onMenuButtonClick={handleToggleCard} isMenuOpen={isCardOpen} />
             </div>
          
@@ -69,11 +74,11 @@ const ExperiencePage: React.FC = () => {
             asdas
           </div>
         </div>
-
+      
       </div>
-  
+
       <AnimateNav/>
- 
+
     </div>
   );
 };
