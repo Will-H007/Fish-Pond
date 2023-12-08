@@ -7,9 +7,10 @@ import Navigation from "./Navigation";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const initialItems = [
-  { id: 0, label: 'Gallery', path: '/gallery' },
-  { id: 1, label: 'Skill', path: '/skill' },
-  { id: 2, label: 'Experience', path: '/experience' },
+  { id: 0, label: 'Home', path: '/home' },
+  { id: 1, label: 'Gallery', path: '/gallery' },
+  { id: 2, label: 'Skill', path: '/skill' },
+  { id: 3, label: 'Experience', path: '/experience' },
 ];
 
 const sidebar = {

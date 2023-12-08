@@ -33,7 +33,7 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
       borderRadius: '8px',
       overflow: 'hidden',
       gap: '20px',
-      backdropFilter: 'blur(2px)',
+      backdropFilter: 'blur(5px)',
       backgroundColor: 'rgba(255, 255, 255, 0.1)',
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
       position: 'absolute', // Position absolute to overlay on the left-center
@@ -52,7 +52,7 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
           I am a software engineering student studying in Masters in University of Western Australia
         </p>
       </div>
-    <button style={{borderRadius:"10px", backgroundColor:"#BEBEBE", padding:"10px", marginTop:"10px"}}>
+    <button style={{borderRadius:"10px", backgroundColor:"white", padding:"10px", marginTop:"10px", color:"black"}}>
       Download Resume
     </button>
       <div style={{

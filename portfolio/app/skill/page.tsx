@@ -5,6 +5,7 @@ import { AnimateNav } from '@/component/navbar/newnav';
 import Skill from '@/component/tabs/skill/skill';
 import Card from '@/component/Second_page/card';
 import GlassmorphismBox from '@/component/Second_page/glass_box';
+import ChartContainer from '@/component/tabs/skill/graphs/example';
 
 const ExperiencePage: React.FC = () => {
 
@@ -53,10 +54,15 @@ const ExperiencePage: React.FC = () => {
 
  
        <div style={{width:"100%", height:"100%"}}>
-            <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', height:"45em",width:"75%", display:"flex", justifyContent:"center", marginLeft:"2em", 
-            marginTop:"0.25em", borderRadius:"0.5em",
-            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',  backdropFilter: 'blur(2px)',}}>
-                Skillasdaskdjhaskjh
+            <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', height:"45em",width:"75%", display:"flex", justifyContent:"center", flexWrap:"wrap",marginLeft:"2em", 
+            marginTop:"0.25em", borderRadius:"0.5em",gap:"2.5em",
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',  backdropFilter: 'blur(5px)',}}>
+                <ChartContainer/>
+                <ChartContainer/>
+                <ChartContainer/>   
+                <ChartContainer/>   
+                <ChartContainer/> 
+                <ChartContainer/> 
             </div>
                 <div style={{width:"100%", height:"100%", display:"flex", justifyContent:"end"}}>
                 <Card onMenuButtonClick={handleToggleMenu} isMenuOpen={isMenuOpen} />
