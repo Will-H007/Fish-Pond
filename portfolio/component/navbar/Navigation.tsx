@@ -1,8 +1,9 @@
 // Navigation.tsx
 import * as React from "react";
 import { motion } from "framer-motion";
-
 import { MenuItem } from "./MenuItem";
+import Link from 'next/link';
+
 interface ListItem {
   id: number;
   label: string;
@@ -25,9 +26,12 @@ const variants = {
 const Navigation: React.FC<NavigationProps> = ({ list }) => (
   <motion.div style={{ height: "20em", width: "10em", paddingTop: "6em", paddingLeft: "5em" , zIndex:100}}>
     <motion.ul variants={variants} style={{ gap: "2em", height: "4em", position: "absolute", zIndex:101 }}>
+  
       {list.map(({ id, label,path }) => (
-        <MenuItem key={id} i={id} label={label}/>
+        <MenuItem key={id} i={id} label={label} path={path}/>
       ))}
+   
+  
     </motion.ul>
   </motion.div>
 );

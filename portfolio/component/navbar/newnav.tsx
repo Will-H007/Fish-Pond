@@ -5,10 +5,11 @@ import { useDimensions } from "./useDimension";
 import { MenuToggle } from "./MenuToggle";
 import Navigation from "./Navigation";
 
+
 const initialItems = [
-  { id: 0, label: 'Home', path: '/home' },
-  { id: 1, label: 'About me', path: '/aboutme' },
-  { id: 2, label: 'Gallery', path: '/gallery' },
+  { id: 0, label: 'Home', path: 'home' },
+  { id: 1, label: 'About Me', path: 'aboutme' },
+  { id: 2, label: 'Gallery', path: 'gallery' },
 
 ];
 
