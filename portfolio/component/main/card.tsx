@@ -23,9 +23,10 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
   ];
 
   return (
+
     <div style={{
-      width: "300px",
-      height:"45em",
+      width: "18em",
+      height:"100%",
       display: "flex",
       flexDirection: "column",
       alignItems: 'center',
@@ -33,17 +34,18 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
       borderRadius: '8px',
       overflow: 'hidden',
       gap: '20px',
-      backdropFilter: 'blur(5px)',
-      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+      // backdropFilter: 'blur(5px)',
+      backgroundColor: '#759f7e',
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
-      position: 'absolute', // Position absolute to overlay on the left-center
-      top: '50%', // Align to the vertical center
+
+      marginTop:"23.5em",
+
       transform: 'translateY(-50%)', // Adjust to center vertically
-      marginTop:"1em",
-     
+
+  
     }}>
     {/* <p style={{color:"black", fontSize:"30px"}}>About me</p> */}
-      <img style={{ width: '100px',border: '1px solid transparent', borderRadius: '50%', marginTop: "10px",marginBottom:"10px", padding:"8px" }} src="/photo.jpeg" alt="User" />
+      <img style={{ width: '100px',border: '1px solid transparent', borderRadius: '50%', marginTop: "2em",marginBottom:"1em" }} src="/photo.jpeg" alt="User" />
       <div style={{ paddingLeft: '20px', paddingRight: '20px' }}>
         <div style={{ fontSize: '1.5rem', marginBottom: '8px', textAlign: 'center', color: "black" }}>
           William Ho
@@ -52,7 +54,7 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
           I am a software engineering student studying in Masters in University of Western Australia
         </p>
       </div>
-    <button style={{borderRadius:"10px", backgroundColor:"white", padding:"10px", marginTop:"10px", color:"black"}}>
+    <button style={{borderRadius:"10px", backgroundColor:"#4ea5b5", padding:"10px", marginTop:"10px", color:"black"}}>
       Download Resume
     </button>
       <div style={{
@@ -103,6 +105,7 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
 
         </div>
     </div>
+
   );
 };
 

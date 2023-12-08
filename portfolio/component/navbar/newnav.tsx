@@ -8,9 +8,9 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const initialItems = [
   { id: 0, label: 'Home', path: '/home' },
-  { id: 1, label: 'Gallery', path: '/gallery' },
-  { id: 2, label: 'Skill', path: '/skill' },
-  { id: 3, label: 'Experience', path: '/experience' },
+  { id: 1, label: 'About me', path: '/aboutme' },
+  { id: 2, label: 'Gallery', path: '/gallery' },
+
 ];
 
 const sidebar = {
@@ -60,6 +60,7 @@ export const AnimateNav = () => {
           top: 0,
           left: 0,
           bottom: 0,
+          width:"0em"
         }}
       >
         <motion.div

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Card from "@/component/Second_page/card";
+import Card from "@/component/main/card";
 
 import DoubleLinkedList from "@/component/two_pointers/Boxes";
 

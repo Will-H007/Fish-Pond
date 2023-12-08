@@ -1,6 +1,6 @@
 import React, { useState ,useEffect} from 'react';
 
-import ColorCircle from '../Second_page/color_circle';
+import ColorCircle from '../main/color_circle';
 
 
 interface DoubleLinkedListProps {
