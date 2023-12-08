@@ -70,7 +70,6 @@ const HomePage: React.FC = () => {
            initialDelay={index%2}
            position={position}
          />
-         
           ))}
         </div>
      

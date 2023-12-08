@@ -7,7 +7,7 @@ import Navigation from "./Navigation";
 
 
 const initialItems = [
-  { id: 0, label: 'Home', path: 'home' },
+  { id: 0, label: 'Home', path: '' },
   { id: 1, label: 'About Me', path: 'aboutme' },
   { id: 2, label: 'Gallery', path: 'gallery' },
 
