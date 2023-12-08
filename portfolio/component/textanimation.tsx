@@ -26,10 +26,10 @@ const AnimatedTextComponent: React.FC = () => {
     },
     span: {
       display: 'inline-block',
-      fontSize: '40px',
+      fontSize: '50px',
       color: 'transparent',
       textTransform: 'uppercase',
-      animation: 'flip 2s infinite',
+      animation: 'flip 4s infinite',
       fontWeight:"bold"
     },
   };
@@ -37,20 +37,17 @@ const AnimatedTextComponent: React.FC = () => {
   const getSpanStyles = (i: number): React.CSSProperties => ({
     ...styles.span,
     ['--i' as any]: i,
-    color: '#FFD700',
-    animationDelay: `${i * 0.1}s`, // Adjust the delay based on your preference
+    color: 'black',
+    animationDelay: `${i*0.3 }s`, // Adjust the delay based on your preference
   });
 
   return (
     <div style={styles.body}>
       <div className="waviy" style={styles.waviy}>
-        <span style={getSpanStyles(1)}>H</span>
-        <span style={getSpanStyles(2)}>E</span>
-        <span style={getSpanStyles(3)}>L</span>
-        <span style={getSpanStyles(4)}>L</span>
-        <span style={getSpanStyles(5)}>O</span>
-
-
+        <span style={getSpanStyles(1)}>如</span>
+        <span style={getSpanStyles(2)}>魚</span>
+        <span style={getSpanStyles(3)}>得</span>
+        <span style={getSpanStyles(4)}>水</span>
       </div>
     </div>
   );
