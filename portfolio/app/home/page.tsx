@@ -1,6 +1,6 @@
 'use client';
 import React, { useState,useEffect } from 'react';
-
+import AnimatedTextComponent from '@/component/textanimation';
 import { motion } from 'framer-motion';
 import { AnimateNav } from '@/component/navbar/newnav';
 import Ripple from '@/component/ripple';
@@ -73,7 +73,18 @@ const ExperiencePage: React.FC = () => {
          
           ))}
         </div>
+     
+<div style={{  
+  display: 'flex',
+      justifyContent: 'center',
+      height:"100%",
+      alignItems:"center",
+      marginLeft:"15em",
+      paddingBottom:"7em"
+      }}>
 
+        <AnimatedTextComponent/>
+        </div>
         {/* Render content based on the selected tab */}
         {/* {renderContent()} */}
       </div>
