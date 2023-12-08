@@ -21,6 +21,7 @@ body {
   box-sizing: border-box;
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 html {
@@ -29,7 +30,7 @@ html {
   background-size: cover;
 }
 
-.background-container {
+/* .background-container {
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -37,7 +38,7 @@ html {
   opacity: 0.8;
   padding: 2em;
   padding-top: 4em;
-}
+} */
 
 
 .background-container {

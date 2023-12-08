@@ -11,14 +11,12 @@ const ExperiencePage: React.FC = () => {
   };
 
   return (
-    <div style={{ overflow: 'hidden', height: '100vh' }}>
+    <div style={{ overflow: 'hidden', height: '100%' }}>
       
       <div
   style={{
     boxSizing: 'border-box',
-    backgroundImage: 'url("/images/image6.png")',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
+
     width: '100%',
     height: '100vh',
     opacity: '95%',
@@ -46,7 +44,7 @@ const ExperiencePage: React.FC = () => {
 
           {/* Card Component */}
       
-            <div style={{ position: 'absolute', zIndex: isCardOpen?2:3, marginTop: '20em', marginLeft:"1em" }}>
+            <div style={{ position: 'fixed', zIndex: isCardOpen?2:3, marginTop: '20em', marginLeft:"1em" , height:'100%'}}>
               <Card onMenuButtonClick={handleToggleCard} isMenuOpen={isCardOpen} />
             </div>
          

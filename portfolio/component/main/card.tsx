@@ -47,7 +47,7 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
 
     <div style={{
       width: "18em",
-      height:"100%",
+      height:"43.6em",
       display: "flex",
       flexDirection: "column",
       alignItems: 'center',
@@ -59,10 +59,10 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
       backgroundColor: '#759f7e',
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
 
-      marginTop:"23.5em",
+      marginTop:"15.5em",
       
       transform: isMenuOpen ? 'translateX(-200%) translateY(-50%)' : 'translateY(-50%)', // Adjusted transform value
-      transition: 'transform 0.5s ease-in-out', // Transition for transform property
+      transition: 'transform 1s ease-in-out', // Transition for transform property
   
     }}>
     {/* <p style={{color:"black", fontSize:"30px"}}>About me</p> */}
