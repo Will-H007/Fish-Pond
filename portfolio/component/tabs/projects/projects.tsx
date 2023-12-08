@@ -6,7 +6,7 @@ import SierpinskiTriangle from "@/component/fractal/treefractal";
 import DragonCurve from "@/component/fractal/dragoncurve";
 import ImageBox from "./imagebox";
 
-const Player: React.FC = () => {
+const Project: React.FC = () => {
   const [degree, setDegree] = useState(4);
 
   return (
@@ -117,4 +117,4 @@ const Player: React.FC = () => {
   );
 };
 
-export default Player;
+export default Project;

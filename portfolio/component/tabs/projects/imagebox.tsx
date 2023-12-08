@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { motion } from "framer-motion";
 const ImageBox: React.FC<{ image: string; color?: string; FlippedContent?:string }> = ({ image, color = "transparent", FlippedContent="No Description" }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -8,7 +8,15 @@ const ImageBox: React.FC<{ image: string; color?: string; FlippedContent?:string
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", justifyContent: "center",  alignItems: "center", height: "16em", width: "16em", gap: "0.5em" }}>
+    <motion.div  
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{
+      duration: 0.8,
+      delay: 0.2,
+      ease: [0, 0.71, 0.2, 1.01]
+    }}
+    style={{ display: "flex", flexDirection: "column", justifyContent: "center",  alignItems: "center", height: "16em", width: "16em", gap: "0.5em" }}>
     <div
       style={{
         position: "relative",
@@ -37,7 +45,7 @@ const ImageBox: React.FC<{ image: string; color?: string; FlippedContent?:string
         </div>
       </div>
     </div>
-    </div>
+    </motion.div>
   );
 };
 
