@@ -2,8 +2,8 @@
 import React, { useState } from 'react';
 import Card from '@/component/main/card';
 import { AnimateNav } from '@/component/navbar/newnav';
-import Dashboard from '@/component/dashboard/dashboard';
-
+import Maze from '@/component/maze/dashboard/maze';
+import Maze2 from '@/component/maze/dashboard/mazegenerator';
 const ExperiencePage: React.FC = () => {
   const [isCardOpen, setIsCardOpen] = useState(true);
 
@@ -49,23 +49,28 @@ const ExperiencePage: React.FC = () => {
           <div
             style={{
        
-              height: '85%',
-              width: '90%',
+              height: '100%',
+              width: '100%',
               display: 'flex',
               justifyContent: 'center',
               alignItems:"center",
+   
      
         
               borderRadius: '0.5em',
-              marginLeft:"4em",
+        
               padding: '1em',
-              marginTop:"2em",
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
+
+              // boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
               zIndex: 1,
-               overflowY:"auto"
+              
+      
+              gap:"1em"
             }}
           >
-            <Dashboard/>
+            <Maze2/>
+            {/* <Maze/> */}
+  
           </div>
         </div>
       
