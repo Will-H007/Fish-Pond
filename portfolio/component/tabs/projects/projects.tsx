@@ -12,7 +12,7 @@ const Project: React.FC = () => {
   return (
 
       
-      <div style={{ display:"flex",flexDirection:"column",alignItems: "center",paddingRight: "1em",paddingLeft: "1em", width:"100%",height:"100%",borderRadius: '8px', gap:"3em",overflowX:"auto"}}>
+      <div style={{ display:"flex",flexDirection:"column",alignItems: "center",justifyContent:"center",paddingRight: "1em",paddingLeft: "1em", width:"100%",height:"100%",borderRadius: '8px', gap:"3em",overflowX:"auto"}}>
 
 
 
@@ -23,7 +23,7 @@ const Project: React.FC = () => {
 
 
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"25em", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%em", gap: "3em", paddingTop:"1em" }}>
             
             <div style={{paddingTop:"1em"}}>
  
@@ -31,7 +31,7 @@ const Project: React.FC = () => {
             </div>
         </div>
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"25em", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
             
                 <div style={{paddingTop:"1em"}}>
      
@@ -40,7 +40,7 @@ const Project: React.FC = () => {
             </div>
             
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"25em", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
             
                 <div style={{paddingTop:"1em"}}>
      
@@ -48,7 +48,7 @@ const Project: React.FC = () => {
                      </div>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"25em", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
             
             <div style={{paddingTop:"1em"}}>
  
@@ -69,14 +69,14 @@ const Project: React.FC = () => {
        
 
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"25em", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
             
             <div style={{paddingTop:"1em"}}>
  
             <Customization degree={degree} color="#54a6ec" setDegree={setDegree} id="1" FlippedContent="Custom" />   </div>
         </div>
         
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"25em", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
             
                 <div style={{paddingTop:"1em"}}>
      
@@ -85,7 +85,7 @@ const Project: React.FC = () => {
             </div>
             
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"25em", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
             
                 <div style={{paddingTop:"1em"}}>
      
@@ -93,16 +93,19 @@ const Project: React.FC = () => {
               </div>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"25em", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
             
             <div style={{paddingTop:"1em"}}>
  
-            <Customization degree={degree} color="#953553" setDegree={setDegree} id="3" Content={<DragonCurve level={degree} x={20} y={100} size={200}/>} FlippedContent="Dragon's Curve"/>
+            <Customization degree={degree} color="#d15837" setDegree={setDegree} id="3" Content={<DragonCurve level={degree} x={20} y={100} size={200}/>} FlippedContent="Dragon's Curve"/>
 
           </div>
         </div>
 
             </div>
+
+
+            
 
 
 

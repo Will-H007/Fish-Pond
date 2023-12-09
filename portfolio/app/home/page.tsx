@@ -48,12 +48,12 @@ const HomePage: React.FC = () => {
     <div style={{ overflow: "hidden", height: "100vh" }}>
       <div
         style={{
-          backgroundImage: backgroundImageUrl,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          // backgroundImage: backgroundImageUrl,
+          // backgroundSize: 'cover',
+          // backgroundPosition: 'center',
           width: '100%',
           height: '100vh',
-          opacity: "80%",
+   
           padding: "2em",
           paddingTop: "4em",
           position: 'relative', // Add this to position the ripples relative to the background

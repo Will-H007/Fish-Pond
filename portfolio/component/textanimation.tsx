@@ -15,6 +15,7 @@ const AnimatedTextComponent: React.FC = () => {
       alignItems: 'center',
       minHeight: '100vh',
       position: 'relative',
+      marginTop:"2em"
     },
     waviy: {
       position: 'absolute',
@@ -39,14 +40,15 @@ const AnimatedTextComponent: React.FC = () => {
     ['--i' as any]: i,
     color: '#FFD700',
     animationDelay: `${i*0.3 }s`, // Adjust the delay based on your preference
-    backgroundColor:"#6791a5",
-    borderRadius:"50%",
-    padding:"0.2em"
+    fontSize:"1em",
+    marginRight:"3em",
+
   });
 
   return (
     <div style={styles.body}>
       <div className="waviy" style={styles.waviy}>
+
         <span style={getSpanStyles(1)}>如</span>
         <span style={getSpanStyles(2)}>魚</span>
         <span style={getSpanStyles(3)}>得</span>

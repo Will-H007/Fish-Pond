@@ -42,8 +42,9 @@ const ExperiencePage: React.FC = () => {
               zIndex: 4,
               height: '10em',
               width: '2em',
-              backgroundColor: '#759f7e',
+              backgroundColor: '#cae3c9',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
+              borderRadius:"1em"
             }}
           ></button>
 
@@ -62,7 +63,7 @@ const ExperiencePage: React.FC = () => {
               width: '100%',
               display: 'flex',
               justifyContent: 'center',
-              alignItems:"start",
+              alignItems:"center",
               marginLeft: '1em',
               marginBottom: '0.25em',
               borderRadius: '0.5em',

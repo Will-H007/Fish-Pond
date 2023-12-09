@@ -6,7 +6,7 @@ import Example4 from '../tabs/skill/graphs/exampleline';
 
 const gridContainerStyle: React.CSSProperties = {
     display: 'grid',
-    gridTemplateRows: '0.75fr 1.25fr 2fr',
+    gridTemplateRows: '1fr 1.25fr 2fr',
     gap: '20px',
     height: '100%',
     width: '100%',
@@ -66,7 +66,7 @@ const Dashboard: React.FC = () => {
             1st Place in Hackathon (Accenture 2022)
         </div>
         <div style={gridItemStyle}>
-        1st Place in UWA Qfin club competition
+        1st Place in Trading club competition
         </div>
         <div style={gridItemStyle}>
         text
@@ -79,7 +79,7 @@ const Dashboard: React.FC = () => {
             <Example3/>
         </div>
         <div style={gridItemStyle}>
-            <Example4/>
+            <Example/>
         </div>
    
       </div>
@@ -87,7 +87,7 @@ const Dashboard: React.FC = () => {
 
       <div style={grid3}>
         <div style={gridItemStyle}>
-        <Example/>
+        {/* <Example/> */}
             </div>
         <div style={gridItemStyle}>
         This dashboard tracks the sales performance of a fictional bicycle manufacturer named AdventureWorks. It provides a great overview of total sales and growth over time with the ability to drill down by product category. Moreover, 

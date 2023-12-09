@@ -27,7 +27,7 @@ const ImageBox: React.FC<{ image: string; color?: string; FlippedContent?:string
         transform: isFlipped ? "rotateY(360deg)" : "rotateY(0deg)", // Apply flip transformation
         transformStyle: "preserve-3d", // Preserve 3D transformation
         transition: "transform 0.5s", // Add transition for smooth flip
-        backgroundColor: "white",
+        backgroundColor: "transparent",
       }}
       onClick={handleFlipClick} // Flip on click
     >

@@ -27,8 +27,10 @@ body {
 html {
   height: 100%;
   background: url("/images/image6.png") no-repeat center center fixed;
+
   background-size: cover;
 }
+
 
 /* .background-container {
   background-size: cover;
@@ -51,7 +53,7 @@ html {
   padding-top: 4em;
 } */
 
-@keyframes flip {
+/* @keyframes flip {
   0% {
     transform: translate(0.5em, 0em) ;
   }
@@ -67,5 +69,5 @@ html {
   100% {
     transform: translate(0.5em, 0em);
   }
-}
+} */
 

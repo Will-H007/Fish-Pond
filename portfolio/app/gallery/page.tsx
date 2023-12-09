@@ -31,20 +31,17 @@ const Gallery: React.FC = () => {
     
   <div style={{ overflow: "hidden", height:"100vh" }}>
 
-          <div style={{backgroundImage: backgroundImageUrl,
-            backgroundSize: 'cover', // Adjust as needed
-            backgroundPosition: 'center', // Adjust as needed
-            // Add other styles as needed
+          <div style={{
             width: '100%',
             height: '100vh',
-            opacity:"95%",
+
             padding:"2em",
             paddingTop:"4em",
           
             }}>
 
  
-                    <div style={{ height:"45em",width:"90em",display:"flex",alignItems:"center", backgroundColor:"transparent", borderRadius:"4em", opacity:"95%"}}>
+                    <div style={{ height:"100%",width:"95%",display:"flex",alignItems:"center", backgroundColor:"#6791a5", borderRadius:"1em", overflow:"auto", marginLeft:"2em"}}>
 
                     <Project/>
                     
