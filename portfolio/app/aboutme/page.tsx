@@ -12,31 +12,21 @@ const ExperiencePage: React.FC = () => {
   };
 
   return (
-    <div style={{ overflow: 'hidden', height: '100%' }}>
+    <div style={{ overflow: 'hidden',     width: '100%',
+    height: '100vh', backgroundColor: '#759f7e', overflowY:"auto"}}>
       
 
-      <div
-  style={{
-    boxSizing: 'border-box',
-
-    width: '100%',
-    height: '100vh',
-
-    padding: '2em',
-    paddingTop: '4em',
-
-  }}
->   
 
 
 
-        <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'start', alignItems: 'center', padding: '1em',zIndex:-1, marginLeft:"1em" }}>
+
+        <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'start', alignItems: 'center', zIndex:-1, overflowY:"auto" }}>
 
           <button
             onClick={handleToggleCard}
             style={{
               position: 'absolute',
-              left: '4em',
+              left: '1em',
               top: '50%',
               transform: 'translateY(-50%)',
               zIndex: 4,
@@ -50,7 +40,7 @@ const ExperiencePage: React.FC = () => {
 
        
       
-            <div style={{ position: 'fixed', zIndex: isCardOpen?2:3, marginTop: '20em', marginLeft:"1em" , height:'100%'}}>
+            <div style={{ position: 'fixed', zIndex: isCardOpen?2:3, marginTop: '23em', marginLeft:"1em" , height:'100%'}}>
  
               <Card onMenuButtonClick={handleToggleCard} isMenuOpen={isCardOpen} />
             </div>
@@ -58,27 +48,28 @@ const ExperiencePage: React.FC = () => {
 
           <div
             style={{
-              backgroundColor: '#759f7e',
-              height: '100%',
-              width: '100%',
+       
+              height: '85%',
+              width: '90%',
               display: 'flex',
               justifyContent: 'center',
               alignItems:"center",
-              marginLeft: '1em',
-              marginBottom: '0.25em',
+     
+        
               borderRadius: '0.5em',
-  
+              marginLeft:"4em",
               padding: '1em',
-  
+              marginTop:"2em",
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
               zIndex: 1,
+               overflowY:"auto"
             }}
           >
             <Dashboard/>
           </div>
         </div>
       
-      </div>
+
 
       <AnimateNav/>
 
