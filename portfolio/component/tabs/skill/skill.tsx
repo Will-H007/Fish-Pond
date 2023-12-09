@@ -1,10 +1,21 @@
 import React, { useState } from "react";
-import ProgressBar from "./progressbar";
-import Card from "@/component/Second_page/card";
-import Example from "./graphs/example";
+import Card from "@/component/main/card";
+
 import DoubleLinkedList from "@/component/two_pointers/Boxes";
 
 const Skill: React.FC = () => {
+
+
+
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+  const handleToggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+
+
+
   const initialItems = ["#ADA87C", "#7CAD90", "#7C9AAD"];
 
   // State to store visible items
@@ -22,10 +33,10 @@ const Skill: React.FC = () => {
 
       // Conditionally render Example component based on the center item
       if (centerItem === "#7CAD90") {
-        return <Example />;
+        return <div></div>;
       } else {
         // Replace this with the component you want to render for other cases
-        return <div>Other Component</div>;
+        return <div>Other content</div>;
       }
     }
 
@@ -41,37 +52,70 @@ const Skill: React.FC = () => {
         height: "100%",
         alignItems: "center",
         gap: "20px",
+   
       }}
     >
-      <Card />
- 
+
+  <div style={{
+        height: "100%", // Adjust the height to fill the entire available height
+        width: "30px",
+        zIndex: 2,
+        position: 'relative',
+      }}>
+        {isMenuOpen && (
+          <div >
+            <Card onMenuButtonClick={handleToggleMenu} isMenuOpen={isMenuOpen} />
+          </div>
+        )}
+        <button
+          onClick={handleToggleMenu}
+          className="bg-[transparent] rounded h-full w-full"
+          style={{ position: 'absolute', top: 275, left: `${isMenuOpen ? '5px' : ''}` , boxShadow: '0 4px 8px rgba(0, 0, 0, 0.4)',height:"20%"}} // Adjust top and left to 0
+        />
+      </div>
+      
+      
       <div
         style={{
-          width: "90%",
+          width: "100%",
           height: "100%",
-          marginTop: "30px",
-          margin: "auto",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
+          gap:"10px",
+          padding:"20px"
         }}
       >
-        <div style={{height:"80%",width:"100%", display: "flex",
+      
+        <div style={{height:"100%",width:"100%", display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",}}>
+          justifyContent: "center",
+
+          }}>
+
          {renderCenterComponent()}
 
          </div>
-        <div className="flex flex-row gap-x-8 p-2 bg-opacity-25 backdrop-blur-lg justify-center items-center my-5">
-          <DoubleLinkedList
-            items={initialItems}
-            visibleItemCount={1}
-            onVisibleItemsChange={handleVisibleItemsChange}
-          />
+         <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            gap: '8px',
+            padding: '2px',
+            backdropFilter: 'blur(16px)',
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: '5px',
 
-        </div>
+          }}>
+            <DoubleLinkedList
+              items={initialItems}
+              visibleItemCount={1}
+              onVisibleItemsChange={handleVisibleItemsChange}
+            />
+          </div>
+
       </div>
     </div>
   );
