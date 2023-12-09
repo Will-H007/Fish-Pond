@@ -66,7 +66,7 @@ const Dashboard: React.FC = () => {
             1st Place in Hackathon (Accenture 2022)
             </div>
             <div style={gridItemStyle}>
-            1st Place in Hackathon (Accenture 2022)
+            1st Place in Algorithm trading competition 
             </div>
             </div>
             <div style={gridItemStyle}>

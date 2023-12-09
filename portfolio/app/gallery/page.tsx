@@ -34,14 +34,11 @@ const Gallery: React.FC = () => {
           <div style={{
             width: '100%',
             height: '100vh',
-
-            padding:"2em",
-            paddingTop:"4em",
-          
+          backgroundColor:"#6791a5"
             }}>
 
  
-                    <div style={{ height:"100%",width:"95%",display:"flex",alignItems:"center", backgroundColor:"#6791a5", borderRadius:"1em", overflow:"auto", marginLeft:"2em"}}>
+                    <div style={{ height:"100%",width:"100%",display:"flex",alignItems:"center",  overflow:"auto"}}>
 
                     <Project/>
                     
