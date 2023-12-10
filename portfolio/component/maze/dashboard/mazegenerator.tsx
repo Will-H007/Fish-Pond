@@ -102,33 +102,33 @@ function moveNodes(fromNode: string, toNode: string, duration: number): void {
 
 
   const Maze: React.FC<{ startAnimation: boolean }> = ({ startAnimation }) => {
-  const [path, setPath] = useState<number[]>([]);
-  const [animationList, setAnimationList] = useState<{ from: string; to: string; distance: number }[]>([]);
-
-  const handlePathChange = (newPath: number[]) => {
-    setPath(newPath);
-    // When the path changes, build the animation list
-    const newAnimationList = [];
-    for (let i = 0; i < newPath.length - 1; i++) {
-      const fromNode = `Node_${newPath[i]}`;
-      const toNode = `Node_${newPath[i + 1]}`;
-      newAnimationList.push({ from: fromNode, to: toNode, distance: 3 }); // Adjust the distance as needed
-    }
-    setAnimationList(newAnimationList);
-  };
-
-useEffect(() => {
-    if (startAnimation && animationList.length > 0) {
-      // Iterate through the animationList and trigger animations with delays
-      animationList.forEach(({ from, to, distance }, index) => {
-        const duration = distance; // Use distance as duration
-        const delay = index * duration; // Adjust the delay as needed
-        setTimeout(() => {
-          moveNodes(from, to, duration);
-        }, delay * 1000); // Convert the delay to milliseconds
-      });
-    }
-  }, [startAnimation, animationList]);
+    const [path, setPath] = useState<[number, number][]>([]);
+    const [animationList, setAnimationList] = useState<{ from: string; to: string; distance: number }[]>([]);
+  
+    const handlePathChange = (newPath: [number, number][]) => {
+      setPath(newPath);
+  
+      // When the path changes, build the animation list
+      const newAnimationList = newPath.map(([from, to]) => ({
+        from: `Node_${from}`,
+        to: `Node_${to}`,
+        distance: 3, // Adjust the distance as needed
+      }));
+      setAnimationList(newAnimationList);
+    };
+  
+    useEffect(() => {
+      if (startAnimation && animationList.length > 0) {
+        // Iterate through the animationList and trigger animations with delays
+        animationList.forEach(({ from, to, distance }, index) => {
+          const duration = distance; // Use distance as duration
+          const delay = index * duration; // Adjust the delay as needed
+          setTimeout(() => {
+            moveNodes(from, to, duration);
+          }, delay * 1000); // Convert the delay to milliseconds
+        });
+      }
+    }, [startAnimation, animationList]);
   
   
   
@@ -183,9 +183,10 @@ useEffect(() => {
   <div style={gridItemStyle}></div>
   {vertex()}
   <div style={gridItemStyle}>
-    {path.join(' -> ')}
+    {path.map(([from, to]) => `${from}_${to} -> `)}
   </div>
 </div>
+
 
 
       <div style={grid3}>

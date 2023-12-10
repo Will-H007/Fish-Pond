@@ -15,9 +15,8 @@ const adjacencyList: AdjacencyList = {
   8: [],
 };
 
-
 interface DepthFirstTraversalProps {
-  onPathChange: (path: number[]) => void;
+  onPathChange: (path: [number, number][]) => void;
 }
 
 const DepthFirstTraversal: React.FC<DepthFirstTraversalProps> = ({ onPathChange }) => {
@@ -29,7 +28,11 @@ const DepthFirstTraversal: React.FC<DepthFirstTraversalProps> = ({ onPathChange 
 
     if (node === 8) {
       setPath([...currentPath]);
-      onPathChange([...currentPath]); // Notify the parent component about the path change
+      const tuplePath: [number, number][] = [];
+      for (let i = 0; i < currentPath.length - 1; i++) {
+        tuplePath.push([currentPath[i], currentPath[i + 1]]);
+      }
+      onPathChange(tuplePath); // Notify the parent component about the path change
       return;
     }
 
@@ -44,23 +47,27 @@ const DepthFirstTraversal: React.FC<DepthFirstTraversalProps> = ({ onPathChange 
     const startNode = 1;
     const visited: Record<number, boolean> = {};
     const path: number[] = [];
-  
+
     const dfs = (node: number) => {
       visited[node] = true;
       path.push(node);
-  
+
       if (node === 8) {
-        onPathChange([...path]);
+        const tuplePath: [number, number][] = [];
+        for (let i = 0; i < path.length - 1; i++) {
+          tuplePath.push([path[i], path[i + 1]]);
+        }
+        onPathChange(tuplePath);
         return;
       }
-  
+
       for (const neighbor of adjacencyList[node]) {
         if (!visited[neighbor]) {
           dfs(neighbor);
         }
       }
     };
-  
+
     dfs(startNode);
   }, [onPathChange]);
 
