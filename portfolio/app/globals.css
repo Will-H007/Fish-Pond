@@ -41,17 +41,10 @@ html {
   }
 }
 
-[class^="Node"] {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 1em;
-  width: 1em;
-  background-color: black;
-  border-radius: 1em;
-  
+
+
+/* styles.css */
+.animated-cell {
+  transition: transform 1s ease-in-out;
 }
-
-
 
