@@ -2,8 +2,7 @@
 import React, { useState } from 'react';
 import Card from '@/component/main/card';
 import { AnimateNav } from '@/component/navbar/newnav';
-import Maze from '@/component/maze/dashboard/maze';
-import Maze2 from '@/component/maze/dashboard/mazegenerator';
+import Maze from '@/component/maze/dashboard/mazegenerator';
 const ExperiencePage: React.FC = () => {
   const [isCardOpen, setIsCardOpen] = useState(true);
 
@@ -68,8 +67,8 @@ const ExperiencePage: React.FC = () => {
               gap:"1em"
             }}
           >
-            <Maze2/>
-            {/* <Maze/> */}
+      
+            <Maze startAnimation={true}/>
   
           </div>
         </div>
