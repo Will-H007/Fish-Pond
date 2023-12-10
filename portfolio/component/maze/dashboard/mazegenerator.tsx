@@ -1,7 +1,7 @@
 import React from 'react';
 import DepthFirstTraversal from './model';
 import { useEffect,useState } from 'react';
-
+import Backtracking from './backtracking';
 const gridContainerStyle: React.CSSProperties = {
     display: 'grid',
     gridTemplateRows: '1.5fr 0.1fr 1fr 0.1fr 1.5fr',
@@ -112,7 +112,7 @@ function moveNodes(fromNode: string, toNode: string, duration: number): void {
       const newAnimationList = newPath.map(([from, to]) => ({
         from: `Node_${from}`,
         to: `Node_${to}`,
-        distance: 3, // Adjust the distance as needed
+        distance: 10, // Adjust the distance as needed
       }));
       setAnimationList(newAnimationList);
     };
@@ -125,7 +125,7 @@ function moveNodes(fromNode: string, toNode: string, duration: number): void {
           const delay = index * duration; // Adjust the delay as needed
           setTimeout(() => {
             moveNodes(from, to, duration);
-          }, delay * 1000); // Convert the delay to milliseconds
+          }, delay * 500); // Convert the delay to milliseconds
         });
       }
     }, [startAnimation, animationList]);
@@ -152,7 +152,7 @@ function moveNodes(fromNode: string, toNode: string, duration: number): void {
                             </div>
                             {vertex()}
                             <div style={gridItemStyle}>
-                            <DepthFirstTraversal onPathChange={handlePathChange} />
+                            <Backtracking onPathChange={handlePathChange} />
                             </div>
                         </div>
                         <div style={{display:"grid",gridTemplateColumns:"1fr 0.025fr 1fr"}}>
@@ -179,13 +179,16 @@ function moveNodes(fromNode: string, toNode: string, duration: number): void {
         </div>
    
 
-        <div style={grid2}>
+       
+<div style={grid2}>
   <div style={gridItemStyle}></div>
   {vertex()}
   <div style={gridItemStyle}>
-    {path.map(([from, to]) => `${from}_${to} -> `)}
+    {/* {path} */}
+    {path.map(([from, to]) => `(${from},${to})`).join(' -> ')}
   </div>
 </div>
+
 
 
 

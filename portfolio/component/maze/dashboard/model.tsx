@@ -31,8 +31,9 @@ const DepthFirstTraversal: React.FC<DepthFirstTraversalProps> = ({ onPathChange 
       const tuplePath: [number, number][] = [];
       for (let i = 0; i < currentPath.length - 1; i++) {
         tuplePath.push([currentPath[i], currentPath[i + 1]]);
+       
       }
-      onPathChange(tuplePath); // Notify the parent component about the path change
+      onPathChange(tuplePath); 
       return;
     }
 
@@ -56,6 +57,7 @@ const DepthFirstTraversal: React.FC<DepthFirstTraversalProps> = ({ onPathChange 
         const tuplePath: [number, number][] = [];
         for (let i = 0; i < path.length - 1; i++) {
           tuplePath.push([path[i], path[i + 1]]);
+          console.log(path)
         }
         onPathChange(tuplePath);
         return;
