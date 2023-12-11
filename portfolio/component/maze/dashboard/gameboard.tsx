@@ -41,12 +41,13 @@ const Gameboard: React.FC = () => {
   
     // Example usage:
     const startEndPairs: string[][] = [
-      ['1-5', '3-5'],
-      ['3-5', '5-5'],
+      ['7-1', '7-3'],
+      ['7-3', '7-5'],
+      ['7-5', '7-7'],
       // Add more pairs as needed
     ];
     
-    // grid.moveTilesSequentially(startEndPairs);
+    grid.moveTilesSequentially(startEndPairs);
     
 
 

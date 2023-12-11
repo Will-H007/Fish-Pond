@@ -61,7 +61,6 @@ export default class Grid {
         this.gridElement!.style.gridTemplateRows = gridSides.rows;
         this.gridElement!.style.backgroundColor = 'transparent';
         this.gridElement!.style.gap = CELL_GAP;
-        // this.gridElement!.style.border = `1vmin solid white`;
         this.gridElement!.style.padding = CELL_GAP;
         this.gridElement!.style.height = `${CELL_SIZE}vmin`;
         this.gridElement!.style.width = `${CELL_SIZE}vmin`;
@@ -109,7 +108,7 @@ export default class Grid {
             // Add a delay before initiating the next move
             setTimeout(() => {
               moveWithDelay(index + 1);
-            }, /* Set your desired delay in milliseconds, e.g., */ 1500);
+            }, /* Set your desired delay in milliseconds, e.g., */ 1000);
           }
         };
       

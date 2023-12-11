@@ -4,7 +4,7 @@ import Card from '@/component/main/card';
 import { AnimateNav } from '@/component/navbar/newnav';
 import Gameboard from '@/component/maze/dashboard/gameboard';
 const ExperiencePage: React.FC = () => {
-  const [isCardOpen, setIsCardOpen] = useState(true);
+  const [isCardOpen, setIsCardOpen] = useState(false);
 
   const handleToggleCard = () => {
     setIsCardOpen(!isCardOpen);
@@ -12,9 +12,9 @@ const ExperiencePage: React.FC = () => {
 
   return (
     <div style={{ overflow: 'hidden',     width: '100%',
-    height: '100vh', backgroundColor: '#759f7e', overflowY:"auto"}}>
+    height: '100vh', backgroundColor: '#759f7e'}}>
       
-        <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'start', alignItems: 'center', zIndex:-1, overflowY:"auto" }}>
+        <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'start', alignItems: 'center', zIndex:-1}}>
 
           <button
             onClick={handleToggleCard}
@@ -60,11 +60,12 @@ const ExperiencePage: React.FC = () => {
             }}
           >
 
-              {/* <div style={{backgroundColor:"white", height: '100%',
-             width:"50vw", marginRight:"1vmin", padding:"5vmin"}}>
-                  <div></div>
-              </div> */}
             <Gameboard/>
+            
+            <div style={{backgroundColor:"white", height: '89vmin',
+             width:"25vw", marginLeft:"3vmin", padding:"2vmin", borderRadius:"1vmin", marginTop:'1vmin'}}>
+                  <div style={{backgroundColor:"#cae3c9", height:"100%", borderRadius:"1vmin"}}>sdfsd</div>
+              </div>
 
   
           </div>
