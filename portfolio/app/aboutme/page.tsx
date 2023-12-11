@@ -24,8 +24,8 @@ const ExperiencePage: React.FC = () => {
               top: '50%',
               transform: 'translateY(-50%)',
               zIndex: 4,
-              height: '10em',
-              width: '2em',
+              height: '10vmin',
+              width: '2vmin',
               backgroundColor: '#cae3c9',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
               borderRadius:"1em"
@@ -44,12 +44,13 @@ const ExperiencePage: React.FC = () => {
             style={{
        
               height: '100%',
-              width: '100%',
+              width: '100vw',
               display: 'flex',
               justifyContent: 'center',
               alignItems:"center",
               
-     
+              flexWrap:"wrap",
+              
         
               borderRadius: '0.5em',
         
@@ -58,7 +59,11 @@ const ExperiencePage: React.FC = () => {
       
             }}
           >
-      
+
+              {/* <div style={{backgroundColor:"white", height: '100%',
+             width:"50vw", marginRight:"1vmin", padding:"5vmin"}}>
+                  <div></div>
+              </div> */}
             <Gameboard/>
 
   

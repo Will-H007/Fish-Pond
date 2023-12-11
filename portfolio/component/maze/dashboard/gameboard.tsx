@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Grid from './grid';
-
-
+import Example3 from '@/component/tabs/skill/graphs/exampledonut';
+import Example from '@/component/tabs/skill/graphs/examplebar';
 
 interface NormalProps {
   row: number;
@@ -36,20 +36,54 @@ const Gap: React.FC<GapProps> = ({ row, col }) => {
 const Gameboard: React.FC = () => {
   useEffect(() => {
     const gameboardElement = document.getElementById('gameboard');
+
     const grid = new Grid(gameboardElement);
   
-    // Get the starting and ending locations
-    const startLocation = grid.getlocation('1-1');
-    const endLocation = grid.getlocation('1-3');
-
-    grid.move(startLocation, endLocation);
-
-    // Add a delay before initiating the second animation
-    setTimeout(() => {
-      grid.move(endLocation, startLocation);
-    }, /* Set your desired delay in milliseconds, e.g., */ 1500);
+    // Example usage:
+    const startEndPairs: string[][] = [
+      ['1-5', '3-5'],
+      ['3-5', '5-5'],
+      // Add more pairs as needed
+    ];
     
-  
+    // grid.moveTilesSequentially(startEndPairs);
+    
+
+
+    const graph = document.getElementById('graph');
+    if (graph) {
+      graph.style.position = "absolute";
+      graph.style.background = "#476343";
+      graph.style.height = "42vmin";
+      graph.style.width = "42vmin";
+      graph.style.display = 'flex';
+      graph.style.justifyContent = 'center';
+      graph.style.alignItems = 'center';
+      graph.style.borderRadius = '1vmin'
+    }
+
+    const graph2_position = grid.getlocation('9-1')
+    console.log(graph2_position)
+    const graph2 = document.getElementById('graph2');
+    if (graph2) {
+      graph2.style.position = "absolute";
+      graph2.style.background = "#476343";
+      graph2.style.height = "27vmin";
+      graph2.style.width = "42vmin";
+      graph2.style.display = 'flex';
+      graph2.style.justifyContent = 'center';
+      graph2.style.alignItems = 'center';
+      graph2.style.borderRadius = '1vmin'
+      graph2.style.top = `${graph2_position.y}px`
+      graph2.style.left = `${graph2_position.x}px`
+    }
+
+
+
+
+
+
+
     return () => {
       // Cleanup logic
     };
@@ -57,8 +91,9 @@ const Gameboard: React.FC = () => {
 
   const renderGridElements = () => {
     const elements = [];
-    const rows = 9;
-    const cols = 9;
+    const cols =11;
+    const rows =11;
+
 
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
@@ -73,10 +108,23 @@ const Gameboard: React.FC = () => {
     return elements;
   };
 
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div id='gameboard'>
       {renderGridElements()}
       <div className='tile'></div>
+      <div id='graph'><Example3/></div>
+      <div id='graph2'><Example/></div>
     </div>
   );
 };

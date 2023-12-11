@@ -8,7 +8,7 @@ function Example3() {
             new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ["Accepted", "Pending", "Rejected"],
+                // labels: ["Accepted", "Pending", "Rejected"],
                 datasets: [{
                     data: [70, 10, 6],
                     borderColor: [

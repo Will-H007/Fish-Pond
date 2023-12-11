@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 
-const COL_SIZE = 9;
-const ROW_SIZE = 9;
-const CELL_SIZE = '70'; // Adjusted to be a string
+const COL_SIZE = 11;
+const ROW_SIZE =11;
+const CELL_SIZE = '90'; // Adjusted to be a string
 const CELL_GAP = '1vmin'; // Adjusted to be a string
-const TILE_SZIE = `10vmin`
+const TILE_SZIE = `11vmin`
 
 export default class Grid {
 
@@ -19,7 +19,7 @@ export default class Grid {
             const gridSides = this.setgridproportion(COL_SIZE,ROW_SIZE,0.25)
             console.log(gridSides)
             this.setGridStyles(gridSides);
-            this.setCellAndGapStyles('white','black','1vmin');
+            this.setCellAndGapStyles('white','transparent','1vmin');
             
 
            
@@ -61,10 +61,11 @@ export default class Grid {
         this.gridElement!.style.gridTemplateRows = gridSides.rows;
         this.gridElement!.style.backgroundColor = 'transparent';
         this.gridElement!.style.gap = CELL_GAP;
-        this.gridElement!.style.border = `1vmin solid white`;
+        // this.gridElement!.style.border = `1vmin solid white`;
         this.gridElement!.style.padding = CELL_GAP;
         this.gridElement!.style.height = `${CELL_SIZE}vmin`;
         this.gridElement!.style.width = `${CELL_SIZE}vmin`;
+        
     }
     
 
@@ -97,7 +98,24 @@ export default class Grid {
       }
     
       
-
+      public  moveTilesSequentially = (moves: string[][]) => {
+        const moveWithDelay = (index: number) => {
+          if (index < moves.length) {
+            const [startLocation, endLocation] = moves[index];
+            const start = this.getlocation(startLocation)
+            const end = this.getlocation(endLocation)
+            this.move(start, end);
+            
+            // Add a delay before initiating the next move
+            setTimeout(() => {
+              moveWithDelay(index + 1);
+            }, /* Set your desired delay in milliseconds, e.g., */ 1500);
+          }
+        };
+      
+        // Start the sequence
+        moveWithDelay(0);
+      };
 
 
     public getlocation(id: string) {
