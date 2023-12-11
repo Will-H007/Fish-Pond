@@ -2,8 +2,7 @@
 import React, { useState } from 'react';
 import Card from '@/component/main/card';
 import { AnimateNav } from '@/component/navbar/newnav';
-import Maze from '@/component/maze/dashboard/maze';
-import Grid from '@/component/maze/gridmaze';
+import Gameboard from '@/component/maze/dashboard/gameboard';
 const ExperiencePage: React.FC = () => {
   const [isCardOpen, setIsCardOpen] = useState(true);
 
@@ -15,11 +14,6 @@ const ExperiencePage: React.FC = () => {
     <div style={{ overflow: 'hidden',     width: '100%',
     height: '100vh', backgroundColor: '#759f7e', overflowY:"auto"}}>
       
-
-
-
-
-
         <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'start', alignItems: 'center', zIndex:-1, overflowY:"auto" }}>
 
           <button
@@ -54,23 +48,19 @@ const ExperiencePage: React.FC = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems:"center",
-   
+              
      
         
               borderRadius: '0.5em',
         
-              padding: '1em',
-
-              // boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
               zIndex: 1,
               
       
-              gap:"1em"
             }}
           >
       
-            {/* <Maze/> */}
-            <Grid/>
+            <Gameboard/>
+
   
           </div>
         </div>

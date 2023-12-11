@@ -49,7 +49,7 @@ function Example() {
         <>
             {/* Stacked chart */}
             
-                    <canvas ref={chartRef} style={{maxHeight:"15em", maxWidth:"35em"}}></canvas>
+                    <canvas ref={chartRef} ></canvas>
   
         </>
     )
