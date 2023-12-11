@@ -42,9 +42,23 @@ html {
 }
 
 
+@keyframes show {
+  0% {
+    transform: scale(0);
+    opacity: 0.5;
+  }
+}
 
-/* styles.css */
-.animated-cell {
-  transition: transform 1s ease-in-out;
+
+
+
+
+@keyframes moveAnimation {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(var(--translateX), var(--translateY)); /* Adjust the values based on your requirement */
+  }
 }
 

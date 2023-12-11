@@ -4,7 +4,7 @@ const COL_SIZE = 9;
 const ROW_SIZE = 9;
 const CELL_SIZE = '70'; // Adjusted to be a string
 const CELL_GAP = '1vmin'; // Adjusted to be a string
-const TILE_SZIE = '10vmin'
+const TILE_SZIE = `10vmin`
 
 export default class Grid {
 
@@ -68,6 +68,37 @@ export default class Grid {
     }
     
 
+    public move(startLocation: { y: number; x: number }, endLocation: { y: number; x: number }) {
+
+
+        const distance_x = endLocation.x - startLocation.x;
+        const distance_y = endLocation.y - startLocation.y 
+      
+        // Set initial tile styles
+        this.setTileStyles(startLocation);
+        console.log(startLocation)
+      
+        // Trigger a reflow to ensure styles are applied before starting the animation
+        void this.gridElement?.offsetHeight;
+      
+        // Set animation
+        const tileElement = this.gridElement?.querySelector('.tile') as HTMLElement | null;
+        if (tileElement) {
+            tileElement.style.setProperty('--translateX', `${distance_x}px`);
+            tileElement.style.setProperty('--translateY', `${distance_y}px`);
+            tileElement.style.animation = 'moveAnimation 1s ease-in-out';
+      
+          // Update tile styles after animation completes
+          tileElement.addEventListener('animationend', () => {
+            tileElement.style.animation = 'none'; // Reset animation
+            this.setTileStyles(endLocation); // Set final tile styles
+          });
+        }
+      }
+    
+      
+
+
 
     public getlocation(id: string) {
         const element = document.getElementById(id);
@@ -102,11 +133,15 @@ export default class Grid {
     
                 tileElement.style.top = `${location.y}px`;
                 tileElement.style.left = `${location.x}px`;
+    
+                // Set animation
+                tileElement.style.animation = 'show 200ms ease-in-out';
             } else {
                 console.error('Tile element not found');
             }
         }
     }
+    
     
     
 

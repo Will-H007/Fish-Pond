@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import Grid from './grid';
 
+
+
 interface NormalProps {
   row: number;
   col: number;
 }
 
 const Normal: React.FC<NormalProps> = ({ row, col }) => {
-  const elementId = `${row}-${col}`;
+  const elementId = `${row+1}-${col+1}`;
   return (
     <>
       <div id={elementId} className='cell'></div>
@@ -21,7 +23,7 @@ interface GapProps {
 }
 
 const Gap: React.FC<GapProps> = ({ row, col }) => {
-  const elementId = `${row}-${col}`;
+  const elementId = `${row+1}-${col+1}`;
   return (
     <>
 
@@ -33,25 +35,23 @@ const Gap: React.FC<GapProps> = ({ row, col }) => {
 
 const Gameboard: React.FC = () => {
   useEffect(() => {
-    // Get the gameboard element
     const gameboardElement = document.getElementById('gameboard');
-    console.log("gameboardElement:", gameboardElement);
-
-    // Create an instance of the Grid class and pass the gameboard element
     const grid = new Grid(gameboardElement);
-    console.log("Grid instance:", grid);
+  
+    // Get the starting and ending locations
+    const startLocation = grid.getlocation('1-1');
+    const endLocation = grid.getlocation('1-3');
 
+    grid.move(startLocation, endLocation);
 
-
-    const location2 = grid.getlocation("0-4")
-    console.log(location2)
-    grid.setTileStyles(location2)
-
-
-
-
+    // Add a delay before initiating the second animation
+    setTimeout(() => {
+      grid.move(endLocation, startLocation);
+    }, /* Set your desired delay in milliseconds, e.g., */ 1500);
+    
+  
     return () => {
-      // Any cleanup logic, e.g., removing event listeners
+      // Cleanup logic
     };
   }, []);
 
