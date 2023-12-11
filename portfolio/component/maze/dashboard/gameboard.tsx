@@ -40,6 +40,9 @@ const Gameboard: React.FC = () => {
     const grid = new Grid(gameboardElement);
     console.log("Grid instance:", grid);
 
+
+    grid.setTileStyles(0,5,     4.66,1)
+
     // Cleanup logic (optional)
     return () => {
         // Any cleanup logic, e.g., removing event listeners
@@ -58,6 +61,7 @@ const Gameboard: React.FC = () => {
       <Gap />
       <Normal />
       <div className='tile'></div>
+
     </div>
   );
 };

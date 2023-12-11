@@ -1,7 +1,6 @@
 import { useEffect } from "react";
-
 const GRID_SIZE = 7;
-const CELL_SIZE = '10vmin'; // Adjusted to be a string
+const CELL_SIZE = '80vmin'; // Adjusted to be a string
 const CELL_GAP = '1vmin'; // Adjusted to be a string
 
 export default class Grid {
@@ -12,21 +11,40 @@ export default class Grid {
         this.gridElement = gridElement;
 
         if (this.gridElement) {
-            this.setGridStyles();
+            const gridSides = this.setgridproportion()
+            console.log(gridSides)
+            this.setGridStyles(gridSides);
             this.setCellAndGapStyles('white','black','1vmin');
-            this.setTileStyles(0,1,4.66,1)
         }
     }
 
-    private setGridStyles() {
+
+    private setgridproportion(){
+        let gridSides = []
+        for (let index = 0; index < GRID_SIZE; index++) {
+            if (index % 2 == 0){
+                gridSides.push('1fr')
+           
+            }
+            else if (index % 2 == 1){
+                gridSides.push('0.5fr')
+
+            }
+        }
+        return gridSides.join(" ")
+    }
+
+    private setGridStyles(gridSides: string) {
         // Set grid styles
         this.gridElement!.style.display = 'grid';
-        this.gridElement!.style.gridTemplateColumns = `repeat(${GRID_SIZE}, ${CELL_SIZE})`;
-        this.gridElement!.style.gridTemplateRows = `repeat(${GRID_SIZE}, ${CELL_SIZE})`;
+        this.gridElement!.style.gridTemplateColumns = gridSides;
+        this.gridElement!.style.gridTemplateRows = gridSides;
         this.gridElement!.style.backgroundColor = 'transparent';
         this.gridElement!.style.gap = CELL_GAP;
         this.gridElement!.style.border = `1vmin solid white`;
         this.gridElement!.style.padding = CELL_GAP;
+        this.gridElement!.style.height= CELL_SIZE;
+        this.gridElement!.style.width= CELL_SIZE;
     }
 
     public setTileStyles(x: number, y: number,shiftx:number,shifty:number) {
@@ -39,8 +57,8 @@ export default class Grid {
             tileElement.style.borderRadius = '1vmin'
             tileElement.style.width = CELL_SIZE;
             tileElement.style.height = CELL_SIZE;
-            tileElement.style.top = `calc( ${y} + ${shifty}) * (${CELL_SIZE} + ${CELL_GAP}) + ${CELL_GAP})`;
-            tileElement.style.left = `calc(${x} + ${shiftx}) * (${CELL_SIZE} + ${CELL_GAP}) + 2 * ${CELL_GAP})`;
+            tileElement.style.top = `calc((${y%GRID_SIZE} + ${shifty}) * (${CELL_SIZE} + ${CELL_GAP}) + ${CELL_GAP})`;
+            tileElement.style.left = `calc((${x%GRID_SIZE} + ${shiftx}) * (${CELL_SIZE} + ${CELL_GAP}) + 2 * ${CELL_GAP})`;
         }
     }
 
@@ -58,6 +76,9 @@ export default class Grid {
         gapElements.forEach((gapElement) => {
             (gapElement as HTMLElement).style.backgroundColor = gapBackgroundColor;
             (gapElement as HTMLElement).style.borderRadius = borderRadius;
+   
+   
+
         });
     }
 }
