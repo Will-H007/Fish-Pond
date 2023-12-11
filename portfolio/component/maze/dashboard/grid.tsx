@@ -13,7 +13,8 @@ export default class Grid {
 
         if (this.gridElement) {
             this.setGridStyles();
-            this.setCellAndGapStyles('white','black','1em');
+            this.setCellAndGapStyles('white','black','1vmin');
+            this.setTileStyles(0,1,4.66,1)
         }
     }
 
@@ -28,7 +29,21 @@ export default class Grid {
         this.gridElement!.style.padding = CELL_GAP;
     }
 
-    // Rest of the class...
+    public setTileStyles(x: number, y: number,shiftx:number,shifty:number) {
+        if (this.gridElement) {
+            const tileElement = this.gridElement.querySelector('.tile') as HTMLElement;
+
+            // Set styles for .tile element based on --x and --y
+            tileElement.style.position = "absolute"
+            tileElement.style.backgroundColor = "red"
+            tileElement.style.borderRadius = '1vmin'
+            tileElement.style.width = CELL_SIZE;
+            tileElement.style.height = CELL_SIZE;
+            tileElement.style.top = `calc( ${y} + ${shifty}) * (${CELL_SIZE} + ${CELL_GAP}) + ${CELL_GAP})`;
+            tileElement.style.left = `calc(${x} + ${shiftx}) * (${CELL_SIZE} + ${CELL_GAP}) + 2 * ${CELL_GAP})`;
+        }
+    }
+
 
     public setCellAndGapStyles(cellBackgroundColor: string, gapBackgroundColor: string, borderRadius: string) {
         // Set styles for .cell elements

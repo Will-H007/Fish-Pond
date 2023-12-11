@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import '../../../app/css/gameboard.css';
 import Grid from './grid';
 
 const Normal: React.FC = () => {
@@ -47,6 +46,7 @@ const Gameboard: React.FC = () => {
     };
 }, []);
 
+ 
 
   return (
     <div id='gameboard'>
