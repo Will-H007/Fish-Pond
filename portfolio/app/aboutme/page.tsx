@@ -53,7 +53,7 @@ const ExperiencePage: React.FC = () => {
         
               borderRadius: '0.5em',
         
-              zIndex: 1,
+              // zIndex: 1,
               
       
             }}
