@@ -15,7 +15,7 @@ const ExperiencePage: React.FC = () => {
     height: '100vh', backgroundColor: '#759f7e'}}>
       
         <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'start', alignItems: 'center', zIndex:-1}}>
-
+{/* 
           <button
             onClick={handleToggleCard}
             style={{
@@ -30,14 +30,14 @@ const ExperiencePage: React.FC = () => {
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
               borderRadius:"1em"
             }}
-          ></button>
+          ></button> */}
 
        
       
-            <div style={{ position: 'fixed', zIndex: isCardOpen?2:3, marginTop: '23em', marginLeft:"1em" , height:'100%'}}>
+            {/* <div style={{ position: 'fixed', zIndex: isCardOpen?2:3, marginTop: '23em', marginLeft:"1em" , height:'100%'}}>
  
               <Card onMenuButtonClick={handleToggleCard} isMenuOpen={isCardOpen} />
-            </div>
+            </div> */}
          
 
           <div
@@ -62,9 +62,15 @@ const ExperiencePage: React.FC = () => {
 
             <Gameboard/>
             
-            <div style={{backgroundColor:"white", height: '89vmin',
+            <div style={{backgroundColor:"transparent", height: '94vmin',
              width:"25vw", marginLeft:"3vmin", padding:"2vmin", borderRadius:"1vmin", marginTop:'1vmin'}}>
-                  <div style={{backgroundColor:"#cae3c9", height:"100%", borderRadius:"1vmin"}}>sdfsd</div>
+                  <div style={{backgroundColor:"#cae3c9", height:"100%", width:"100%",borderRadius:"1vmin",display:"flex", justifyContent:"center",
+             alignItems:"center",  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',}}>
+          <div style={{marginTop:"55vmin"}}>
+          <Card onMenuButtonClick={handleToggleCard} isMenuOpen={isCardOpen} />
+          </div>
+
+             </div>
               </div>
 
   

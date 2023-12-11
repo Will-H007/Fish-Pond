@@ -56,7 +56,7 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
       overflow: 'hidden',
       gap: '20px',
       // backdropFilter: 'blur(5px)',
-      backgroundColor: '#759f7e',
+      backgroundColor: '#cae3c9',
       boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
 
       marginTop:"15.5em",
