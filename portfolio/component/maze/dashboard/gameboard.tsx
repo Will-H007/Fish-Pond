@@ -7,7 +7,7 @@ interface NormalProps {
 }
 
 const Normal: React.FC<NormalProps> = ({ row, col }) => {
-  const elementId = `normal-${row}-${col}`;
+  const elementId = `${row}-${col}`;
   return (
     <>
       <div id={elementId} className='cell'></div>
@@ -21,7 +21,7 @@ interface GapProps {
 }
 
 const Gap: React.FC<GapProps> = ({ row, col }) => {
-  const elementId = `gap-${row}-${col}`;
+  const elementId = `${row}-${col}`;
   return (
     <>
 
@@ -41,7 +41,15 @@ const Gameboard: React.FC = () => {
     const grid = new Grid(gameboardElement);
     console.log("Grid instance:", grid);
 
-    // Cleanup logic (optional)
+
+
+    const location2 = grid.getlocation("0-4")
+    console.log(location2)
+    grid.setTileStyles(location2)
+
+
+
+
     return () => {
       // Any cleanup logic, e.g., removing event listeners
     };
@@ -55,9 +63,9 @@ const Gameboard: React.FC = () => {
     for (let row = 0; row < rows; row++) {
       for (let col = 0; col < cols; col++) {
         if (col % 2 === 0 && row % 2 == 0) {
-          elements.push(<Normal key={`normal-${row}-${col}`} row={row} col={col} />);
+          elements.push(<Normal key={`${row}-${col}`} row={row} col={col} />);
         } else {
-          elements.push(<Gap key={`gap-${row}-${col}`} row={row} col={col} />);
+          elements.push(<Gap key={`${row}-${col}`} row={row} col={col} />);
         }
       }
     }
@@ -68,6 +76,7 @@ const Gameboard: React.FC = () => {
   return (
     <div id='gameboard'>
       {renderGridElements()}
+      <div className='tile'></div>
     </div>
   );
 };

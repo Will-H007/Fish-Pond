@@ -4,7 +4,7 @@ const COL_SIZE = 9;
 const ROW_SIZE = 9;
 const CELL_SIZE = '70'; // Adjusted to be a string
 const CELL_GAP = '1vmin'; // Adjusted to be a string
-const TILE_SZIE = '14vmin'
+const TILE_SZIE = '10vmin'
 
 export default class Grid {
 
@@ -12,14 +12,18 @@ export default class Grid {
     private gridElement: HTMLElement | null;
 
     constructor(gridElement: HTMLElement | null) {
-        console.log('Grid constructor called with element:', gridElement);
+        // console.log('Grid constructor called with element:', gridElement);
         this.gridElement = gridElement;
 
         if (this.gridElement) {
             const gridSides = this.setgridproportion(COL_SIZE,ROW_SIZE,0.25)
             console.log(gridSides)
             this.setGridStyles(gridSides);
-            this.setCellAndGapStyles('white','black','white','1vmin');
+            this.setCellAndGapStyles('white','black','1vmin');
+            
+
+           
+
         }
     }
 
@@ -64,24 +68,50 @@ export default class Grid {
     }
     
 
-    public setTileStyles(x: number, y: number) {
-        if (this.gridElement) {
-            const tileElement = this.gridElement.querySelector('.tile') as HTMLElement;
 
-            // Set styles for .tile element based on --x and --y
-            tileElement.style.position = "absolute"
-            tileElement.style.backgroundColor = "red"
-            tileElement.style.borderRadius = '1vmin'
-            tileElement.style.width = TILE_SZIE;
-            tileElement.style.height = TILE_SZIE;
-  
-            tileElement.style.top = `calc((${y%COL_SIZE}) * (${TILE_SZIE} + ${CELL_GAP}) + 1 * ${CELL_GAP})`;
-            tileElement.style.left = `calc((${x%ROW_SIZE}) * (${TILE_SZIE} + ${CELL_GAP}) + 1 * ${CELL_GAP})`;
+    public getlocation(id: string) {
+        const element = document.getElementById(id);
+    
+        if (element) {
+            const rect = element.getBoundingClientRect();
+    
+            // rect.top and rect.left give the top-left coordinates of the element
+            const top = rect.top;
+            const left = rect.left;
+    
+            console.log(`Top: ${top}px, Left: ${left}px`);
+            return { y: top, x: left };
+        }
+    
+        // Return a default location if the element is not found
+        return { y: -1, x: -1 };
+    }
+    
+    public setTileStyles(location: { y: number, x: number } | undefined) {
+        if (this.gridElement && location) {
+            const tileElement = this.gridElement.querySelector('.tile') as HTMLElement | null;
+    
+            // Check if the tileElement is found before trying to set styles
+            if (tileElement) {
+                // Set styles for .tile element based on --x and --y
+                tileElement.style.position = "absolute";
+                tileElement.style.backgroundColor = "red";
+                tileElement.style.borderRadius = '1vmin';
+                tileElement.style.width = TILE_SZIE;
+                tileElement.style.height = TILE_SZIE;
+    
+                tileElement.style.top = `${location.y}px`;
+                tileElement.style.left = `${location.x}px`;
+            } else {
+                console.error('Tile element not found');
+            }
         }
     }
+    
+    
 
 
-    public setCellAndGapStyles(cellBackgroundColor: string, gapBackgroundColor: string, NodeBackgroudnColor:string,borderRadius: string) {
+    public setCellAndGapStyles(cellBackgroundColor: string, gapBackgroundColor: string,borderRadius: string) {
         // Set styles for .cell elements
         const cellElements = this.gridElement!.querySelectorAll('.cell');
         cellElements.forEach((cellElement) => {
@@ -97,12 +127,7 @@ export default class Grid {
 });
 
 
-    // Set styles for .gap elements
-    const NodeElements = this.gridElement!.querySelectorAll('.Node');
-    NodeElements.forEach((NodeElement) => {
-        (NodeElement as HTMLElement).style.backgroundColor = NodeBackgroudnColor;
-        (NodeElement as HTMLElement).style.borderRadius = borderRadius;
-    });
+
 
 
     }
