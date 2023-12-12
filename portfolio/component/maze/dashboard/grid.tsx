@@ -26,7 +26,9 @@ class Cell {
         this.object = null;
     }
 
-
+    public getType(){
+        return this.type
+    }
 
 
     public getObject(){
@@ -48,18 +50,34 @@ class Cell {
 
 function createCellElements(gridElement: HTMLElement | null): Cell[] {
     const cells: Cell[] = [];
-    for (let i = 0; i < COL_SIZE; i++) {
-        for (let j = 0; j < ROW_SIZE; j++) {
-            const cell = document.createElement("div");
-            const cellType = i % 2 === 0 && j % 2 === 0 ? "cell" : "gap";
-            cell.classList.add('cell');
-            cell.id = (`${i}-${j}`)
-            const cellInstance = new Cell(cell, i, j, cellType);
-            cells.push(cellInstance);
 
-            gridElement?.append(cell);
+    // Check if the gridElement already contains cells
+    const existingCells = gridElement?.querySelectorAll('.cell');
+
+    // If the grid is empty, create cells
+    if (!existingCells || existingCells.length === 0) {
+        for (let i = 0; i < COL_SIZE; i++) {
+            for (let j = 0; j < ROW_SIZE; j++) {
+                const cell = document.createElement("div");
+                const cellType = i % 2 === 0 && j % 2 === 0 ? "cell" : "gap";
+                cell.classList.add('cell');
+                cell.id = (`${i}-${j}`)
+                const cellInstance = new Cell(cell, i, j, cellType);
+                cells.push(cellInstance);
+
+                gridElement?.append(cell);
+            }
         }
+    } else {
+        // If the grid already has cells, use them
+        existingCells.forEach((cellElement) => {
+            const [i, j] = (cellElement as HTMLElement).id.split('-').map(Number);
+            const cellType = i % 2 === 0 && j % 2 === 0 ? "cell" : "gap";
+            const cellInstance = new Cell(cellElement as HTMLElement, i, j, cellType);
+            cells.push(cellInstance);
+        });
     }
+
     return cells;
 }
 
@@ -81,18 +99,18 @@ export default class Grid {
             const gridSides = this.setgridproportion(COL_SIZE,ROW_SIZE,0.25)
             this.setGridStyles(gridSides);
             this.cells = createCellElements(gridElement)
-            this.setCellAndGapStyles('white','#476343',"transparent",'0.5vmin');
+            this.setCellAndGapStyles('white',"transparent",'#476343','0.5vmin');
      
         }
     }
 
     public getEmptyCells(){
-        return this.cells.filter(cell => cell.getObject() == null)
+        return this.cells.filter(cell => cell.getObject() == null && cell.getType() == "cell")
     }
 
     public randomEmptyCell(){
         const randIndex = Math.floor(Math.random()*this.getEmptyCells().length)
-        console.log("testing")
+
         return this.getEmptyCells()[randIndex]
     }
 
@@ -139,31 +157,31 @@ export default class Grid {
     }
     
 
-    // public move(startLocation: { y: number; x: number }, endLocation: { y: number; x: number }) {
-    //     const distance_x = endLocation.x - startLocation.x;
-    //     const distance_y = endLocation.y - startLocation.y 
+    public move(startLocation: { y: number; x: number }, endLocation: { y: number; x: number }) {
+        const distance_x = endLocation.x - startLocation.x;
+        const distance_y = endLocation.y - startLocation.y 
       
-    //     // Set initial tile styles
-    //     this.setTileStyles(startLocation);
-    //     console.log(startLocation)
+        // Set initial tile styles
+        this.setTileStyles(startLocation);
+        console.log(startLocation)
       
-    //     // Trigger a reflow to ensure styles are applied before starting the animation
-    //     void this.gridElement?.offsetHeight;
+        // Trigger a reflow to ensure styles are applied before starting the animation
+        void this.gridElement?.offsetHeight;
       
-    //     // Set animation
-    //     const tileElement = this.gridElement?.querySelector('.tile') as HTMLElement | null;
-    //     if (tileElement) {
-    //         tileElement.style.setProperty('--translateX', `${distance_x}px`);
-    //         tileElement.style.setProperty('--translateY', `${distance_y}px`);
-    //         tileElement.style.animation = 'moveAnimation 1s ease-in-out';
+        // Set animation
+        const tileElement = this.gridElement?.querySelector('.tile') as HTMLElement | null;
+        if (tileElement) {
+            tileElement.style.setProperty('--translateX', `${distance_x}px`);
+            tileElement.style.setProperty('--translateY', `${distance_y}px`);
+            tileElement.style.animation = 'moveAnimation 1s ease-in-out';
       
-    //       // Update tile styles after animation completes
-    //       tileElement.addEventListener('animationend', () => {
-    //         tileElement.style.animation = 'none'; // Reset animation
-    //         this.setTileStyles(endLocation); // Set final tile styles
-    //       });
-    //     }
-    //   }
+          // Update tile styles after animation completes
+          tileElement.addEventListener('animationend', () => {
+            tileElement.style.animation = 'none'; // Reset animation
+            this.setTileStyles(endLocation); // Set final tile styles
+          });
+        }
+      }
     
       
     //   public  moveTilesSequentially = (moves: string[][]) => {
@@ -186,24 +204,7 @@ export default class Grid {
     //   };
 
 
-    public getlocation(id: string) {
-        const element = document.getElementById(id);
-    
-        if (element) {
-            const rect = element.getBoundingClientRect();
-    
-            // rect.top and rect.left give the top-left coordinates of the element
-            const top = rect.top;
-            const left = rect.left;
-    
-            console.log(`Top: ${top}px, Left: ${left}px`);
-            return { y: top, x: left };
-        }
-    
-        // Return a default location if the element is not found
-        return { y: -1, x: -1 };
-    }
-    
+  
     public setTileStyles(location: { y: number, x: number } | undefined) {
         if (this.gridElement && location) {
             const tileElement = this.gridElement.querySelector('.tile') as HTMLElement | null;
@@ -236,9 +237,20 @@ export default class Grid {
     public setCellAndGapStyles(cellBackgroundColor: string, gapBackgroundColor: string,nodeBackgroundColor:string,borderRadius: string) {
 
         const cellElements = this.gridElement!.querySelectorAll('.cell');
-        this.cells
+
         cellElements.forEach((cellElement) => {
+            const id = cellElement.id.split("-");
+            const col = parseInt(id[0]) % 2;
+            const row = parseInt(id[1]) % 2;
+            if (col == 0 && row == 0){
             (cellElement as HTMLElement).style.backgroundColor = cellBackgroundColor;
+            }
+            else if(col == 1 && row == 1){
+            (cellElement as HTMLElement).style.backgroundColor = gapBackgroundColor;
+            }
+            else{
+                (cellElement as HTMLElement).style.backgroundColor = nodeBackgroundColor;
+            }
             (cellElement as HTMLElement).style.borderRadius = borderRadius;
         });
 
@@ -249,5 +261,4 @@ export default class Grid {
 
 
 }
-
 

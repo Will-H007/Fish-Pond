@@ -17,6 +17,17 @@ class Tile{
         this.htmlLocation = null;
     }
 
+    private setTileStyle(){
+        if(this.tileElement){
+            this.tileElement.style.borderRadius = "0.5vmin"
+            this.tileElement.style.height = "3.8vmin";
+            this.tileElement.style.width = "3.8vmin";
+            this.tileElement.style.backgroundColor = "orange"
+        }
+    }
+
+
+
     private getHTMLlocation() {
         const element = document.getElementById(`${this.x}-${this.y}`);
     
@@ -45,9 +56,7 @@ class Tile{
             this.tileElement.style.position = 'absolute';
             this.tileElement.style.top = yValue;
             this.tileElement.style.left = xValue;
-            this.tileElement.style.height = "2.9vmin";
-            this.tileElement.style.width = "2.9vmin";
-            this.tileElement.style.backgroundColor = "orange"
+            this.setTileStyle()
         }
     }
 
@@ -75,6 +84,9 @@ class Tile{
 
     public setLocation(){
         this.setHTMLlocation()
+        if(this.tileElement){
+        this.tileElement.style.animation = 'show 0.2s ease-in-out';
+        }
     }
     
 
