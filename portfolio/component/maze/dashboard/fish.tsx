@@ -25,19 +25,19 @@ public distance(x:number, y:number){
 public async seek(endpoint_x: number, endpoint_y: number, grid: Grid) {
     let distance = this.distance(endpoint_x, endpoint_y);
 
-    while (distance > 0.5) {
+    while (distance !=0) {
         const x_dir = this.getX() < endpoint_x ? 2 : -2;
         const y_dir = this.getY() < endpoint_y ? 2 : -2;
 
         const new_x = this.getX() + x_dir;
         const new_y = this.getY() + y_dir;
 
-        await new Promise(resolve => setTimeout(resolve, 1100));
+        await new Promise(resolve => setTimeout(resolve, 100));
 
         // Check if the current position is close enough to the target
         if (this.distance(endpoint_x, endpoint_y) ==2) {
             this.move(endpoint_x ,endpoint_y, grid);
-     
+            return 
         } 
  
         else {

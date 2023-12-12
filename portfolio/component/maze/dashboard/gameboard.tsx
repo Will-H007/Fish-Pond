@@ -23,6 +23,8 @@ const Gameboard: React.FC = () => {
 
       const fish = new Fish(gameboardElement);
       grid.randomEmptyCell().setObject(fish);
+      const fish2 = new Fish(gameboardElement);
+      grid.randomEmptyCell().setObject(fish2);
 
       const moves = [
         ['0-0', '0-2'],  // Move from cell (0, 0) to cell (0, 1)
@@ -43,6 +45,7 @@ const Gameboard: React.FC = () => {
       // tile.moveTilesSequentially(moves, grid);
       // tile2.moveTilesSequentially(moves2, grid);
       fish.seek(16,22,grid)
+      fish2.seek(16,22,grid)
 
       // setTimeout(() => {
       //   console.log(grid.getAgents());

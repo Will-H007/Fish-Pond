@@ -109,7 +109,7 @@ class Tile{
           if (this.tileElement) {
             this.tileElement.style.setProperty('--translateX', `${distance_x}px`);
             this.tileElement.style.setProperty('--translateY', `${distance_y}px`);
-            this.tileElement.style.animation = 'moveAnimation 1s ease-in-out';
+            this.tileElement.style.animation = 'moveAnimation 0.05s ease-in-out';
       
             // Update tile styles after animation completes
             this.tileElement.onanimationend = () => {
@@ -137,7 +137,7 @@ class Tile{
             // Add a delay before initiating the next move
             setTimeout(() => {
                 moveWithDelay(index + 1);
-            }, /* Set your desired delay in milliseconds, e.g., */ 1100);
+            }, /* Set your desired delay in milliseconds, e.g., */ 500);
             }
         };
         
