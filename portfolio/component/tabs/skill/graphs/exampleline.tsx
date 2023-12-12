@@ -41,7 +41,7 @@ function Example4() {
 }, [])
   return (
     <>
-        <canvas ref={chartRef} style={{padding:"2vmin"}}></canvas>
+        <canvas ref={chartRef} style={{padding:"1vmin"}}></canvas>
     </>
   )
 }

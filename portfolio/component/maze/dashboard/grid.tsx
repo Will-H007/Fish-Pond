@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 
-const COL_SIZE = 11;
-const ROW_SIZE =11;
+const COL_SIZE = 33;
+const ROW_SIZE =33;
 const CELL_SIZE = '90'; // Adjusted to be a string
-const CELL_GAP = '1vmin'; // Adjusted to be a string
-const TILE_SZIE = `11vmin`
+const CELL_GAP = '0.5vmin'; // Adjusted to be a string
+const TILE_SZIE = `3.5vmin`
 
 export default class Grid {
 
@@ -19,7 +19,7 @@ export default class Grid {
             const gridSides = this.setgridproportion(COL_SIZE,ROW_SIZE,0.25)
             console.log(gridSides)
             this.setGridStyles(gridSides);
-            this.setCellAndGapStyles('white','transparent','1vmin');
+            this.setCellAndGapStyles('white','#476343',"transparent",'0.5vmin');
             
 
            
@@ -143,8 +143,8 @@ export default class Grid {
             if (tileElement) {
                 // Set styles for .tile element based on --x and --y
                 tileElement.style.position = "absolute";
-                tileElement.style.backgroundColor = "red";
-                tileElement.style.borderRadius = '1vmin';
+                tileElement.style.backgroundColor = "orange";
+                tileElement.style.borderRadius = '0.5vmin';
                 tileElement.style.width = TILE_SZIE;
                 tileElement.style.height = TILE_SZIE;
     
@@ -153,6 +153,7 @@ export default class Grid {
     
                 // Set animation
                 tileElement.style.animation = 'show 200ms ease-in-out';
+    
             } else {
                 console.error('Tile element not found');
             }
@@ -163,7 +164,7 @@ export default class Grid {
     
 
 
-    public setCellAndGapStyles(cellBackgroundColor: string, gapBackgroundColor: string,borderRadius: string) {
+    public setCellAndGapStyles(cellBackgroundColor: string, gapBackgroundColor: string,nodeBackgroundColor:string,borderRadius: string) {
         // Set styles for .cell elements
         const cellElements = this.gridElement!.querySelectorAll('.cell');
         cellElements.forEach((cellElement) => {
@@ -174,7 +175,14 @@ export default class Grid {
         // Set styles for .gap elements
         const gapElements = this.gridElement!.querySelectorAll('.gap');
         gapElements.forEach((gapElement) => {
+            const id = gapElement.id.split('-');
+            if(!(parseInt(id[0])%2 == 0 && parseInt(id[1])%2 == 0)){
             (gapElement as HTMLElement).style.backgroundColor = gapBackgroundColor;
+            }
+            else{
+                (gapElement as HTMLElement).style.backgroundColor = nodeBackgroundColor;
+            }
+            
             (gapElement as HTMLElement).style.borderRadius = borderRadius;
 });
 

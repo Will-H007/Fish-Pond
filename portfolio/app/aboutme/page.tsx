@@ -59,19 +59,19 @@ const ExperiencePage: React.FC = () => {
       
             }}
           >
-
-            <Gameboard/>
-            
-            <div style={{backgroundColor:"transparent", height: '94vmin',
-             width:"25vw", marginLeft:"3vmin", padding:"2vmin", borderRadius:"1vmin", marginTop:'1vmin'}}>
+    <div style={{backgroundColor:"transparent", height: '94vmin',
+             width:"25vw", marginRight:"3vmin", padding:"2vmin", borderRadius:"1vmin", marginTop:'1vmin'}}>
                   <div style={{backgroundColor:"#cae3c9", height:"100%", width:"100%",borderRadius:"1vmin",display:"flex", justifyContent:"center",
              alignItems:"center",  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',}}>
-          <div style={{marginTop:"55vmin"}}>
-          <Card onMenuButtonClick={handleToggleCard} isMenuOpen={isCardOpen} />
-          </div>
+              <div style={{marginTop:"55vmin"}}>
+              <Card onMenuButtonClick={handleToggleCard} isMenuOpen={isCardOpen} />
+              </div>
 
              </div>
               </div>
+            <Gameboard/>
+            
+        
 
   
           </div>
