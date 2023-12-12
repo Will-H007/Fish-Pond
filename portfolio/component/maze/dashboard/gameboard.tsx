@@ -1,58 +1,33 @@
 import React, { useEffect } from 'react';
 import Grid from './grid';
+import Tile from './tile';
 import Example3 from '@/component/tabs/skill/graphs/exampledonut';
 import Example from '@/component/tabs/skill/graphs/examplebar';
 import Example4 from '@/component/tabs/skill/graphs/exampleline';
-interface NormalProps {
-  row: number;
-  col: number;
-}
 
-const Normal: React.FC<NormalProps> = ({ row, col }) => {
-  const elementId = `${row+1}-${col+1}`;
-  return (
-    <>
-      <div id={elementId} className='cell'></div>
-    </>
-  );
-};
-
-interface GapProps {
-  row: number;
-  col: number;
-}
-
-const Gap: React.FC<GapProps> = ({ row, col }) => {
-  const elementId = `${row+1}-${col+1}`;
-  return (
-    <>
-
-      <div id={elementId} className='gap'></div>
-
-    </>
-  );
-};
 
 const Gameboard: React.FC = () => {
   useEffect(() => {
     const gameboardElement = document.getElementById('gameboard');
 
     const grid = new Grid(gameboardElement);
-  
+    const tile = new Tile(gameboardElement)
+    grid.randomEmptyCell().setObject(tile)
+    // console.log(grid.randomEmptyCell())
     // Example usage:
-    const startEndPairs: string[][] = [
-      ['7-7', '7-9'],
-      ['7-9', '7-11'],
-      ['7-11', '9-11'],
-      ['9-11', '11-11'],
-      ['11-11', '11-9'],
-      ['11-9', '11-7'],
-      ['11-7', '9-7'],
-      ['9-7', '9-9'],
-      // Add more pairs as needed
-    ];
+    // const startEndPairs: string[][] = [
+    //   ['7-7', '7-9'],
+    //   ['7-9', '7-11'],
+    //   ['7-11', '9-11'],
+    //   ['9-11', '11-11'],
+    //   ['11-11', '11-9'],
+    //   ['11-9', '11-7'],
+    //   ['11-7', '9-7'],
+    //   ['9-7', '9-9'],
+    //   // Add more pairs as needed
+    // ];
     
-    grid.moveTilesSequentially(startEndPairs);
+    // grid.moveTilesSequentially(startEndPairs);
     
 
 
@@ -144,24 +119,6 @@ const Gameboard: React.FC = () => {
     };
   }, []);
 
-  const renderGridElements = () => {
-    const elements = [];
-    const cols =33;
-    const rows =33;
-
-
-    for (let row = 0; row < rows; row++) {
-      for (let col = 0; col < cols; col++) {
-        if (col % 2 === 0 && row % 2 == 0) {
-          elements.push(<Normal key={`${row}-${col}`} row={row} col={col} />);
-        } else {
-          elements.push(<Gap key={`${row}-${col}`} row={row} col={col} />);
-        }
-      }
-    }
-
-    return elements;
-  };
 
 
 
@@ -176,8 +133,8 @@ const Gameboard: React.FC = () => {
 
   return (
     <div id='gameboard'>
-      {renderGridElements()}
-      <div className='tile'></div>
+
+      {/* <div className='tile'></div> */}
       {/* <div id='graph'><Example3/></div>
       <div id='graph2'><Example/></div>
       <div id='graph3'><Example4/></div>

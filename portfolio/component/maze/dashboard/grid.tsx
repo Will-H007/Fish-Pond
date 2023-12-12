@@ -1,31 +1,103 @@
 import { useEffect } from "react";
-
+import Tile from "./tile";
 const COL_SIZE = 33;
 const ROW_SIZE =33;
 const CELL_SIZE = '90'; // Adjusted to be a string
 const CELL_GAP = '0.5vmin'; // Adjusted to be a string
 const TILE_SZIE = `3.5vmin`
 
+
+
+
+
+
+class Cell {
+    private cellElement: HTMLElement | null;
+    private x: number;
+    private y: number;
+    private type: string;
+    private object: Tile | null;
+
+    constructor(cellElement: HTMLElement | null, x: number, y: number, type: string) {
+        this.cellElement = cellElement;
+        this.x = x;
+        this.y = y;
+        this.type = type;
+        this.object = null;
+    }
+
+
+
+
+    public getObject(){
+        return this.object
+    }
+
+    public setObject(tile:Tile){
+
+        this.object = tile;
+        this.object.setX(this.x);
+        this.object.setY(this.y);
+        this.object.setLocation();
+    }
+
+   
+}
+
+
+
+function createCellElements(gridElement: HTMLElement | null): Cell[] {
+    const cells: Cell[] = [];
+    for (let i = 0; i < COL_SIZE; i++) {
+        for (let j = 0; j < ROW_SIZE; j++) {
+            const cell = document.createElement("div");
+            const cellType = i % 2 === 0 && j % 2 === 0 ? "cell" : "gap";
+            cell.classList.add('cell');
+            cell.id = (`${i}-${j}`)
+            const cellInstance = new Cell(cell, i, j, cellType);
+            cells.push(cellInstance);
+
+            gridElement?.append(cell);
+        }
+    }
+    return cells;
+}
+
+
 export default class Grid {
 
 
     private gridElement: HTMLElement | null;
 
+    private cells: Cell[]
+
     constructor(gridElement: HTMLElement | null) {
-        // console.log('Grid constructor called with element:', gridElement);
+
         this.gridElement = gridElement;
+        this.cells = [];
 
         if (this.gridElement) {
+
             const gridSides = this.setgridproportion(COL_SIZE,ROW_SIZE,0.25)
-            console.log(gridSides)
             this.setGridStyles(gridSides);
+            this.cells = createCellElements(gridElement)
             this.setCellAndGapStyles('white','#476343',"transparent",'0.5vmin');
-            
-
-           
-
+     
         }
     }
+
+    public getEmptyCells(){
+        return this.cells.filter(cell => cell.getObject() == null)
+    }
+
+    public randomEmptyCell(){
+        const randIndex = Math.floor(Math.random()*this.getEmptyCells().length)
+        console.log("testing")
+        return this.getEmptyCells()[randIndex]
+    }
+
+    
+
 
 
     private setgridproportion(col:number, row:number, proportion:number) {
@@ -55,7 +127,6 @@ export default class Grid {
     }
     
     private setGridStyles(gridSides: { columns: string; rows: string }) {
-        // Set grid styles
         this.gridElement!.style.display = 'grid';
         this.gridElement!.style.gridTemplateColumns = gridSides.columns;
         this.gridElement!.style.gridTemplateRows = gridSides.rows;
@@ -68,53 +139,51 @@ export default class Grid {
     }
     
 
-    public move(startLocation: { y: number; x: number }, endLocation: { y: number; x: number }) {
-
-
-        const distance_x = endLocation.x - startLocation.x;
-        const distance_y = endLocation.y - startLocation.y 
+    // public move(startLocation: { y: number; x: number }, endLocation: { y: number; x: number }) {
+    //     const distance_x = endLocation.x - startLocation.x;
+    //     const distance_y = endLocation.y - startLocation.y 
       
-        // Set initial tile styles
-        this.setTileStyles(startLocation);
-        console.log(startLocation)
+    //     // Set initial tile styles
+    //     this.setTileStyles(startLocation);
+    //     console.log(startLocation)
       
-        // Trigger a reflow to ensure styles are applied before starting the animation
-        void this.gridElement?.offsetHeight;
+    //     // Trigger a reflow to ensure styles are applied before starting the animation
+    //     void this.gridElement?.offsetHeight;
       
-        // Set animation
-        const tileElement = this.gridElement?.querySelector('.tile') as HTMLElement | null;
-        if (tileElement) {
-            tileElement.style.setProperty('--translateX', `${distance_x}px`);
-            tileElement.style.setProperty('--translateY', `${distance_y}px`);
-            tileElement.style.animation = 'moveAnimation 1s ease-in-out';
+    //     // Set animation
+    //     const tileElement = this.gridElement?.querySelector('.tile') as HTMLElement | null;
+    //     if (tileElement) {
+    //         tileElement.style.setProperty('--translateX', `${distance_x}px`);
+    //         tileElement.style.setProperty('--translateY', `${distance_y}px`);
+    //         tileElement.style.animation = 'moveAnimation 1s ease-in-out';
       
-          // Update tile styles after animation completes
-          tileElement.addEventListener('animationend', () => {
-            tileElement.style.animation = 'none'; // Reset animation
-            this.setTileStyles(endLocation); // Set final tile styles
-          });
-        }
-      }
+    //       // Update tile styles after animation completes
+    //       tileElement.addEventListener('animationend', () => {
+    //         tileElement.style.animation = 'none'; // Reset animation
+    //         this.setTileStyles(endLocation); // Set final tile styles
+    //       });
+    //     }
+    //   }
     
       
-      public  moveTilesSequentially = (moves: string[][]) => {
-        const moveWithDelay = (index: number) => {
-          if (index < moves.length) {
-            const [startLocation, endLocation] = moves[index];
-            const start = this.getlocation(startLocation)
-            const end = this.getlocation(endLocation)
-            this.move(start, end);
+    //   public  moveTilesSequentially = (moves: string[][]) => {
+    //     const moveWithDelay = (index: number) => {
+    //       if (index < moves.length) {
+    //         const [startLocation, endLocation] = moves[index];
+    //         const start = this.getlocation(startLocation)
+    //         const end = this.getlocation(endLocation)
+    //         this.move(start, end);
             
-            // Add a delay before initiating the next move
-            setTimeout(() => {
-              moveWithDelay(index + 1);
-            }, /* Set your desired delay in milliseconds, e.g., */ 1000);
-          }
-        };
+    //         // Add a delay before initiating the next move
+    //         setTimeout(() => {
+    //           moveWithDelay(index + 1);
+    //         }, /* Set your desired delay in milliseconds, e.g., */ 1000);
+    //       }
+    //     };
       
-        // Start the sequence
-        moveWithDelay(0);
-      };
+    //     // Start the sequence
+    //     moveWithDelay(0);
+    //   };
 
 
     public getlocation(id: string) {
@@ -165,30 +234,20 @@ export default class Grid {
 
 
     public setCellAndGapStyles(cellBackgroundColor: string, gapBackgroundColor: string,nodeBackgroundColor:string,borderRadius: string) {
-        // Set styles for .cell elements
+
         const cellElements = this.gridElement!.querySelectorAll('.cell');
+        this.cells
         cellElements.forEach((cellElement) => {
             (cellElement as HTMLElement).style.backgroundColor = cellBackgroundColor;
             (cellElement as HTMLElement).style.borderRadius = borderRadius;
         });
 
-        // Set styles for .gap elements
-        const gapElements = this.gridElement!.querySelectorAll('.gap');
-        gapElements.forEach((gapElement) => {
-            const id = gapElement.id.split('-');
-            if(!(parseInt(id[0])%2 == 0 && parseInt(id[1])%2 == 0)){
-            (gapElement as HTMLElement).style.backgroundColor = gapBackgroundColor;
-            }
-            else{
-                (gapElement as HTMLElement).style.backgroundColor = nodeBackgroundColor;
-            }
-            
-            (gapElement as HTMLElement).style.borderRadius = borderRadius;
-});
-
-
-
-
+  
 
     }
+
+
+
 }
+
+
