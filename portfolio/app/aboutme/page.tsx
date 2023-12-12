@@ -34,7 +34,7 @@ const ExperiencePage: React.FC = () => {
 
        
       
-      <div style={{ position: 'absolute', zIndex: isCardOpen?2:3, marginLeft:"1em" , height:"100%", display:'flex', alignItems:"end", marginTop:"17em"}}>
+      <div style={{ zIndex: isCardOpen?2:3}}>
  
               <Card onMenuButtonClick={handleToggleCard} isMenuOpen={isCardOpen} />
             </div> 

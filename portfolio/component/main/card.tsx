@@ -30,6 +30,7 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
   return (
 
     <div style={{
+      position: 'absolute',  marginLeft:"1em" ,
       width: "22em",
       height:"30em",
       display: "flex",
@@ -39,6 +40,7 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
       borderRadius: '8px',
       overflow: 'hidden',
       gap: '20px',
+
 
       // backdropFilter: 'blur(5px)',
       backgroundColor: '#cae3c9',
