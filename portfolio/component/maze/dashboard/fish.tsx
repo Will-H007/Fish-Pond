@@ -32,7 +32,7 @@ public async seek(endpoint_x: number, endpoint_y: number, grid: Grid) {
         const new_x = this.getX() + x_dir;
         const new_y = this.getY() + y_dir;
 
-        await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise(resolve => setTimeout(resolve, 250));
 
         // Check if the current position is close enough to the target
         if (this.distance(endpoint_x, endpoint_y) ==2) {

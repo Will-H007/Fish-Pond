@@ -4,14 +4,14 @@ import Card from '@/component/main/card';
 import { AnimateNav } from '@/component/navbar/newnav';
 import Gameboard from '@/component/maze/dashboard/gameboard';
 const ExperiencePage: React.FC = () => {
-  const [isCardOpen, setIsCardOpen] = useState(true);
+  const [isCardOpen, setIsCardOpen] = useState(false);
 
   const handleToggleCard = () => {
     setIsCardOpen(!isCardOpen);
   };
 
   return (
-    <div style={{ overflow: 'hidden',     width: '100%',
+    <div style={{ overflow: 'auto',     width: '100%',
     height: '100vh', backgroundColor: '#759f7e'}}>
       
         <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'start', alignItems: 'center', zIndex:-1}}>
@@ -34,7 +34,7 @@ const ExperiencePage: React.FC = () => {
 
        
       
-      <div style={{ position: 'fixed', zIndex: isCardOpen?2:3, marginTop: '23em', marginLeft:"1em" , height:'100%'}}>
+      <div style={{ position: 'absolute', zIndex: isCardOpen?2:3, marginLeft:"1em" , height:"100%", display:'flex', alignItems:"end", marginTop:"17em"}}>
  
               <Card onMenuButtonClick={handleToggleCard} isMenuOpen={isCardOpen} />
             </div> 
@@ -59,13 +59,12 @@ const ExperiencePage: React.FC = () => {
       
             }}
           >
+            
     {/* <div style={{backgroundColor:"transparent", height: '94vmin',
-             width:"25vw", marginRight:"3vmin", padding:"2vmin", borderRadius:"1vmin", marginTop:'1vmin'}}>
+             width:"25vw", marginRight:"3vmin", padding:"2vmin", borderRadius:"1vmin", marginTop:'1vmin',}}>
                   <div style={{backgroundColor:"#cae3c9", height:"100%", width:"100%",borderRadius:"1vmin",display:"flex", justifyContent:"center",
-             alignItems:"center",  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',}}>
-              <div style={{marginTop:"55vmin"}}>
-              <Card onMenuButtonClick={handleToggleCard} isMenuOpen={isCardOpen} />
-              </div>
+             alignItems:"center",  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)'}}>
+            
 
              </div>
               </div> */}

@@ -23,6 +23,8 @@ class Tile{
             this.tileElement.style.borderRadius = "0.5vmin"
             this.tileElement.style.height = "3.8vmin";
             this.tileElement.style.width = "3.8vmin";
+            // this.tileElement.style.height = "1vmin";
+            // this.tileElement.style.width = "1vmin";
             this.tileElement.style.backgroundColor = "orange"
         }
     }
@@ -109,7 +111,7 @@ class Tile{
           if (this.tileElement) {
             this.tileElement.style.setProperty('--translateX', `${distance_x}px`);
             this.tileElement.style.setProperty('--translateY', `${distance_y}px`);
-            this.tileElement.style.animation = 'moveAnimation 0.05s ease-in-out';
+            this.tileElement.style.animation = 'moveAnimation 0.225s ease-in-out';
       
             // Update tile styles after animation completes
             this.tileElement.onanimationend = () => {

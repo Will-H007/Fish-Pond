@@ -5,7 +5,7 @@ const COL_SIZE = 33;
 const ROW_SIZE =33;
 const CELL_SIZE = '90'; // Adjusted to be a string
 const CELL_GAP = '0.5vmin'; // Adjusted to be a string
-const TILE_SZIE = `3.5vmin`
+// const TILE_SZIE = `3.5vmin`
 
 
 
@@ -131,12 +131,28 @@ export default class Grid {
 
     public UpdatePosition(object:Tile | null | Fish){
         if (object){
-        const oldcell = this.cells.filter(cell => cell.getObject() == object)[0];
-        const Obj = oldcell.getObject();
-        oldcell.clearObject()
+        const oldcell = this.cells.find(cell => cell.getObject() === object);
+
+        if (oldcell) {
+            const Obj = oldcell.getObject();
+            // Rest of your code here
+        } else {
+            // Handle the case where the object was not found in any cell
+            console.error('Object not found in any cell');
+        }
+        
+        const Obj = oldcell?.getObject();
+        oldcell?.clearObject()
         const newcell = this.cells.filter(cell => cell.getX() == object.getX() && cell.getY() == object.getY())[0];
-        newcell.setObject(object)
-        console.log("position",newcell.getX(), newcell.getY())
+        if (newcell) {
+            const Obj = newcell.getObject();
+            // Rest of your code here
+        } else {
+            // Handle the case where the object was not found in any cell
+            console.error('Object not found in any cell');
+        }
+        newcell?.setObject(object)
+        console.log("position",newcell?.getX(), newcell?.getY())
         }
         return
     }
