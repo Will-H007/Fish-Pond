@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Tile from "./tile";
+import Fish from "./fish";
 const COL_SIZE = 33;
 const ROW_SIZE =33;
 const CELL_SIZE = '90'; // Adjusted to be a string
@@ -16,7 +17,7 @@ class Cell {
     private x: number;
     private y: number;
     private type: string;
-    private object: Tile | null;
+    private object: Tile | null | Fish;
 
     constructor(cellElement: HTMLElement | null, x: number, y: number, type: string) {
         this.cellElement = cellElement;
@@ -35,7 +36,7 @@ class Cell {
         return this.object
     }
 
-    public setObject(tile:Tile){
+    public setObject(tile:Tile | Fish){
 
         this.object = tile;
         this.object.setX(this.x);
@@ -43,6 +44,16 @@ class Cell {
         this.object.setLocation();
     }
 
+    public getX(){
+        return this.x;
+    }
+
+    public getY(){
+        return this.y;
+    }
+    public clearObject(){
+        this.object = null;
+    }
    
 }
 
@@ -114,7 +125,21 @@ export default class Grid {
         return this.getEmptyCells()[randIndex]
     }
 
-    
+    public getAgents(){
+        return this.cells.filter(cell => cell.getObject() != null && cell.getType() == "cell")
+    }
+
+    public UpdatePosition(object:Tile | null | Fish){
+        if (object){
+        const oldcell = this.cells.filter(cell => cell.getObject() == object)[0];
+        const Obj = oldcell.getObject();
+        oldcell.clearObject()
+        const newcell = this.cells.filter(cell => cell.getX() == object.getX() && cell.getY() == object.getY())[0];
+        newcell.setObject(object)
+        console.log("position",newcell.getX(), newcell.getY())
+        }
+        return
+    }
 
 
 
@@ -157,31 +182,31 @@ export default class Grid {
     }
     
 
-    public move(startLocation: { y: number; x: number }, endLocation: { y: number; x: number }) {
-        const distance_x = endLocation.x - startLocation.x;
-        const distance_y = endLocation.y - startLocation.y 
+    // public move(startLocation: { y: number; x: number }, endLocation: { y: number; x: number }) {
+    //     const distance_x = endLocation.x - startLocation.x;
+    //     const distance_y = endLocation.y - startLocation.y 
       
-        // Set initial tile styles
-        this.setTileStyles(startLocation);
-        console.log(startLocation)
+    //     // Set initial tile styles
+    //     this.setTileStyles(startLocation);
+    //     console.log(startLocation)
       
-        // Trigger a reflow to ensure styles are applied before starting the animation
-        void this.gridElement?.offsetHeight;
+    //     // Trigger a reflow to ensure styles are applied before starting the animation
+    //     void this.gridElement?.offsetHeight;
       
-        // Set animation
-        const tileElement = this.gridElement?.querySelector('.tile') as HTMLElement | null;
-        if (tileElement) {
-            tileElement.style.setProperty('--translateX', `${distance_x}px`);
-            tileElement.style.setProperty('--translateY', `${distance_y}px`);
-            tileElement.style.animation = 'moveAnimation 1s ease-in-out';
+    //     // Set animation
+    //     const tileElement = this.gridElement?.querySelector('.tile') as HTMLElement | null;
+    //     if (tileElement) {
+    //         tileElement.style.setProperty('--translateX', `${distance_x}px`);
+    //         tileElement.style.setProperty('--translateY', `${distance_y}px`);
+    //         tileElement.style.animation = 'moveAnimation 1s ease-in-out';
       
-          // Update tile styles after animation completes
-          tileElement.addEventListener('animationend', () => {
-            tileElement.style.animation = 'none'; // Reset animation
-            this.setTileStyles(endLocation); // Set final tile styles
-          });
-        }
-      }
+    //       // Update tile styles after animation completes
+    //       tileElement.addEventListener('animationend', () => {
+    //         tileElement.style.animation = 'none'; // Reset animation
+    //         this.setTileStyles(endLocation); // Set final tile styles
+    //       });
+    //     }
+    //   }
     
       
     //   public  moveTilesSequentially = (moves: string[][]) => {
@@ -205,30 +230,30 @@ export default class Grid {
 
 
   
-    public setTileStyles(location: { y: number, x: number } | undefined) {
-        if (this.gridElement && location) {
-            const tileElement = this.gridElement.querySelector('.tile') as HTMLElement | null;
+    // public setTileStyles(location: { y: number, x: number } | undefined) {
+    //     if (this.gridElement && location) {
+    //         const tileElement = this.gridElement.querySelector('.tile') as HTMLElement | null;
     
-            // Check if the tileElement is found before trying to set styles
-            if (tileElement) {
-                // Set styles for .tile element based on --x and --y
-                tileElement.style.position = "absolute";
-                tileElement.style.backgroundColor = "orange";
-                tileElement.style.borderRadius = '0.5vmin';
-                tileElement.style.width = TILE_SZIE;
-                tileElement.style.height = TILE_SZIE;
+    //         // Check if the tileElement is found before trying to set styles
+    //         if (tileElement) {
+    //             // Set styles for .tile element based on --x and --y
+    //             tileElement.style.position = "absolute";
+    //             tileElement.style.backgroundColor = "orange";
+    //             tileElement.style.borderRadius = '0.5vmin';
+    //             tileElement.style.width = TILE_SZIE;
+    //             tileElement.style.height = TILE_SZIE;
     
-                tileElement.style.top = `${location.y}px`;
-                tileElement.style.left = `${location.x}px`;
+    //             tileElement.style.top = `${location.y}px`;
+    //             tileElement.style.left = `${location.x}px`;
     
-                // Set animation
-                tileElement.style.animation = 'show 200ms ease-in-out';
+    //             // Set animation
+    //             tileElement.style.animation = 'show 200ms ease-in-out';
     
-            } else {
-                console.error('Tile element not found');
-            }
-        }
-    }
+    //         } else {
+    //             console.error('Tile element not found');
+    //         }
+    //     }
+    // }
     
     
     

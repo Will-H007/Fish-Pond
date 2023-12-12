@@ -1,8 +1,9 @@
 import { createElement } from "react";
+import Grid from "./grid";
 
 class Tile{
-    private x: number | null;
-    private y: number | null;
+    private x: number;
+    private y: number;
     private tileElement: HTMLElement | null;
     private htmlLocation: { y: number; x: number } | null;
     private value:string | null;
@@ -11,8 +12,8 @@ class Tile{
         this.tileElement = document.createElement("div");
         this.tileElement.classList.add("tile")
         tileContainer?.append(this.tileElement)
-        this.x = null
-        this.y = null
+        this.x = -1
+        this.y = -1
         this.value = null;
         this.htmlLocation = null;
     }
@@ -28,8 +29,8 @@ class Tile{
 
 
 
-    private getHTMLlocation() {
-        const element = document.getElementById(`${this.x}-${this.y}`);
+    public getHTMLlocation(x:number|null, y:number|null) {
+        const element = document.getElementById(`${x}-${y}`);
     
         if (element) {
             const rect = element.getBoundingClientRect();
@@ -46,8 +47,8 @@ class Tile{
         return { y: -1, x: -1 };
     }
 
-    private setHTMLlocation() {
-        this.htmlLocation = this.getHTMLlocation();
+    public setHTMLlocation() {
+        this.htmlLocation = this.getHTMLlocation(this.x, this.y);
         
         if (this.tileElement) {
             // Assuming htmlLocation.x and htmlLocation.y are in pixels
@@ -85,10 +86,65 @@ class Tile{
     public setLocation(){
         this.setHTMLlocation()
         if(this.tileElement){
-        this.tileElement.style.animation = 'show 0.2s ease-in-out';
+        // this.tileElement.style.animation = 'show 1s ease-in-out';
         }
     }
     
+
+    public move(x: number, y: number, grid: Grid) {
+        const destination = this.getHTMLlocation(x, y);
+        const start = this.getHTMLlocation(this.x, this.y);
+        
+        if (this.htmlLocation) {
+          const distance_x = destination.x - start.x;
+          const distance_y = destination.y - start.y;
+      
+          // Set initial tile styles
+          this.setHTMLlocation();
+      
+          // Trigger a reflow to ensure styles are applied before starting the animation
+          void this.tileElement?.offsetHeight;
+      
+          // Set animation
+          if (this.tileElement) {
+            this.tileElement.style.setProperty('--translateX', `${distance_x}px`);
+            this.tileElement.style.setProperty('--translateY', `${distance_y}px`);
+            this.tileElement.style.animation = 'moveAnimation 1s ease-in-out';
+      
+            // Update tile styles after animation completes
+            this.tileElement.onanimationend = () => {
+              this.tileElement!.style.animation = 'none'; // Reset animation
+              this.setX(x);
+              this.setY(y);
+              this.setHTMLlocation();
+              grid.UpdatePosition(this);
+              this.tileElement!.onanimationend = null; // Remove the event listener
+            };
+          }
+        }
+      }
+      
+    public moveTilesSequentially = (moves: string[][], grid: Grid) => {
+        const moveWithDelay = (index: number) => {
+            if (index < moves.length) {
+            const [startLocation, endLocation] = moves[index];
+            const startLocationArray = startLocation.split('-');
+            const endLocationArray = endLocation.split('-');
+            const start = this.getHTMLlocation(parseInt(startLocation[0]),parseInt(startLocation[1]))
+            const end = this.getHTMLlocation(parseInt(endLocation[0]),parseInt(endLocation[1]))
+            this.move(parseInt(endLocationArray[0]),parseInt(endLocationArray[1]), grid);
+            
+            // Add a delay before initiating the next move
+            setTimeout(() => {
+                moveWithDelay(index + 1);
+            }, /* Set your desired delay in milliseconds, e.g., */ 1100);
+            }
+        };
+        
+        // Start the sequence
+        moveWithDelay(0);
+        
+        };
 
 }
 
