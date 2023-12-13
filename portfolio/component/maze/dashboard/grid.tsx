@@ -1,10 +1,13 @@
 import { useEffect } from "react";
 import Tile from "./tile";
 import Fish from "./fish";
+import { random } from "animejs";
+import Barrier from "./barriers";
 const COL_SIZE = 33;
 const ROW_SIZE =33;
 const CELL_SIZE = '90'; // Adjusted to be a string
 const CELL_GAP = '0.5vmin'; // Adjusted to be a string
+const GAP_BACKGROUNDCOLOR = "black"
 // const TILE_SZIE = `3.5vmin`
 
 
@@ -18,6 +21,7 @@ class Cell {
     private y: number;
     private type: string;
     private object: Tile | null | Fish;
+    private barrier: Barrier | null;
 
     constructor(cellElement: HTMLElement | null, x: number, y: number, type: string) {
         this.cellElement = cellElement;
@@ -25,6 +29,7 @@ class Cell {
         this.y = y;
         this.type = type;
         this.object = null;
+        this.barrier = null;
     }
 
     public getType(){
@@ -36,12 +41,19 @@ class Cell {
         return this.object
     }
 
-    public setObject(tile:Tile | Fish){
-
+    public setObject(tile:Tile | Fish ){
         this.object = tile;
         this.object.setX(this.x);
         this.object.setY(this.y);
         this.object.setLocation();
+    }
+
+    public setBarrier(barrier: Barrier){
+        this.barrier = barrier
+    }
+
+    public getBarrier(){
+        return this.barrier
     }
 
     public getX(){
@@ -51,9 +63,12 @@ class Cell {
     public getY(){
         return this.y;
     }
+
     public clearObject(){
         this.object = null;
     }
+
+
    
 }
 
@@ -61,7 +76,7 @@ class Cell {
 
 function createCellElements(gridElement: HTMLElement | null): Cell[] {
     const cells: Cell[] = [];
-
+    
     // Check if the gridElement already contains cells
     const existingCells = gridElement?.querySelectorAll('.cell');
 
@@ -98,22 +113,33 @@ export default class Grid {
 
     private gridElement: HTMLElement | null;
 
-    private cells: Cell[]
-
-    constructor(gridElement: HTMLElement | null) {
+    private cells: Cell[];
+    private rows: number;
+    private cols: number;
+    constructor(gridElement: HTMLElement | null,rows:number = 33, cols:number = 33) {
 
         this.gridElement = gridElement;
         this.cells = [];
+        this.rows = rows;
+        this.cols = cols;
 
         if (this.gridElement) {
 
             const gridSides = this.setgridproportion(COL_SIZE,ROW_SIZE,0.25)
             this.setGridStyles(gridSides);
             this.cells = createCellElements(gridElement)
-            this.setCellAndGapStyles('white',"transparent",'#476343','0.5vmin');
+            this.setCellAndGapStyles('white',"transparent",'transparent','0.5vmin');
      
         }
     }
+
+    public getRows(){
+        return this.rows
+    }
+    public getCols(){
+        return this,this.cols
+    }
+
 
     public getEmptyCells(){
         return this.cells.filter(cell => cell.getObject() == null && cell.getType() == "cell")
@@ -129,19 +155,47 @@ export default class Grid {
         return this.cells.filter(cell => cell.getObject() != null && cell.getType() == "cell")
     }
 
+
+    public getEmptyBarriers(){
+        const barriers = this.cells.filter(cell => cell.getObject() == null && cell.getBarrier() == null && cell.getType() == "gap")
+        return barriers
+    }
+
+    public getExistingBarriers(){
+        const barriers = this.cells.filter(cell => cell.getObject() == null && cell.getBarrier() != null && cell.getType() == "gap")
+        return barriers
+    }
+    
+
+    public setRandomBarriers(){
+        const barriers = this.getEmptyBarriers()
+        for(let i = 0; i < barriers.length; i++){
+            if(Math.random() > 0.5 && !(barriers[i].getX() % 2 != 0 && barriers[i].getY() % 2 != 0)){
+              
+                const barrier = new Barrier()
+                barriers[i].setBarrier(barrier)
+                const cellElement = document.getElementById(`${barriers[i].getX()}-${barriers[i].getY()}`)
+     
+                if(cellElement){
+                cellElement.style.backgroundColor = GAP_BACKGROUNDCOLOR;
+       
+                }
+            }
+        }
+        return
+    }
+
+
+
+
+
+
+
+
     public UpdatePosition(object:Tile | null | Fish){
         if (object){
         const oldcell = this.cells.find(cell => cell.getObject() === object);
 
-        if (oldcell) {
-            const Obj = oldcell.getObject();
-            // Rest of your code here
-        } else {
-            // Handle the case where the object was not found in any cell
-            console.error('Object not found in any cell');
-        }
-        
-        const Obj = oldcell?.getObject();
         oldcell?.clearObject()
         const newcell = this.cells.filter(cell => cell.getX() == object.getX() && cell.getY() == object.getY())[0];
         if (newcell) {
@@ -196,82 +250,6 @@ export default class Grid {
         this.gridElement!.style.width = `${CELL_SIZE}vmin`;
         
     }
-    
-
-    // public move(startLocation: { y: number; x: number }, endLocation: { y: number; x: number }) {
-    //     const distance_x = endLocation.x - startLocation.x;
-    //     const distance_y = endLocation.y - startLocation.y 
-      
-    //     // Set initial tile styles
-    //     this.setTileStyles(startLocation);
-    //     console.log(startLocation)
-      
-    //     // Trigger a reflow to ensure styles are applied before starting the animation
-    //     void this.gridElement?.offsetHeight;
-      
-    //     // Set animation
-    //     const tileElement = this.gridElement?.querySelector('.tile') as HTMLElement | null;
-    //     if (tileElement) {
-    //         tileElement.style.setProperty('--translateX', `${distance_x}px`);
-    //         tileElement.style.setProperty('--translateY', `${distance_y}px`);
-    //         tileElement.style.animation = 'moveAnimation 1s ease-in-out';
-      
-    //       // Update tile styles after animation completes
-    //       tileElement.addEventListener('animationend', () => {
-    //         tileElement.style.animation = 'none'; // Reset animation
-    //         this.setTileStyles(endLocation); // Set final tile styles
-    //       });
-    //     }
-    //   }
-    
-      
-    //   public  moveTilesSequentially = (moves: string[][]) => {
-    //     const moveWithDelay = (index: number) => {
-    //       if (index < moves.length) {
-    //         const [startLocation, endLocation] = moves[index];
-    //         const start = this.getlocation(startLocation)
-    //         const end = this.getlocation(endLocation)
-    //         this.move(start, end);
-            
-    //         // Add a delay before initiating the next move
-    //         setTimeout(() => {
-    //           moveWithDelay(index + 1);
-    //         }, /* Set your desired delay in milliseconds, e.g., */ 1000);
-    //       }
-    //     };
-      
-    //     // Start the sequence
-    //     moveWithDelay(0);
-    //   };
-
-
-  
-    // public setTileStyles(location: { y: number, x: number } | undefined) {
-    //     if (this.gridElement && location) {
-    //         const tileElement = this.gridElement.querySelector('.tile') as HTMLElement | null;
-    
-    //         // Check if the tileElement is found before trying to set styles
-    //         if (tileElement) {
-    //             // Set styles for .tile element based on --x and --y
-    //             tileElement.style.position = "absolute";
-    //             tileElement.style.backgroundColor = "orange";
-    //             tileElement.style.borderRadius = '0.5vmin';
-    //             tileElement.style.width = TILE_SZIE;
-    //             tileElement.style.height = TILE_SZIE;
-    
-    //             tileElement.style.top = `${location.y}px`;
-    //             tileElement.style.left = `${location.x}px`;
-    
-    //             // Set animation
-    //             tileElement.style.animation = 'show 200ms ease-in-out';
-    
-    //         } else {
-    //             console.error('Tile element not found');
-    //         }
-    //     }
-    // }
-    
-    
     
 
 

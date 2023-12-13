@@ -4,7 +4,7 @@ import Card from '@/component/main/card';
 import { AnimateNav } from '@/component/navbar/newnav';
 import Gameboard from '@/component/maze/dashboard/gameboard';
 const ExperiencePage: React.FC = () => {
-  const [isCardOpen, setIsCardOpen] = useState(false);
+  const [isCardOpen, setIsCardOpen] = useState(true);
 
   const handleToggleCard = () => {
     setIsCardOpen(!isCardOpen);
@@ -24,8 +24,8 @@ const ExperiencePage: React.FC = () => {
               top: '50%',
               transform: 'translateY(-50%)',
               zIndex: 4,
-              height: '10vmin',
-              width: '2vmin',
+              height: '20vmin',
+              width: '3vmin',
               backgroundColor: '#cae3c9',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
               borderRadius:"1em"
@@ -59,17 +59,18 @@ const ExperiencePage: React.FC = () => {
       
             }}
           >
-            
+            <Gameboard/>
     {/* <div style={{backgroundColor:"transparent", height: '94vmin',
-             width:"25vw", marginRight:"3vmin", padding:"2vmin", borderRadius:"1vmin", marginTop:'1vmin',}}>
+             width:"25vw", marginRight:"3vmin", padding:"2vmin", borderRadius:"1vmin", marginTop:'1vmin'}}>
                   <div style={{backgroundColor:"#cae3c9", height:"100%", width:"100%",borderRadius:"1vmin",display:"flex", justifyContent:"center",
              alignItems:"center",  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)'}}>
             
 
              </div>
-              </div> */}
-            <Gameboard/>
-            
+       
+              </div>
+     */}
+     
         
 
   
