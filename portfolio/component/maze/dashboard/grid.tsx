@@ -22,7 +22,7 @@ class Cell {
     private type: string;
     private object: Tile | null | Fish;
     private barrier: Barrier | null;
-    private neighbors: number[][] | null;
+    private neighbors: (number[] | null)[] 
 
     constructor(cellElement: HTMLElement | null, x: number, y: number, type: string) {
         this.cellElement = cellElement;
@@ -31,7 +31,7 @@ class Cell {
         this.type = type;
         this.object = null;
         this.barrier = null;
-        this.neighbors = null;
+        this.neighbors = [];
     }
 
     public getType(){
@@ -70,7 +70,9 @@ class Cell {
         this.object = null;
     }
 
-
+    public setNeighbors(neighbors: (number[] | null)[]){
+        this.neighbors = neighbors
+    }
    
 }
 
@@ -208,16 +210,17 @@ export default class Grid {
 
 
     private get_neighbor(x: number, y: number) {
-        const up = this.check_possible(x, y + 2) && this.check_barriers(x, y, x, y + 2) ? [x, y + 2] :null;
-        const down = this.check_possible(x, y - 2) && this.check_barriers(x, y, x, y - 2) ? [x, y - 2] :null;
-        const left = this.check_possible(x - 2, y) && this.check_barriers(x, y, x - 2, y) ? [x - 2, y] : null;
+   
+        const up = this.check_possible(x, y - 2) && this.check_barriers(x, y, x, y - 2) ? [x, y - 2] :null;
         const right = this.check_possible(x + 2, y) && this.check_barriers(x, y, x + 2, y) ? [x + 2, y] : null;
+        const down = this.check_possible(x, y + 2) && this.check_barriers(x, y, x, y + 2) ? [x, y + 2] :null;
+        const left = this.check_possible(x - 2, y) && this.check_barriers(x, y, x - 2, y) ? [x - 2, y] : null;
     
-        const neighbors: (number[] | null)[] = [up, down, left, right];
+        const neighbors: (number[] | null)[] = [up, down,left, right];
         return neighbors;
     }
     
-    public getAllNeighbors() {
+    public setAllNeighbors() {
         const neighbors: (number[] | null)[][] = [];
         this.getEmptyCells().forEach((cellElement, index) => {
             neighbors.push(this.get_neighbor(cellElement.getX(), cellElement.getY()));
