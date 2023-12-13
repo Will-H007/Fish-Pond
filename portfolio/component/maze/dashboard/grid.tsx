@@ -211,20 +211,23 @@ export default class Grid {
 
     private get_neighbor(x: number, y: number) {
    
-        const up = this.check_possible(x, y - 2) && this.check_barriers(x, y, x, y - 2) ? [x, y - 2] :null;
-        const right = this.check_possible(x + 2, y) && this.check_barriers(x, y, x + 2, y) ? [x + 2, y] : null;
-        const down = this.check_possible(x, y + 2) && this.check_barriers(x, y, x, y + 2) ? [x, y + 2] :null;
-        const left = this.check_possible(x - 2, y) && this.check_barriers(x, y, x - 2, y) ? [x - 2, y] : null;
+        const left = this.check_possible(x, y - 2) && this.check_barriers(x, y, x, y - 2) ? [x, y - 2] :null;
+        const down = this.check_possible(x + 2, y) && this.check_barriers(x, y, x + 2, y) ? [x + 2, y] : null;
+        const right = this.check_possible(x, y + 2) && this.check_barriers(x, y, x, y + 2) ? [x, y + 2] :null;
+        const up = this.check_possible(x - 2, y) && this.check_barriers(x, y, x - 2, y) ? [x - 2, y] : null;
     
-        const neighbors: (number[] | null)[] = [up, down,left, right];
+        const neighbors: (number[] | null)[] = [up,right, down,left]; //clockwise
         return neighbors;
     }
     
     public setAllNeighbors() {
         const neighbors: (number[] | null)[][] = [];
         this.getEmptyCells().forEach((cellElement, index) => {
-            neighbors.push(this.get_neighbor(cellElement.getX(), cellElement.getY()));
+            const neighbor = this.get_neighbor(cellElement.getX(), cellElement.getY());
+            neighbors.push(neighbor);
+            cellElement.setNeighbors(neighbor);
         });
+
         return neighbors;
     }
     

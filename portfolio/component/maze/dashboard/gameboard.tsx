@@ -40,8 +40,8 @@ const Gameboard: React.FC = () => {
       const gameboardElement = document.getElementById('gameboard');
     
       const grid = new Grid(gameboardElement);
-     
-      console.log(grid.setAllNeighbors())
+      grid.setAllNeighbors()
+      console.log(grid.getEmptyCells())
       // for (let i = 0; i < 1; i++) {
       //   const fish = new Fish(gameboardElement);
       //   grid.randomEmptyCell().setObject(fish);
