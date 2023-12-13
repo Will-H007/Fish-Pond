@@ -94,46 +94,14 @@ class Tile{
     }
     
 
-    private get_neighbors(grid: Grid){
 
-        const up = (this.y + 2) <= grid.getRows()? [this.x, this.y + 2]: null
-        const down = (this.y - 2) >= 0? [this.x, this.y - 2]: null
-        const left = (this.x - 2) >= 0? [this.x - 2, this.y]: null
-        const right = (this.x + 2) <= grid.getCols()? [this.x + 2, this.y]: null
-        var neighbors = [up, down, left, right]
-        console.log(neighbors)
-        return neighbors
-    }
-
-
-
-    private check_barriers(grid: Grid) {
-        const neighbors = this.get_neighbors(grid);
-    
-        neighbors.forEach((position, index) => {
-            let clear = 1; // Initialize clear to 1 (true) for each iteration
-    
-            if (position !== null) {
-                clear = grid.getExistingBarriers().some(element => {
-                    return element.getX() === ((Math.abs(this.x) + Math.abs(position[0])) / 2) &&
-                           element.getY() === ((Math.abs(this.y) + Math.abs(position[1])) / 2);
-                }) ? 0 : 1;
-            }
-    
-            // Continue with the rest of your logic based on the value of 'clear'
-            neighbors[index] = [clear];
-        });
-    
-        console.log(neighbors);
-        return neighbors;
-    }
     
 
     
 
 
     public move(x: number, y: number, grid: Grid) {
-        this.check_barriers(grid)
+
         const destination = this.getHTMLlocation(x, y);
         const start = this.getHTMLlocation(this.x, this.y);
         // console.log(destination,start)

@@ -41,8 +41,7 @@ const Gameboard: React.FC = () => {
     
       const grid = new Grid(gameboardElement);
      
-      grid.setRandomBarriers()
-      console.log(grid.getExistingBarriers())
+      console.log(grid.getAllNeighbors())
       for (let i = 0; i < 1; i++) {
         const fish = new Fish(gameboardElement);
         grid.randomEmptyCell().setObject(fish);

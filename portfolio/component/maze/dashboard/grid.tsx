@@ -22,6 +22,7 @@ class Cell {
     private type: string;
     private object: Tile | null | Fish;
     private barrier: Barrier | null;
+    private neighbors: number[][] | null;
 
     constructor(cellElement: HTMLElement | null, x: number, y: number, type: string) {
         this.cellElement = cellElement;
@@ -30,6 +31,7 @@ class Cell {
         this.type = type;
         this.object = null;
         this.barrier = null;
+        this.neighbors = null;
     }
 
     public getType(){
@@ -129,7 +131,7 @@ export default class Grid {
             this.setGridStyles(gridSides);
             this.cells = createCellElements(gridElement)
             this.setCellAndGapStyles('white',"transparent",'transparent','0.5vmin');
-     
+            this.setRandomBarriers()
         }
     }
 
@@ -186,8 +188,43 @@ export default class Grid {
     }
 
 
+    private check_barriers(x1:number,y1:number,x2:number, y2:number) {
+            let clear = 1; // Initialize clear to 1 (true) for each iteration
+            clear = this.getExistingBarriers().some(element => {
+                return element.getX() === ((Math.abs(x1) + Math.abs(x2)) / 2) &&
+                       element.getY() === ((Math.abs(y1) + Math.abs(y2)) / 2);
+            }) ? 0 : 1;
+            return clear
+    }
 
 
+    private check_possible(x: number, y: number) {
+        if (x >= 0 && x <= this.getRows() && y >= 0 && y <= this.getCols()) {
+            return 1;
+        }
+        return 0;
+    }
+    
+
+
+    private get_neighbor(x: number, y: number) {
+        const up = this.check_possible(x, y + 2) && this.check_barriers(x, y, x, y + 2) ? [x, y + 2] :null;
+        const down = this.check_possible(x, y - 2) && this.check_barriers(x, y, x, y - 2) ? [x, y - 2] :null;
+        const left = this.check_possible(x - 2, y) && this.check_barriers(x, y, x - 2, y) ? [x - 2, y] : null;
+        const right = this.check_possible(x + 2, y) && this.check_barriers(x, y, x + 2, y) ? [x + 2, y] : null;
+    
+        const neighbors: (number[] | null)[] = [up, down, left, right];
+        return neighbors;
+    }
+    
+    public getAllNeighbors() {
+        const neighbors: (number[] | null)[][] = [];
+        this.getEmptyCells().forEach((cellElement, index) => {
+            neighbors.push(this.get_neighbor(cellElement.getX(), cellElement.getY()));
+        });
+        return neighbors;
+    }
+    
 
 
 

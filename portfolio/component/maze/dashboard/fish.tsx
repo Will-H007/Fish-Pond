@@ -21,7 +21,6 @@ public distance(x:number, y:number){
     const distance = Math.sqrt(distance_x ** 2 + distance_y ** 2)
     return distance
 }
-
 public async seek(endpoint_x: number, endpoint_y: number, grid: Grid) {
     let distance = this.distance(endpoint_x, endpoint_y);
 
