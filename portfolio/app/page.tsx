@@ -53,7 +53,7 @@ const HomePage: React.FC = () => {
           backgroundPosition: 'center',
           width: '100%',
           height: '100vh',
-          opacity: "80%",
+          opacity: "95%",
           padding: "2em",
           paddingTop: "4em",
           position: 'relative', // Add this to position the ripples relative to the background

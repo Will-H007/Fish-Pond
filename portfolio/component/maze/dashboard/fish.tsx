@@ -72,11 +72,13 @@ public async explore(grid: Grid) {
     while(Object.keys(unvisited_nodes).length != 0){
     var neighbors = this.filterVisitedAndNullCoords(node, visited_nodes);
 
-    delete (unvisited_nodes.key)
+    delete unvisited_nodes[key];
+
     
     const random_position = this.randomChoice(neighbors);
     if(random_position == null){
-        return -1
+
+        return visited_nodes.length;
     }
 
     await this.delay(250);

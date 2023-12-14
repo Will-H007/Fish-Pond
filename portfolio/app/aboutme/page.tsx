@@ -3,6 +3,11 @@ import React, { useState } from 'react';
 import Card from '@/component/main/card';
 import { AnimateNav } from '@/component/navbar/newnav';
 import Gameboard from '@/component/maze/dashboard/gameboard';
+import Example from '@/component/tabs/skill/graphs/examplebar';
+import Example2 from '@/component/tabs/skill/graphs/examplepie';
+import Example3 from '@/component/tabs/skill/graphs/exampledonut';
+import Example4 from '@/component/tabs/skill/graphs/exampleline';
+import { counts } from '@/component/maze/dashboard/gameboard';
 const ExperiencePage: React.FC = () => {
   const [isCardOpen, setIsCardOpen] = useState(true);
 
@@ -60,16 +65,35 @@ const ExperiencePage: React.FC = () => {
             }}
           >
             <Gameboard/>
-    {/* <div style={{backgroundColor:"transparent", height: '94vmin',
-             width:"25vw", marginRight:"3vmin", padding:"2vmin", borderRadius:"1vmin", marginTop:'1vmin'}}>
+    <div style={{backgroundColor:"transparent", height: '94vmin',
+             width:"25vw", marginLeft:"3vmin", borderRadius:"1vmin", marginTop:'1vmin',padding:"1vmin"}}>
                   <div style={{backgroundColor:"#cae3c9", height:"100%", width:"100%",borderRadius:"1vmin",display:"flex", justifyContent:"center",
-             alignItems:"center",  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)'}}>
-            
+             alignItems:"center", padding:"4vmin",  flexDirection:"column",boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)', gap:"5vmin"}}>
+              <div>  
+                <h1>Context</h1>
+           <p> This is the first day the fishes are being placed into a new pond. They are exited to explore around. How far will they explore before they settle down?</p>
+          </div>
+           <div>
+           <h1>Method</h1>
+           <p> To do this we let the fishes move randomly with the following rules:</p>
+           <ol>
+            <li>- Can only move one cell at a time</li>
+            <li>- Can not go back to the cell(s) it visited</li>
+            <li>- Cannot move pass barriers</li>
+           </ol>
+           </div>
+
+          <div>
+          <h1>Statistics</h1>
+          <div>{counts}</div>
+          <br />
+           <Example param={counts}/>
+           </div>
 
              </div>
        
               </div>
-     */}
+    
      
         
 
