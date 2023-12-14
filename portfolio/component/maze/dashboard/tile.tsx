@@ -11,11 +11,19 @@ class Tile{
     private color: string;
     private color_range: string[] = [
         "#FFA500", // Orange
+        "#FFA07A", // Light Salmon
         "#FF8C00", // Dark Orange
+        "#FF7F50", // Coral
+        "#FF6347", // Tomato
+        "#FF4500", // Orange Red
         "#FF7034", // Burnt Orange
+        "#DAA520", // Goldenrod
         "#B8860B", // Dark Goldenrod
         "#FFD700"  // Gold
     ];
+    
+    
+    
     
 
     constructor(tileContainer:HTMLElement | null) {
@@ -26,7 +34,7 @@ class Tile{
         this.y = -1
         this.value = "0";
         this.htmlLocation = null;
-        this.color = "orange"
+        this.color = "#FFA500"
     }
 
     public setColor(color:string){
