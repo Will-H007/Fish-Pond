@@ -1,8 +1,10 @@
+import { stringify } from "querystring";
 import Grid from "./grid";
 import Tile from "./tile";
 
 export default class Fish extends Tile{
     private vision: number[][] 
+
     constructor(tileContainer:HTMLElement | null){
         super(tileContainer)
         this.vision =  [ 
@@ -66,9 +68,8 @@ public async explore(grid: Grid) {
     var key = `${x},${y}`;
     var node = unvisited_nodes[key];
     visited_nodes.push([x,y])
+    this.setValue(JSON.stringify(visited_nodes.length));
     while(Object.keys(unvisited_nodes).length != 0){
-     
- 
     var neighbors = this.filterVisitedAndNullCoords(node, visited_nodes);
 
     delete (unvisited_nodes.key)
@@ -78,11 +79,11 @@ public async explore(grid: Grid) {
         return -1
     }
 
-    await this.delay(1000);
+    await this.delay(250);
     this.move(random_position[0], random_position[1], grid);
     visited_nodes.push(random_position);
+    this.setValue(JSON.stringify(visited_nodes.length));
     
-
     key = `${random_position[0]},${random_position[1]}`;
     node = unvisited_nodes[key];
 }

@@ -41,15 +41,13 @@ const Gameboard: React.FC = () => {
     
       const grid = new Grid(gameboardElement);
 
-      // console.log(grid.getEmptyCells())
-      const fish = new Fish(gameboardElement);
-      grid.randomEmptyCell().setObject(fish);
-      fish.explore(grid)
-      // for (let i = 0; i < 250; i++) {
-      //   const fish = new Fish(gameboardElement);
-      //   grid.randomEmptyCell().setObject(fish);
-      //   fish.seek(2, 2, grid);
-      // }
+
+ 
+      for (let i = 0; i < 5; i++) {
+        const fish = new Fish(gameboardElement);
+        grid.randomEmptyCell().setObject(fish);
+        fish.explore(grid)
+      }
  
 
 

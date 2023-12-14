@@ -7,7 +7,8 @@ class Tile{
     private y: number;
     private tileElement: HTMLElement | null;
     private htmlLocation: { y: number; x: number } | null;
-    private value:string | null;
+    private value:string;
+    private color: string;
 
     constructor(tileContainer:HTMLElement | null) {
         this.tileElement = document.createElement("div");
@@ -15,22 +16,34 @@ class Tile{
         tileContainer?.append(this.tileElement)
         this.x = -1
         this.y = -1
-        this.value = null;
+        this.value = "0";
         this.htmlLocation = null;
+        this.color = "orange"
     }
 
-    private setTileStyle(){
+    public setColor(color:string){
         if(this.tileElement){
-            this.tileElement.style.borderRadius = "0.5vmin"
+        this.tileElement.style.backgroundColor = color
+        }
+        this.color = color;
+    }
+    private setTileStyle() {
+        if (this.tileElement) {
+            this.tileElement.style.borderRadius = "0.5vmin";
             this.tileElement.style.height = "3.8vmin";
             this.tileElement.style.width = "3.8vmin";
-            // this.tileElement.style.height = "1vmin";
-            // this.tileElement.style.width = "1vmin";
-            this.tileElement.style.backgroundColor = "orange"
+            this.tileElement.style.backgroundColor = this.color;
+    
+            // Add flex properties for centering content
+            this.tileElement.style.display = "flex";
+            this.tileElement.style.alignItems = "center";
+            this.tileElement.style.justifyContent = "center";
+            this.tileElement.style.color = "black";
+            this.tileElement.style.fontSize = "2vmin";
+            this.tileElement.innerText = this.value;
         }
     }
-
-
+    
 
     public getHTMLlocation(x:number|null, y:number|null) {
         const element = document.getElementById(`${x}-${y}`);

@@ -22,7 +22,7 @@ class Cell {
     private type: string;
     private object: Tile | null | Fish;
     private barrier: Barrier | null;
-    private neighbors: (number[] | null)[] 
+    private neighbors: (number[] | null)[];
 
     constructor(cellElement: HTMLElement | null, x: number, y: number, type: string) {
         this.cellElement = cellElement;
