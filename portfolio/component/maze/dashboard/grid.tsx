@@ -174,7 +174,7 @@ export default class Grid {
     public setRandomBarriers(){
         const barriers = this.getEmptyBarriers()
         for(let i = 0; i < barriers.length; i++){
-            if(Math.random() > 0.5 && !(barriers[i].getX() % 2 != 0 && barriers[i].getY() % 2 != 0)){
+            if(Math.random() > 0.85 && !(barriers[i].getX() % 2 != 0 && barriers[i].getY() % 2 != 0)){
               
                 const barrier = new Barrier()
                 barriers[i].setBarrier(barrier)
@@ -221,15 +221,20 @@ export default class Grid {
     }
     
     public setAllNeighbors() {
-        const neighbors: (number[] | null)[][] = [];
-        this.getEmptyCells().forEach((cellElement, index) => {
-            const neighbor = this.get_neighbor(cellElement.getX(), cellElement.getY());
-            neighbors.push(neighbor);
+        const neighbors: { [key: string]: (number[] | null)[] } = {};
+        this.cells.forEach((cellElement, index) => {
+            const coordinates = [cellElement.getX(), cellElement.getY()];
+            const neighbor = this.get_neighbor(coordinates[0], coordinates[1]);
+    
+            // Store neighbors in the dictionary using coordinates as keys
+            neighbors[`${coordinates[0]},${coordinates[1]}`] = neighbor;
+    
             cellElement.setNeighbors(neighbor);
         });
-
+    
         return neighbors;
     }
+    
     
 
 

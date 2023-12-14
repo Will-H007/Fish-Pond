@@ -21,6 +21,8 @@ public distance(x:number, y:number){
     const distance = Math.sqrt(distance_x ** 2 + distance_y ** 2)
     return distance
 }
+
+
 public async seek(endpoint_x: number, endpoint_y: number, grid: Grid) {
     let distance = this.distance(endpoint_x, endpoint_y);
 
@@ -50,7 +52,63 @@ public async seek(endpoint_x: number, endpoint_y: number, grid: Grid) {
         distance = this.distance(endpoint_x, endpoint_y);
     }
 }
+private randomChoice(arr:any) {
+    return arr[Math.floor(arr.length * Math.random())];
+}
 
+
+
+public async explore(grid: Grid) {
+    const visited_nodes: number[][] = [];
+    const unvisited_nodes = grid.setAllNeighbors();
+    var x = this.getX();
+    var y = this.getY();
+    var key = `${x},${y}`;
+    var node = unvisited_nodes[key];
+    visited_nodes.push([x,y])
+    while(Object.keys(unvisited_nodes).length != 0){
+     
+ 
+    var neighbors = this.filterVisitedAndNullCoords(node, visited_nodes);
+
+    delete (unvisited_nodes.key)
+    
+    const random_position = this.randomChoice(neighbors);
+    if(random_position == null){
+        return -1
+    }
+
+    await this.delay(1000);
+    this.move(random_position[0], random_position[1], grid);
+    visited_nodes.push(random_position);
+    
+
+    key = `${random_position[0]},${random_position[1]}`;
+    node = unvisited_nodes[key];
+}
+}
+
+
+private filterVisitedAndNullCoords(cell: (number[] | null)[] | null, visited_nodes: number[][]): number[][] | null {
+    return cell
+        ? (cell
+              .filter(coord => coord !== null && !visited_nodes.some(visitedCoord => this.areCoordsEqual(visitedCoord, coord as number[]))) as number[][])
+        : null;
+}
+
+
+
+private areCoordsEqual(coord1: number[], coord2: number[]): boolean {
+    return coord1[0] === coord2[0] && coord1[1] === coord2[1];
+}
+
+private async delay(milliseconds: number): Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+}
+
+
+
+
+}
 
   
-}
