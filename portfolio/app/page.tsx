@@ -84,8 +84,7 @@ const HomePage: React.FC = () => {
 
         <AnimatedTextComponent/>
         </div>
-        {/* Render content based on the selected tab */}
-        {/* {renderContent()} */}
+
       </div>
       <AnimateNav />
     </div>

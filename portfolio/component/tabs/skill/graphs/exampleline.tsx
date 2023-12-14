@@ -41,7 +41,7 @@ function Example4() {
 }, [])
   return (
     <>
-        <canvas ref={chartRef} style={{maxHeight:"28em", maxWidth:"30em"}}></canvas>
+        <canvas ref={chartRef} style={{padding:"1vmin"}}></canvas>
     </>
   )
 }

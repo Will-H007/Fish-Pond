@@ -2,8 +2,7 @@
 import React, { useState } from 'react';
 import Card from '@/component/main/card';
 import { AnimateNav } from '@/component/navbar/newnav';
-import Dashboard from '@/component/dashboard/dashboard';
-
+import Gameboard from '@/component/maze/dashboard/gameboard';
 const ExperiencePage: React.FC = () => {
   const [isCardOpen, setIsCardOpen] = useState(true);
 
@@ -12,36 +11,21 @@ const ExperiencePage: React.FC = () => {
   };
 
   return (
-    <div style={{ overflow: 'hidden', height: '100%' }}>
+    <div style={{ overflow: 'auto',     width: '100%',
+    height: '100vh', backgroundColor: '#759f7e'}}>
       
-
-      <div
-  style={{
-    boxSizing: 'border-box',
-
-    width: '100%',
-    height: '100vh',
-
-    padding: '2em',
-    paddingTop: '4em',
-
-  }}
->   
-
-
-
-        <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'start', alignItems: 'center', padding: '1em',zIndex:-1, marginLeft:"1em" }}>
+        <div style={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'start', alignItems: 'center', zIndex:-1}}>
 
           <button
             onClick={handleToggleCard}
             style={{
               position: 'absolute',
-              left: '4em',
+              left: '1em',
               top: '50%',
               transform: 'translateY(-50%)',
               zIndex: 4,
-              height: '10em',
-              width: '2em',
+              height: '20vmin',
+              width: '3vmin',
               backgroundColor: '#cae3c9',
               boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
               borderRadius:"1em"
@@ -50,35 +34,50 @@ const ExperiencePage: React.FC = () => {
 
        
       
-            <div style={{ position: 'fixed', zIndex: isCardOpen?2:3, marginTop: '20em', marginLeft:"1em" , height:'100%'}}>
+      <div style={{ zIndex: isCardOpen?2:3}}>
  
               <Card onMenuButtonClick={handleToggleCard} isMenuOpen={isCardOpen} />
-            </div>
+            </div> 
          
 
           <div
             style={{
-              backgroundColor: '#759f7e',
+       
               height: '100%',
-              width: '100%',
+              width: '100vw',
               display: 'flex',
               justifyContent: 'center',
               alignItems:"center",
-              marginLeft: '1em',
-              marginBottom: '0.25em',
+              
+              flexWrap:"wrap",
+              
+        
               borderRadius: '0.5em',
-  
-              padding: '1em',
-  
-              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)',
+        
               zIndex: 1,
+              
+      
             }}
           >
-            <Dashboard/>
+            <Gameboard/>
+    {/* <div style={{backgroundColor:"transparent", height: '94vmin',
+             width:"25vw", marginRight:"3vmin", padding:"2vmin", borderRadius:"1vmin", marginTop:'1vmin'}}>
+                  <div style={{backgroundColor:"#cae3c9", height:"100%", width:"100%",borderRadius:"1vmin",display:"flex", justifyContent:"center",
+             alignItems:"center",  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.8)'}}>
+            
+
+             </div>
+       
+              </div>
+     */}
+     
+        
+
+  
           </div>
         </div>
       
-      </div>
+
 
       <AnimateNav/>
 

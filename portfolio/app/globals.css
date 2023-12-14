@@ -23,51 +23,42 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
-
+/* 
 html {
   height: 100%;
   background: url("/images/image6.png") no-repeat center center fixed;
 
   background-size: cover;
+} */
+
+
+@keyframes moveLeftRight {
+  0%, 100% {
+    left: 0;
+  }
+  50% {
+    left: 3em; /* Adjust the distance as needed */
+  }
 }
 
 
-/* .background-container {
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100vh;
-  opacity: 0.8;
-  padding: 2em;
-  padding-top: 4em;
-} */
-
-
-/* .background-container {
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  height: 100vh;
-  opacity: 1;
-  padding: 2em;
-  padding-top: 4em;
-} */
-
-/* @keyframes flip {
+@keyframes show {
   0% {
-    transform: translate(0.5em, 0em) ;
+    transform: scale(0);
+    opacity: 0.5;
   }
-  25% {
-    transform: translate(-0.5em, 0em) ;
-  }
-  50% {
-    transform: translate(0.5em, 0em);
-  }
-  75% {
-    transform: translate(-0.5em, 0em);
+}
+
+
+
+
+
+@keyframes moveAnimation {
+  0% {
+    transform: translate(0, 0);
   }
   100% {
-    transform: translate(0.5em, 0em);
+    transform: translate(var(--translateX), var(--translateY)); /* Adjust the values based on your requirement */
   }
-} */
+}
 

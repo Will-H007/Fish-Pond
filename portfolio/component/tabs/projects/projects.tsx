@@ -12,18 +12,18 @@ const Project: React.FC = () => {
   return (
 
       
-      <div style={{ display:"flex",flexDirection:"column",alignItems: "center",justifyContent:"center",paddingRight: "1em",paddingLeft: "1em", width:"100%",height:"100%",borderRadius: '8px', gap:"3em",overflowX:"auto"}}>
+      <div style={{ display:"flex",alignItems: "center",justifyContent:"center",paddingRight: "1em",paddingLeft: "1em", width:"100%",height:"100%",borderRadius: '8px', gap:"4em",overflowY:"auto", flexWrap:'wrap'}}>
 
 
 
 
 
-<div style={{display:"flex",flexDirection:"row",width:"100%", height:"16em",justifyContent:"center" ,gap: "5em"}}>
 
 
 
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%em", gap: "3em", paddingTop:"1em" }}>
+
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"20em", gap: "3em", paddingTop: "1em" }}>
             
             <div style={{paddingTop:"1em"}}>
  
@@ -31,7 +31,7 @@ const Project: React.FC = () => {
             </div>
         </div>
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"20em", gap: "3em", paddingTop:"1em" }}>
             
                 <div style={{paddingTop:"1em"}}>
      
@@ -40,7 +40,7 @@ const Project: React.FC = () => {
             </div>
             
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"20em", gap: "3em", paddingTop:"1em" }}>
             
                 <div style={{paddingTop:"1em"}}>
      
@@ -48,7 +48,7 @@ const Project: React.FC = () => {
                      </div>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"20em", gap: "3em", paddingTop:"1em" }}>
             
             <div style={{paddingTop:"1em"}}>
  
@@ -56,27 +56,18 @@ const Project: React.FC = () => {
           </div>
         </div>
 
-            </div>
-
-
-
-
-
-
-
-
-      <div style={{display:"flex",flexDirection:"row",width:"100%", justifyContent:"center" ,gap: "5em"}}>
+       
        
 
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"20em", gap: "3em", paddingTop:"1em" }}>
             
             <div style={{paddingTop:"1em"}}>
  
             <Customization degree={degree} color="#54a6ec" setDegree={setDegree} id="1" FlippedContent="Custom" />   </div>
         </div>
         
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"20em", gap: "3em", paddingTop:"1em" }}>
             
                 <div style={{paddingTop:"1em"}}>
      
@@ -85,7 +76,7 @@ const Project: React.FC = () => {
             </div>
             
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"20em", gap: "3em", paddingTop:"1em" }}>
             
                 <div style={{paddingTop:"1em"}}>
      
@@ -93,7 +84,7 @@ const Project: React.FC = () => {
               </div>
             </div>
 
-            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"100%", gap: "3em", paddingTop:"1em" }}>
+            <div style={{ display: "flex", justifyContent: "center",alignItems: "center",flexDirection: "row", height:"20em", gap: "3em", paddingTop:"1em" }}>
             
             <div style={{paddingTop:"1em"}}>
  
@@ -102,7 +93,7 @@ const Project: React.FC = () => {
           </div>
         </div>
 
-            </div>
+      
 
 
             
