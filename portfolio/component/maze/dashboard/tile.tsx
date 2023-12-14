@@ -9,6 +9,14 @@ class Tile{
     private htmlLocation: { y: number; x: number } | null;
     private value:string;
     private color: string;
+    private color_range: string[] = [
+        "#FFA500", // Orange
+        "#FF8C00", // Dark Orange
+        "#FF7034", // Burnt Orange
+        "#B8860B", // Dark Goldenrod
+        "#FFD700"  // Gold
+    ];
+    
 
     constructor(tileContainer:HTMLElement | null) {
         this.tileElement = document.createElement("div");
@@ -32,6 +40,7 @@ class Tile{
             this.tileElement.style.borderRadius = "0.5vmin";
             this.tileElement.style.height = "3.8vmin";
             this.tileElement.style.width = "3.8vmin";
+            this.setColor(this.color_range[Math.ceil(parseInt(this.value)/ 10)-1]);
             this.tileElement.style.backgroundColor = this.color;
     
             // Add flex properties for centering content
