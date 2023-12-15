@@ -8,7 +8,7 @@ import Navigation from "./Navigation";
 
 const initialItems = [
   { id: 0, label: 'Home', path: '' },
-  { id: 1, label: 'About Me', path: 'aboutme' },
+  { id: 1, label: 'Simulation', path: 'simulation' },
   { id: 2, label: 'Gallery', path: 'gallery' },
 
 ];

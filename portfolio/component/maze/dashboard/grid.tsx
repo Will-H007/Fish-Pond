@@ -174,7 +174,7 @@ export default class Grid {
     public setRandomBarriers(){
         const barriers = this.getEmptyBarriers()
         for(let i = 0; i < barriers.length; i++){
-            if(Math.random() > 0.5 && !(barriers[i].getX() % 2 != 0 && barriers[i].getY() % 2 != 0)){
+            if(Math.random() > 0.9 && !(barriers[i].getX() % 2 != 0 && barriers[i].getY() % 2 != 0)){
               
                 const barrier = new Barrier()
                 barriers[i].setBarrier(barrier)

@@ -5,7 +5,7 @@ interface ExampleProps {
   param: Promise<number | undefined>[];
 }
 
-function Example({ param: promises }: ExampleProps) {
+function Statistics({ param: promises }: ExampleProps) {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function Example({ param: promises }: ExampleProps) {
         const ctx = chartRef.current?.getContext("2d");
 
         if (ctx) {
-          const xValues = Array.from({ length: resolvedValues.length }, (_, index) => index);
+        const xValues = Array.from({ length: resolvedValues.length }, (_, index) => index);
 
 
           new Chart(ctx, {
@@ -72,4 +72,4 @@ function Example({ param: promises }: ExampleProps) {
   );
 }
 
-export default Example;
+export default Statistics;
