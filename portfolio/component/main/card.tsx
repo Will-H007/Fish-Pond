@@ -61,7 +61,7 @@ const Card: React.FC<CardProps> = ({ onMenuButtonClick, isMenuOpen }) => {
           William Ho
         </div>
         <p style={{ color: 'black', fontSize: '1rem', textAlign: 'center' }}>
-          I am a software engineering student studying in Masters in University of Western Australia
+          I am a software engineering graduate from the University of Western Australia
         </p>
       </div>
 
