@@ -7,7 +7,7 @@ import Gameboard from '@/component/maze/dashboard/gameboard';
 const SimulationPage: React.FC = () => {
   const [isCardOpen, setIsCardOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-
+  const [isLoaded, setIsLoaded] = useState(false);
   const handleToggleCard = () => {
     setIsCardOpen(!isCardOpen);
   };
@@ -18,7 +18,8 @@ const SimulationPage: React.FC = () => {
     const checkScreenSize = () => {
       clearTimeout(timeoutId); // Clear previous timeout
       timeoutId = setTimeout(() => {
-        setIsMobile(window.innerWidth < 768); // Adjust breakpoint as needed
+        setIsMobile(window.innerWidth < 768); 
+        setIsLoaded(true); // Set loading complete
       }, 200); // 200ms debounce delay
     };
 
@@ -30,7 +31,9 @@ const SimulationPage: React.FC = () => {
       window.removeEventListener("resize", checkScreenSize);
     };
   }, []);
-
+  if (!isLoaded) {
+    return null; // Prevent rendering until size is determined
+  }
 
   return (
     <div style={{ overflow: 'auto', width: '100%', height: '100vh', backgroundColor: '#759f7e' }}>
