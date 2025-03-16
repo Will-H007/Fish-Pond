@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 
-// ... (other imports)
+
 
 interface RippleProps {
     size: number;
@@ -24,8 +24,8 @@ interface RippleProps {
             height: `${size}em`,
         width: `${size}em`,
           position: 'absolute',
-          top: `calc(${position.top}% - ${size / 2}em)`, // Adjusted for size
-          left: `calc(${position.left}% - ${size / 2}em)`, // Adjusted for size
+          top: `calc(${position.top}% - ${size / 2}em)`, 
+          left: `calc(${position.left}% - ${size / 2}em)`, 
           transform: 'translate(-50%, -50%)',
           borderRadius: '50%',
           background: 'rgba(255, 255, 255, 0.4)',
